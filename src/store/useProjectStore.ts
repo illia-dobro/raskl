@@ -120,6 +120,15 @@ export const useProjectStore = create<ProjectState>()(
           project: {
             ...state.project,
             participants: state.project.participants.filter(p => p.id !== id),
+            days: state.project.days.map(d => ({
+              ...d,
+              meals: {
+                breakfast: { ...d.meals.breakfast, items: d.meals.breakfast.items.map(it => it.assignedParticipantId === id ? { ...it, assignedParticipantId: undefined } : it) },
+                snack: { ...d.meals.snack, items: d.meals.snack.items.map(it => it.assignedParticipantId === id ? { ...it, assignedParticipantId: undefined } : it) },
+                lunch: { ...d.meals.lunch, items: d.meals.lunch.items.map(it => it.assignedParticipantId === id ? { ...it, assignedParticipantId: undefined } : it) },
+                dinner: { ...d.meals.dinner, items: d.meals.dinner.items.map(it => it.assignedParticipantId === id ? { ...it, assignedParticipantId: undefined } : it) },
+              },
+            })),
             updatedAt: new Date().toISOString(),
           },
         })),

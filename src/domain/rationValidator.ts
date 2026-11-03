@@ -20,6 +20,9 @@ export function validateProjectRation(
   const targetClimate = CLIMATE_PROFILES[project.settings.climateProfile] || CLIMATE_PROFILES.temperate_1_1_4;
   const [targetB, targetJ, targetU] = targetClimate.bjuRatio;
 
+  const allProducts = [...PRODUCTS_CATALOG, ...customProducts];
+  const allRecipes = [...DEHYDRATED_RECIPES, ...customRecipes];
+
   // 1. Поденні перевірки нутрієнтів
   project.days.forEach(day => {
     const summary = calculateDaySummary(day, project.settings, pCount, customProducts, customRecipes);
@@ -95,24 +98,26 @@ export function validateProjectRation(
 
     // Шукаємо повтор головної крупи чи страви на сніданок
     for (const id of curBreakfastItems) {
-      if (id.startsWith('grain-') && nextBreakfastItems.includes(id)) {
-        const prod = PRODUCTS_CATALOG.find(p => p.id === id);
+      if ((id.startsWith('grain-') || id.startsWith('recipe-') || id.startsWith('custom-')) && nextBreakfastItems.includes(id)) {
+        const prod = allProducts.find(p => p.id === id);
+        const rec = allRecipes.find(r => r.id === id);
+        const title = rec?.title || prod?.name || id;
         warnings.push({
           id: `warn-repeat-b-${curDay.dayNumber}-${nextDay.dayNumber}-${id}`,
           dayNumber: nextDay.dayNumber,
           type: 'repeat',
           severity: 'info',
-          message: `Повторення каші на сніданок два дні поспіль: «${prod?.name || id}» у дні ${curDay.dayNumber} та ${nextDay.dayNumber}. Завгоспу варто урізноманітнити меню!`,
+          message: `Повторення каші на сніданок два дні поспіль: «${title}» у дні ${curDay.dayNumber} та ${nextDay.dayNumber}. Завгоспу варто урізноманітнити меню!`,
         });
       }
     }
 
     // Шукаємо повтор вечері
     for (const id of curDinnerItems) {
-      if ((id.startsWith('recipe-') || id.startsWith('soup-') || id.startsWith('grain-')) && nextDinnerItems.includes(id)) {
+      if ((id.startsWith('recipe-') || id.startsWith('soup-') || id.startsWith('grain-') || id.startsWith('custom-')) && nextDinnerItems.includes(id)) {
         const itemObj =
-          DEHYDRATED_RECIPES.find(r => r.id === id) ||
-          PRODUCTS_CATALOG.find(p => p.id === id);
+          allRecipes.find(r => r.id === id) ||
+          allProducts.find(p => p.id === id);
         warnings.push({
           id: `warn-repeat-d-${curDay.dayNumber}-${nextDay.dayNumber}-${id}`,
           dayNumber: nextDay.dayNumber,
@@ -135,8 +140,8 @@ export function validateProjectRation(
         const allItems = Object.values(day.meals).flatMap(m => m.items);
         const hasDairy = allItems.some(it => {
           if (it.sourceType === 'product') {
-            const p = PRODUCTS_CATALOG.find(pr => pr.id === it.sourceId);
-            return p?.category === 'dairy_eggs' && p.id.includes('milk');
+            const p = allProducts.find(pr => pr.id === it.sourceId);
+            return p?.category === 'dairy_eggs' && (p.id.includes('milk') || p.id.includes('dairy') || p.name.toLowerCase().includes('молок'));
           }
           return false;
         });

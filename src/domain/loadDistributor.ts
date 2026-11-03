@@ -37,7 +37,7 @@ export function calculateStageParticipantQuotas(
   );
 
   const totalStageLoad = stageTotalFoodGrossGrams + totalSharedGearGrams;
-  const sumCoeffs = participants.reduce((acc, p) => acc + (p.carryingCapacityCoeff || 1), 0);
+  const sumCoeffs = participants.reduce((acc, p) => acc + (p.carryingCapacityCoeff ?? 1), 0);
 
   if (sumCoeffs <= 0) {
     return [];
@@ -45,7 +45,7 @@ export function calculateStageParticipantQuotas(
 
   // Первинний розрахунок загальної квоти T_i та попередньої квоти їжі F'_i
   const initialQuotas = participants.map(p => {
-    const coeff = p.carryingCapacityCoeff || 1;
+    const coeff = p.carryingCapacityCoeff ?? 1;
     const targetTotalLoad = Math.round(totalStageLoad * (coeff / sumCoeffs));
     const gear = p.assignedSharedGearWeightGrams || 0;
     // Клампимо до 0 за Review Focus #3, якщо спорядження перевищує повну квоту

@@ -20,12 +20,35 @@ import {
 } from 'lucide-react';
 
 export const CatalogAndRecipesTab: React.FC = () => {
-  const { project, customProducts, customRecipes, addMealItem } = useProjectStore();
+  const { project, customProducts, customRecipes, addMealItem, addCustomProduct, addCustomRecipe } = useProjectStore();
 
   const [activeView, setActiveView] = useState<'recipes' | 'products'>('recipes');
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [detailRecipe, setDetailRecipe] = useState<DehydratedRecipe | null>(null);
+  const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
+  const [createType, setCreateType] = useState<'product' | 'recipe'>('product');
+
+  // Форма нового продукту
+  const [newProdName, setNewProdName] = useState('');
+  const [newProdKcal, setNewProdKcal] = useState(350);
+  const [newProdP, setNewProdP] = useState(15);
+  const [newProdF, setNewProdF] = useState(10);
+  const [newProdC, setNewProdC] = useState(50);
+  const [newProdFiber, setNewProdFiber] = useState(5);
+  const [newProdNorm, setNewProdNorm] = useState(70);
+
+  // Форма нового рецепта
+  const [newRecTitle, setNewRecTitle] = useState('');
+  const [newRecCategory, setNewRecCategory] = useState<'breakfast' | 'soup' | 'main' | 'snack' | 'spread'>('main');
+  const [newRecDryWeight, setNewRecDryWeight] = useState(85);
+  const [newRecKcal, setNewRecKcal] = useState(400);
+  const [newRecP, setNewRecP] = useState(25);
+  const [newRecF, setNewRecF] = useState(12);
+  const [newRecC, setNewRecC] = useState(50);
+  const [newRecFiber, setNewRecFiber] = useState(6);
+  const [newRecRawDesc, setNewRecRawDesc] = useState('');
+  const [newRecSteps, setNewRecSteps] = useState('');
 
   // Стан для додавання в меню
   const [targetDay, setTargetDay] = useState<number>(1);
@@ -107,8 +130,17 @@ export const CatalogAndRecipesTab: React.FC = () => {
         </div>
 
         {/* Швидке додавання у вибраний день */}
-        <div className="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg text-xs">
-          <span className="text-slate-500 font-semibold">Додати в меню:</span>
+        <div className="flex flex-wrap items-center gap-2">
+          <button
+            onClick={() => setIsCreateModalOpen(true)}
+            className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-white rounded-lg text-xs font-semibold flex items-center gap-1.5 transition shadow-xs"
+          >
+            <Plus className="w-4 h-4 text-emerald-400" />
+            Створити свій продукт / страву
+          </button>
+
+          <div className="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg text-xs">
+            <span className="text-slate-500 font-semibold">Додати в меню:</span>
           <select
             value={targetDay}
             onChange={e => setTargetDay(Number(e.target.value))}
@@ -145,6 +177,7 @@ export const CatalogAndRecipesTab: React.FC = () => {
           </div>
         </div>
       </div>
+    </div>
 
       {/* Пошук та фільтри категорій */}
       <div className="flex flex-col sm:flex-row gap-3">
@@ -427,6 +460,328 @@ export const CatalogAndRecipesTab: React.FC = () => {
                 Додати в День {targetDay}
               </button>
             </div>
+          </div>
+        </div>
+      )}
+      {/* Модальне вікно створення власного продукту / рецепта */}
+      {isCreateModalOpen && (
+        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 backdrop-blur-xs">
+          <div className="bg-white rounded-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto p-5 space-y-4 shadow-2xl text-xs">
+            <div className="flex items-center justify-between border-b border-slate-100 pb-2">
+              <h3 className="text-sm font-bold text-slate-900">
+                Створення нового елемента бази даних
+              </h3>
+              <button
+                onClick={() => setIsCreateModalOpen(false)}
+                className="text-slate-400 hover:text-slate-600 font-bold"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="flex bg-slate-100 p-1 rounded-lg">
+              <button
+                onClick={() => setCreateType('product')}
+                className={`flex-1 py-1.5 rounded-md font-bold transition ${
+                  createType === 'product' ? 'bg-white shadow text-slate-900' : 'text-slate-600'
+                }`}
+              >
+                Продукт (Крупа, сир, добавка...)
+              </button>
+              <button
+                onClick={() => setCreateType('recipe')}
+                className={`flex-1 py-1.5 rounded-md font-bold transition ${
+                  createType === 'recipe' ? 'bg-white shadow text-slate-900' : 'text-slate-600'
+                }`}
+              >
+                Сушена страва (One-Pot Meal)
+              </button>
+            </div>
+
+            {createType === 'product' ? (
+              <form
+                onSubmit={e => {
+                  e.preventDefault();
+                  if (!newProdName.trim()) return;
+                  addCustomProduct({
+                    id: `custom-prod-${Date.now()}`,
+                    name: newProdName.trim(),
+                    category: 'grains',
+                    kcalPer100g: Number(newProdKcal),
+                    proteinPer100g: Number(newProdP),
+                    fatPer100g: Number(newProdF),
+                    carbsPer100g: Number(newProdC),
+                    fiberPer100g: Number(newProdFiber),
+                    digestibilityPercent: 85,
+                    waterContentClass: 'very_low_under_20',
+                    recommendedNormGrams: { min: 30, default: Number(newProdNorm) || 60, max: 100 },
+                    packagingTareRatio: 0.05,
+                    packagingType: 'Пакет / пляшка',
+                  });
+                  setIsCreateModalOpen(false);
+                  setNewProdName('');
+                  alert('Власний продукт додано в базу!');
+                }}
+                className="space-y-3"
+              >
+                <div>
+                  <label className="block font-semibold text-slate-700 mb-1">Назва продукту:</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="Напр., Кукурудзяні пластівці з горіхами"
+                    value={newProdName}
+                    onChange={e => setNewProdName(e.target.value)}
+                    className="w-full px-3 py-1.5 border border-slate-300 rounded"
+                  />
+                </div>
+
+                <div className="grid grid-cols-4 gap-2">
+                  <div>
+                    <label className="block text-[10px] text-slate-500">Ккал/100г</label>
+                    <input
+                      type="number"
+                      value={newProdKcal}
+                      onChange={e => setNewProdKcal(Number(e.target.value))}
+                      className="w-full px-2 py-1 border border-slate-300 rounded font-bold"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] text-slate-500">Білки (г)</label>
+                    <input
+                      type="number"
+                      step="0.1"
+                      value={newProdP}
+                      onChange={e => setNewProdP(Number(e.target.value))}
+                      className="w-full px-2 py-1 border border-slate-300 rounded"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] text-slate-500">Жири (г)</label>
+                    <input
+                      type="number"
+                      step="0.1"
+                      value={newProdF}
+                      onChange={e => setNewProdF(Number(e.target.value))}
+                      className="w-full px-2 py-1 border border-slate-300 rounded"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] text-slate-500">Вуглеводи (г)</label>
+                    <input
+                      type="number"
+                      step="0.1"
+                      value={newProdC}
+                      onChange={e => setNewProdC(Number(e.target.value))}
+                      className="w-full px-2 py-1 border border-slate-300 rounded"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 gap-2">
+                  <div>
+                    <label className="block text-[10px] text-slate-500">Клітковина (г / 100г)</label>
+                    <input
+                      type="number"
+                      step="0.1"
+                      value={newProdFiber}
+                      onChange={e => setNewProdFiber(Number(e.target.value))}
+                      className="w-full px-2 py-1 border border-slate-300 rounded"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] text-slate-500">Порція за замовч. (г)</label>
+                    <input
+                      type="number"
+                      value={newProdNorm}
+                      onChange={e => setNewProdNorm(Number(e.target.value))}
+                      className="w-full px-2 py-1 border border-slate-300 rounded font-bold"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex justify-end gap-2 pt-2 border-t border-slate-100">
+                  <button
+                    type="button"
+                    onClick={() => setIsCreateModalOpen(false)}
+                    className="px-3 py-1.5 border border-slate-300 rounded text-slate-600"
+                  >
+                    Скасувати
+                  </button>
+                  <button
+                    type="submit"
+                    className="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded font-semibold"
+                  >
+                    Зберегти продукт
+                  </button>
+                </div>
+              </form>
+            ) : (
+              <form
+                onSubmit={e => {
+                  e.preventDefault();
+                  if (!newRecTitle.trim()) return;
+                  addCustomRecipe({
+                    id: `custom-rec-${Date.now()}`,
+                    title: newRecTitle.trim(),
+                    category: newRecCategory,
+                    mealTypes: [newRecCategory === 'breakfast' ? 'breakfast' : 'dinner'],
+                    servingsYield: 4,
+                    dryWeightPerServingGrams: Number(newRecDryWeight) || 85,
+                    kcalPerServing: Number(newRecKcal) || 380,
+                    proteinPerServing: Number(newRecP) || 20,
+                    fatPerServing: Number(newRecF) || 10,
+                    carbsPerServing: Number(newRecC) || 50,
+                    fiberPerServing: Number(newRecFiber) || 5,
+                    rawIngredients: newRecRawDesc
+                      ? [{ name: newRecRawDesc, amount: 400, unit: 'г', category: 'основа' }]
+                      : [{ name: 'Інгредієнти фірмової страви', amount: 350, unit: 'г', category: 'основа' }],
+                    homePrepSteps: newRecSteps ? [newRecSteps] : ['Приготувати вдома, знежирити та висушити в дегідраторі.'],
+                    dehydrationParams: {
+                      tempCelsius: 60,
+                      timeHours: '7-8 год',
+                      trayLining: 'Силіконовий лист',
+                      drynessTest: 'Сухі ламкі гранули без вологи',
+                    },
+                    campRehydration: {
+                      waterRatioNote: 'Залити водою трохи вище рівня страви, варити 3 хвилини',
+                      soakMinutes: 1,
+                      boilMinutes: 3,
+                    },
+                    packagingTareRatio: 0.05,
+                    sourceBook: 'Власний рецепт завгоспа',
+                  });
+                  setIsCreateModalOpen(false);
+                  setNewRecTitle('');
+                  alert('Власну сушену страву додано в базу!');
+                }}
+                className="space-y-3"
+              >
+                <div>
+                  <label className="block font-semibold text-slate-700 mb-1">Назва сушеної страви:</label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="Напр., Фірмове овочеве рагу з сушеною яловичиною"
+                    value={newRecTitle}
+                    onChange={e => setNewRecTitle(e.target.value)}
+                    className="w-full px-3 py-1.5 border border-slate-300 rounded"
+                  />
+                </div>
+
+                <div className="grid grid-cols-2 gap-2">
+                  <div>
+                    <label className="block text-[10px] text-slate-500">Тип страви</label>
+                    <select
+                      value={newRecCategory}
+                      onChange={e => setNewRecCategory(e.target.value as any)}
+                      className="w-full px-2 py-1 border border-slate-300 rounded"
+                    >
+                      <option value="main">Друга страва / каша</option>
+                      <option value="soup">Суп / борщ</option>
+                      <option value="breakfast">Сніданок</option>
+                      <option value="spread">Намазка / паштет</option>
+                      <option value="snack">Снек / батончик</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-[10px] text-slate-500">Суха вага порції (г)</label>
+                    <input
+                      type="number"
+                      value={newRecDryWeight}
+                      onChange={e => setNewRecDryWeight(Number(e.target.value))}
+                      className="w-full px-2 py-1 border border-slate-300 rounded font-bold"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-5 gap-2">
+                  <div>
+                    <label className="block text-[10px] text-slate-500">Ккал</label>
+                    <input
+                      type="number"
+                      value={newRecKcal}
+                      onChange={e => setNewRecKcal(Number(e.target.value))}
+                      className="w-full px-2 py-1 border border-slate-300 rounded font-bold"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] text-slate-500">Білки (г)</label>
+                    <input
+                      type="number"
+                      value={newRecP}
+                      onChange={e => setNewRecP(Number(e.target.value))}
+                      className="w-full px-2 py-1 border border-slate-300 rounded"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] text-slate-500">Жири (г)</label>
+                    <input
+                      type="number"
+                      value={newRecF}
+                      onChange={e => setNewRecF(Number(e.target.value))}
+                      className="w-full px-2 py-1 border border-slate-300 rounded"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] text-slate-500">Вуглеводи</label>
+                    <input
+                      type="number"
+                      value={newRecC}
+                      onChange={e => setNewRecC(Number(e.target.value))}
+                      className="w-full px-2 py-1 border border-slate-300 rounded"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] text-slate-500">Клітковина</label>
+                    <input
+                      type="number"
+                      value={newRecFiber}
+                      onChange={e => setNewRecFiber(Number(e.target.value))}
+                      className="w-full px-2 py-1 border border-slate-300 rounded"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-[10px] text-slate-500 mb-0.5">Сирі інгредієнти для закупки:</label>
+                  <input
+                    type="text"
+                    placeholder="Напр., Яловичина нежирна 300г, квасоля 200г, цибуля 100г"
+                    value={newRecRawDesc}
+                    onChange={e => setNewRecRawDesc(e.target.value)}
+                    className="w-full px-2 py-1 border border-slate-300 rounded"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[10px] text-slate-500 mb-0.5">Поради з приготування / сушіння:</label>
+                  <textarea
+                    rows={2}
+                    placeholder="Відварити, видалити жир, сушити при 60°C 8 годин..."
+                    value={newRecSteps}
+                    onChange={e => setNewRecSteps(e.target.value)}
+                    className="w-full px-2 py-1 border border-slate-300 rounded"
+                  />
+                </div>
+
+                <div className="flex justify-end gap-2 pt-2 border-t border-slate-100">
+                  <button
+                    type="button"
+                    onClick={() => setIsCreateModalOpen(false)}
+                    className="px-3 py-1.5 border border-slate-300 rounded text-slate-600"
+                  >
+                    Скасувати
+                  </button>
+                  <button
+                    type="submit"
+                    className="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded font-semibold"
+                  >
+                    Зберегти страву
+                  </button>
+                </div>
+              </form>
+            )}
           </div>
         </div>
       )}
