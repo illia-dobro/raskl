@@ -6,7 +6,6 @@ import {
   Product,
   DehydratedRecipe,
   MealType,
-  ProductCategory,
 } from '../types/domain';
 import {
   Search,
