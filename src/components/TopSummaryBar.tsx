@@ -63,12 +63,12 @@ export const TopSummaryBar: React.FC = () => {
   };
 
   const tabs: { id: AppTabId; label: string; icon: React.ReactNode }[] = [
-    { id: 'theory', label: 'Стисла теорія', icon: <BookOpen className="w-4 h-4" /> },
-    { id: 'route', label: 'Маршрут і Команда', icon: <Compass className="w-4 h-4" /> },
     { id: 'menu', label: 'Матриця розкладки', icon: <CalendarDays className="w-4 h-4" /> },
-    { id: 'catalog', label: 'База страв і продуктів', icon: <UtensilsCrossed className="w-4 h-4" /> },
     { id: 'shopping', label: 'Закупка і сушіння', icon: <ShoppingCart className="w-4 h-4" /> },
     { id: 'distribution', label: 'Рюкзаки та Експорт', icon: <Scale className="w-4 h-4" /> },
+    { id: 'route', label: 'Маршрут і Команда', icon: <Compass className="w-4 h-4" /> },
+    { id: 'catalog', label: 'База страв і продуктів', icon: <UtensilsCrossed className="w-4 h-4" /> },
+    { id: 'theory', label: 'Стисла теорія', icon: <BookOpen className="w-4 h-4" /> },
   ];
 
   return (
@@ -91,46 +91,34 @@ export const TopSummaryBar: React.FC = () => {
           </div>
         </div>
 
-        {/* Швидкі метрики походу */}
-        <div className="hidden lg:flex items-center gap-2 bg-slate-800/80 p-1.5 rounded-lg border border-slate-700/60 text-xs">
-          <div className="px-2 py-1 bg-slate-900/60 rounded">
-            <span className="text-slate-400 block text-[10px]">Вага / ос-день</span>
-            <span className="font-semibold text-white">
-              {summary.avgDailyNetGrams} г <span className="text-slate-400">({summary.avgDailyGrossGrams} г)</span>
-            </span>
-          </div>
-
-          <div className="px-2 py-1 bg-slate-900/60 rounded">
-            <span className="text-slate-400 block text-[10px]">Калорійність</span>
-            <span className="font-semibold text-amber-400">{summary.avgDailyKcal} ккал</span>
-          </div>
-
-          <div className="px-2 py-1 bg-slate-900/60 rounded">
-            <span className="text-slate-400 block text-[10px]">Б : Ж : В</span>
-            <span className="font-semibold text-emerald-300">{summary.overallBjuRatio.join(' : ')}</span>
-          </div>
-
-          <div className="px-2 py-1 bg-slate-900/60 rounded">
-            <span className="text-slate-400 block text-[10px]">Клітковина</span>
-            <span className={`font-semibold ${summary.avgDailyFiber < 15 ? 'text-rose-400' : 'text-emerald-300'}`}>
-              {summary.avgDailyFiber} г/день
-            </span>
-          </div>
-
-          <div className="px-2 py-1 bg-slate-900/60 rounded">
-            <span className="text-slate-400 block text-[10px]">Вся їжа групи</span>
-            <span className="font-semibold text-white">{summary.totalGroupFoodWeightKg} кг</span>
+        {/* Швидкі метрики походу: прості та інформативні */}
+        <div className="hidden md:flex items-center gap-2 text-xs">
+          <div
+            className="px-2.5 py-1.5 bg-slate-800/80 rounded-xl border border-slate-700/60 flex items-center gap-2"
+            title={`Б : Ж : В: ${summary.overallBjuRatio.join(' : ')} | Клітковина: ${summary.avgDailyFiber} г/день`}
+          >
+            <span className="text-slate-400">Група:</span>
+            <span className="font-bold text-white">{project.participants.length} ос</span>
+            <span className="text-slate-600">•</span>
+            <span className="text-slate-400">Днів:</span>
+            <span className="font-bold text-white">{project.days.length}</span>
+            <span className="text-slate-600">•</span>
+            <span className="text-slate-400">Вага:</span>
+            <span className="font-bold text-emerald-400">~{summary.avgDailyNetGrams} г/ос</span>
+            <span className="text-slate-600">•</span>
+            <span className="text-slate-400">Калорії:</span>
+            <span className="font-bold text-amber-400">~{summary.avgDailyKcal} ккал</span>
           </div>
 
           {warnings.length > 0 && (
-            <div
+            <button
               onClick={() => setActiveTab('menu')}
-              className="px-2 py-1 bg-amber-950/80 border border-amber-600/50 rounded flex items-center gap-1 cursor-pointer hover:bg-amber-900/80 transition"
-              title="Переглянути попередження у матриці меню"
+              className="px-2.5 py-1.5 bg-amber-950/80 border border-amber-600/50 rounded-xl flex items-center gap-1.5 text-xs text-amber-300 font-semibold hover:bg-amber-900/80 transition cursor-pointer"
+              title="Переглянути рекомендації валідатора"
             >
               <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />
-              <span className="font-bold text-amber-300">{warnings.length}</span>
-            </div>
+              <span>Поради ({warnings.length})</span>
+            </button>
           )}
         </div>
 

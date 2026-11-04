@@ -119,28 +119,36 @@ export const LoadAndExportTab: React.FC = () => {
       <section className="bg-white border border-slate-200 rounded-xl p-5 shadow-sm space-y-4">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-3">
           <div className="flex items-center gap-2 text-xs">
-            <span className="font-semibold text-slate-700">Оберіть етап (кільце):</span>
-            <select
-              value={selectedStageId}
-              onChange={e => setSelectedStageId(e.target.value)}
-              className="px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg font-bold text-slate-800 outline-none"
-            >
-              {project.stages.map(s => (
-                <option key={s.id} value={s.id}>
-                  {s.name} (Дні {s.startDay} - {s.endDay})
-                </option>
-              ))}
-            </select>
+            {project.stages.length > 1 ? (
+              <>
+                <span className="font-semibold text-slate-700">Оберіть етап (кільце):</span>
+                <select
+                  value={selectedStageId}
+                  onChange={e => setSelectedStageId(e.target.value)}
+                  className="px-3 py-1.5 bg-slate-50 border border-slate-300 rounded-lg font-bold text-slate-800 outline-none"
+                >
+                  {project.stages.map(s => (
+                    <option key={s.id} value={s.id}>
+                      {s.name} (Дні {s.startDay} - {s.endDay})
+                    </option>
+                  ))}
+                </select>
+              </>
+            ) : (
+              <span className="font-semibold text-slate-700">Весь похід ({project.days.length} днів)</span>
+            )}
           </div>
 
           <div className="text-xs text-slate-600 flex items-center gap-3">
-            <span>Всього їжі на цей етап: <b>{(totalStageFood / 1000).toFixed(2)} кг</b></span>
-            <button
-              onClick={() => runAutoAssignStage(selectedStageId)}
-              className="text-emerald-700 hover:text-emerald-900 font-bold underline"
-            >
-              Перерозподілити тільки цей етап
-            </button>
+            <span>Всього їжі{project.stages.length > 1 ? ' на цей етап' : ''}: <b>{(totalStageFood / 1000).toFixed(2)} кг</b></span>
+            {project.stages.length > 1 && (
+              <button
+                onClick={() => runAutoAssignStage(selectedStageId)}
+                className="text-emerald-700 hover:text-emerald-900 font-bold underline"
+              >
+                Перерозподілити тільки цей етап
+              </button>
+            )}
           </div>
         </div>
 

@@ -15,7 +15,9 @@ export const ShoppingAndDryingTab: React.FC = () => {
     toggleDryingCheck,
   } = useProjectStore();
 
-  const [stageFilter, setStageFilter] = useState<string>('all');
+  const [stageFilterRaw, setStageFilter] = useState<string>('all');
+  const stageFilter =
+    project.stages.length > 1 && project.stages.some(s => s.id === stageFilterRaw) ? stageFilterRaw : 'all';
 
   const { shoppingItems, dryingTasks } = calculateShoppingAndDryingPlan(
     project,
@@ -39,19 +41,25 @@ export const ShoppingAndDryingTab: React.FC = () => {
         {/* Фільтр етапу */}
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm space-y-2 flex flex-col justify-between">
           <div>
-            <label className="block text-xs font-bold text-slate-700">Фільтр по етапах (забросках):</label>
-            <select
-              value={stageFilter}
-              onChange={e => setStageFilter(e.target.value)}
-              className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-bold text-slate-800 outline-none"
-            >
-              <option value="all">Весь похід ({project.days.length} днів разом)</option>
-              {project.stages.map(s => (
-                <option key={s.id} value={s.id}>
-                  {s.name}
-                </option>
-              ))}
-            </select>
+            {project.stages.length > 1 ? (
+              <>
+                <label className="block text-xs font-bold text-slate-700">Фільтр по етапах (забросках):</label>
+                <select
+                  value={stageFilter}
+                  onChange={e => setStageFilter(e.target.value)}
+                  className="w-full mt-1.5 px-3 py-2 bg-slate-50 border border-slate-300 rounded-lg text-xs font-bold text-slate-800 outline-none"
+                >
+                  <option value="all">Весь похід ({project.days.length} днів разом)</option>
+                  {project.stages.map(s => (
+                    <option key={s.id} value={s.id}>
+                      {s.name}
+                    </option>
+                  ))}
+                </select>
+              </>
+            ) : (
+              <div className="text-xs font-bold text-slate-700">Весь похід ({project.days.length} днів)</div>
+            )}
           </div>
 
           <div className="pt-2 border-t border-slate-100 text-xs flex justify-between text-slate-600">

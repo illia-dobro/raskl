@@ -12,6 +12,8 @@ import {
   DehydratedRecipe,
 } from '../types/domain';
 import { createDemoProject } from '../data/demoProject';
+import { createEmptyProject } from '../data/emptyProject';
+import { autoFillProject, AutoFillFilters } from '../domain/autoFill';
 import { autoAssignStagePackages } from '../domain/loadDistributor';
 
 export type AppTabId = 'theory' | 'route' | 'menu' | 'catalog' | 'shopping' | 'distribution';
@@ -39,6 +41,7 @@ interface ProjectState {
   addStage: (stage: Omit<RouteStage, 'id'>) => void;
   updateStage: (id: string, updates: Partial<RouteStage>) => void;
   removeStage: (id: string) => void;
+  collapseToSingleStage: () => void;
 
   // Days
   addDay: (stageId: string) => void;
@@ -60,6 +63,7 @@ interface ProjectState {
   // Custom Items
   addCustomProduct: (product: Product) => void;
   addCustomRecipe: (recipe: DehydratedRecipe) => void;
+  updateCustomRecipe: (id: string, updates: Partial<DehydratedRecipe>) => void;
 
   // Checkboxes
   toggleShoppingCheck: (id: string) => void;
@@ -68,13 +72,27 @@ interface ProjectState {
   // Project Management
   loadProject: (project: HikeProject) => void;
   resetToDemoProject: () => void;
+  resetToEmptyProject: () => void;
+  clearAllMeals: () => void;
+  autoFillMenu: (filters: AutoFillFilters) => void;
+}
+
+/** Якщо етап один (простий похід) — він завжди охоплює всі дні. */
+function syncSingleStage(project: HikeProject): HikeProject {
+  if (project.stages.length !== 1) return project;
+  const only = project.stages[0];
+  return {
+    ...project,
+    stages: [{ ...only, startDay: 1, endDay: project.days.length }],
+    days: project.days.map(d => (d.stageId === only.id ? d : { ...d, stageId: only.id })),
+  };
 }
 
 export const useProjectStore = create<ProjectState>()(
   persist(
     set => ({
-      project: createDemoProject(),
-      activeTab: 'theory',
+      project: createEmptyProject(),
+      activeTab: 'menu',
       customProducts: [],
       customRecipes: [],
       checkedShoppingIds: {},
@@ -159,12 +177,31 @@ export const useProjectStore = create<ProjectState>()(
 
       removeStage: id =>
         set(state => ({
-          project: {
+          project: syncSingleStage({
             ...state.project,
             stages: state.project.stages.filter(s => s.id !== id),
             updatedAt: new Date().toISOString(),
-          },
+          }),
         })),
+
+      collapseToSingleStage: () =>
+        set(state => {
+          const first = state.project.stages[0];
+          const single = {
+            id: first?.id || 'stage-1',
+            name: 'Весь похід',
+            startDay: 1,
+            endDay: state.project.days.length,
+            storageMethodNote: first?.storageMethodNote || '',
+          };
+          return {
+            project: syncSingleStage({
+              ...state.project,
+              stages: [single],
+              updatedAt: new Date().toISOString(),
+            }),
+          };
+        }),
 
       addDay: stageId =>
         set(state => {
@@ -183,11 +220,11 @@ export const useProjectStore = create<ProjectState>()(
             },
           };
           return {
-            project: {
+            project: syncSingleStage({
               ...state.project,
               days: [...state.project.days, newDay],
               updatedAt: new Date().toISOString(),
-            },
+            }),
           };
         }),
 
@@ -208,11 +245,11 @@ export const useProjectStore = create<ProjectState>()(
           // Перенумеровуємо дні
           const renumbered = filtered.map((d, idx) => ({ ...d, dayNumber: idx + 1 }));
           return {
-            project: {
+            project: syncSingleStage({
               ...state.project,
               days: renumbered,
               updatedAt: new Date().toISOString(),
-            },
+            }),
           };
         }),
 
@@ -228,11 +265,11 @@ export const useProjectStore = create<ProjectState>()(
           const renumbered = newDays.map((d, idx) => ({ ...d, dayNumber: idx + 1 }));
 
           return {
-            project: {
+            project: syncSingleStage({
               ...state.project,
               days: renumbered,
               updatedAt: new Date().toISOString(),
-            },
+            }),
           };
         }),
 
@@ -387,6 +424,13 @@ export const useProjectStore = create<ProjectState>()(
           customRecipes: [...state.customRecipes, { ...recipe, isCustom: true }],
         })),
 
+      updateCustomRecipe: (id, updates) =>
+        set(state => ({
+          customRecipes: state.customRecipes.map(r =>
+            r.id === id ? { ...r, ...updates } : r
+          ),
+        })),
+
       toggleShoppingCheck: id =>
         set(state => ({
           checkedShoppingIds: {
@@ -407,6 +451,45 @@ export const useProjectStore = create<ProjectState>()(
 
       resetToDemoProject: () =>
         set({ project: createDemoProject(), checkedShoppingIds: {}, checkedDryingIds: {} }),
+
+      resetToEmptyProject: () =>
+        set(state => ({
+          project: createEmptyProject({
+            participants: state.project.participants.length || 4,
+            days: state.project.days.length || 3,
+          }),
+          checkedShoppingIds: {},
+          checkedDryingIds: {},
+        })),
+
+      clearAllMeals: () =>
+        set(state => ({
+          project: {
+            ...state.project,
+            days: state.project.days.map(d => ({
+              ...d,
+              meals: {
+                breakfast: { title: 'Сніданок', items: [] },
+                snack: { title: 'Перекус', items: [] },
+                lunch: { title: 'Обід', items: [] },
+                dinner: { title: 'Вечеря', items: [] },
+              },
+            })),
+            updatedAt: new Date().toISOString(),
+          },
+          checkedShoppingIds: {},
+          checkedDryingIds: {},
+        })),
+
+      autoFillMenu: filters =>
+        set(state => ({
+          project: autoFillProject(
+            state.project,
+            filters,
+            state.customProducts,
+            state.customRecipes
+          ),
+        })),
     }),
     {
       name: 'raskl_project_storage_v1',
