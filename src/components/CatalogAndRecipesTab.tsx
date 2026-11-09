@@ -54,6 +54,7 @@ export const CatalogAndRecipesTab: React.FC = () => {
   const [targetDay, setTargetDay] = useState<number>(1);
   const [targetMeal, setTargetMeal] = useState<MealType>('dinner');
   const [portionGrams, setPortionGrams] = useState<number>(85);
+  const [recipeViewPortions, setRecipeViewPortions] = useState<number>(1);
 
   const allProducts = [...PRODUCTS_CATALOG, ...customProducts];
   const allRecipes = [...DEHYDRATED_RECIPES, ...customRecipes];
@@ -314,7 +315,10 @@ export const CatalogAndRecipesTab: React.FC = () => {
 
               <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
                 <button
-                  onClick={() => setDetailRecipe(recipe)}
+                  onClick={() => {
+                    setDetailRecipe(recipe);
+                    setRecipeViewPortions(1);
+                  }}
                   className="text-xs text-emerald-700 hover:text-emerald-900 font-semibold flex items-center gap-1"
                 >
                   <Info className="w-3.5 h-3.5" />
@@ -427,17 +431,57 @@ export const CatalogAndRecipesTab: React.FC = () => {
 
             {/* Сухі компоненти для збірки пакета */}
             <div>
-              <h4 className="text-xs font-bold text-slate-900 flex items-center gap-1.5 mb-2">
-                <PackageCheck className="w-4 h-4 text-emerald-600" />
-                Склад сухого набору (на {detailRecipe.servingsYield} порції):
-              </h4>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2.5">
+                <h4 className="text-xs font-bold text-slate-900 flex items-center gap-1.5">
+                  <PackageCheck className="w-4 h-4 text-emerald-600" />
+                  Склад сухого набору {recipeViewPortions === 1 ? `(на 1 порцію / ${detailRecipe.dryWeightPerServingGrams} г):` : `(на ${recipeViewPortions} ${recipeViewPortions >= 5 ? 'порцій' : recipeViewPortions > 1 ? 'порції' : 'порцію'} / ${Math.round(detailRecipe.dryWeightPerServingGrams * recipeViewPortions)} г):`}
+                </h4>
+
+                {/* Перемикач порцій: 1 особа за замовчуванням, або на котел/групу */}
+                <div className="flex items-center gap-1 bg-slate-100 p-0.5 rounded-lg text-[11px] self-start sm:self-auto font-medium">
+                  <span className="text-slate-400 px-1 text-[10px]">Порції:</span>
+                  <button
+                    type="button"
+                    onClick={() => setRecipeViewPortions(1)}
+                    className={`px-2 py-0.5 rounded transition ${recipeViewPortions === 1 ? 'bg-white font-bold text-emerald-700 shadow-2xs' : 'text-slate-600 hover:text-slate-900'}`}
+                  >
+                    1 (на людину)
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setRecipeViewPortions(2)}
+                    className={`px-2 py-0.5 rounded transition ${recipeViewPortions === 2 ? 'bg-white font-bold text-emerald-700 shadow-2xs' : 'text-slate-600 hover:text-slate-900'}`}
+                  >
+                    2
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setRecipeViewPortions(4)}
+                    className={`px-2 py-0.5 rounded transition ${recipeViewPortions === 4 ? 'bg-white font-bold text-emerald-700 shadow-2xs' : 'text-slate-600 hover:text-slate-900'}`}
+                  >
+                    4 (казанок)
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setRecipeViewPortions(Math.max(1, project.participants.length))}
+                    className={`px-2 py-0.5 rounded transition ${recipeViewPortions === Math.max(1, project.participants.length) && recipeViewPortions !== 1 && recipeViewPortions !== 4 ? 'bg-white font-bold text-emerald-700 shadow-2xs' : 'text-slate-600 hover:text-slate-900'}`}
+                  >
+                    Група ({Math.max(1, project.participants.length)})
+                  </button>
+                </div>
+              </div>
+
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
-                {detailRecipe.rawIngredients.map((ing, iIdx) => (
-                  <li key={iIdx} className="p-2 bg-slate-50 rounded border border-slate-100 flex justify-between">
-                    <span className="font-medium text-slate-800">{ing.name}</span>
-                    <span className="font-bold text-emerald-700">{ing.amount} {ing.unit}</span>
-                  </li>
-                ))}
+                {detailRecipe.rawIngredients.map((ing, iIdx) => {
+                  const baseAmount = ing.amount / (detailRecipe.servingsYield || 1);
+                  const displayAmount = Math.round(baseAmount * recipeViewPortions * 10) / 10;
+                  return (
+                    <li key={iIdx} className="p-2.5 bg-slate-50 hover:bg-emerald-50/30 rounded-lg border border-slate-200/80 flex items-center justify-between transition">
+                      <span className="font-medium text-slate-800">{ing.name}</span>
+                      <span className="font-bold text-emerald-700 shrink-0 ml-2">{displayAmount} {ing.unit}</span>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
 

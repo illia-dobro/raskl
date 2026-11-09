@@ -7,7 +7,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Картопляне пюре з омлетом, сиром та сушеною шинкою',
     category: 'breakfast',
     mealTypes: ['breakfast'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 85,
     kcalPerServing: 380,
     proteinPerServing: 24,
@@ -15,11 +15,12 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 35,
     fiberPerServing: 3.5,
     rawIngredients: [
-      { name: 'Картопляні пластівці (сухі, магазин)', amount: 140, unit: 'г', category: 'крупи' },
-      { name: 'Яєчний порошок / сухий меланж (магазин)', amount: 70, unit: 'г', category: 'яйця' },
-      { name: 'Шинка нежирна варено-сушена (сушиться окремо)', amount: 55, unit: 'г', category: 'м\'ясо' },
-      { name: 'Сир твердий тертий сухий (магазин)', amount: 55, unit: 'г', category: 'молочні' },
-      { name: 'Цибуля зелена та кріп сушені (окремо)', amount: 20, unit: 'г', category: 'овочі' }
+      { name: 'Картопляні пластівці (сухі, магазин)', amount: 35, unit: 'г', category: 'крупи' },
+      { name: 'Яєчний порошок / сухий меланж (магазин)', amount: 17.5, unit: 'г', category: 'яйця' },
+      { name: 'Шинка нежирна варено-сушена (сушиться окремо)', amount: 13.8, unit: 'г', category: 'м\'ясо' },
+      { name: 'Сир твердий тертий сухий (магазин)', amount: 13.8, unit: 'г', category: 'молочні' },
+      { name: 'Цибуля зелена сушена', amount: 2.5, unit: 'г', category: 'зелень', rawToDryRatio: 10 },
+      { name: 'Кріп сушений', amount: 2.5, unit: 'г', category: 'зелень', rawToDryRatio: 10 }
     ],
     homePrepSteps: [
       'Сушаться окремо ТІЛЬКИ шинка та зелень: нежирну шинку нарізати дрібними кубиками 3-4 мм і висушити в дегідраторі при 65°C (5-6 год). Зелену цибулю та кріп висушити окремо при 50°C.',
@@ -46,7 +47,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Альпійська гранола з горіхами, ягодами та сухим молоком',
     category: 'breakfast',
     mealTypes: ['breakfast', 'snack'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 90,
     kcalPerServing: 420,
     proteinPerServing: 14,
@@ -54,10 +55,11 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 52,
     fiberPerServing: 6.5,
     rawIngredients: [
-      { name: 'Вівсяні пластівці або готова гранола (магазин)', amount: 190, unit: 'г', category: 'крупи' },
-      { name: 'Сухе молоко незбиране (магазин)', amount: 60, unit: 'г', category: 'молочні' },
-      { name: 'Горіхи волоські та мигдаль (магазин)', amount: 60, unit: 'г', category: 'горіхи' },
-      { name: 'Чорниця, журавлина або полуниця сушені (окремо)', amount: 50, unit: 'г', category: 'ягоди' }
+      { name: 'Вівсяні пластівці або готова гранола (магазин)', amount: 47.5, unit: 'г', category: 'крупи' },
+      { name: 'Сухе молоко незбиране (магазин)', amount: 15, unit: 'г', category: 'молочні' },
+      { name: 'Горіхи волоські (магазин)', amount: 7.5, unit: 'г', category: 'горіхи' },
+      { name: 'Мигдаль сушений (магазин)', amount: 7.5, unit: 'г', category: 'горіхи' },
+      { name: 'Ягоди сушені (чорниця, журавлина або полуниця)', amount: 12.5, unit: 'г', category: 'ягоди', rawToDryRatio: 6 }
     ],
     homePrepSteps: [
       'У дегідраторі сушаться лише свіжі ягоди (при 55°C, 6-8 год) або беруться готові сушені ягоди.',
@@ -83,7 +85,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Вівсянка з сушеними яблуками, корицею та молоком',
     category: 'breakfast',
     mealTypes: ['breakfast'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 80,
     kcalPerServing: 350,
     proteinPerServing: 13,
@@ -91,10 +93,12 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 58,
     fiberPerServing: 8.5,
     rawIngredients: [
-      { name: 'Вівсяні пластівці швидкого приготування (магазин)', amount: 180, unit: 'г', category: 'крупи' },
-      { name: 'Сухе молоко незбиране (магазин)', amount: 60, unit: 'г', category: 'молочні' },
-      { name: 'Яблука сушені дрібними кубиками (окремо)', amount: 50, unit: 'г', category: 'фрукти' },
-      { name: 'Горіхи подрібнені, насіння льону та кориця (магазин)', amount: 30, unit: 'г', category: 'горіхи' }
+      { name: 'Вівсяні пластівці швидкого приготування (магазин)', amount: 45, unit: 'г', category: 'крупи' },
+      { name: 'Сухе молоко незбиране (магазин)', amount: 15, unit: 'г', category: 'молочні' },
+      { name: 'Яблука сушені дрібними кубиками (окремо)', amount: 12.5, unit: 'г', category: 'фрукти' },
+      { name: 'Горіхи волоські подрібнені', amount: 4, unit: 'г', category: 'горіхи' },
+      { name: 'Насіння льону (магазин)', amount: 2.5, unit: 'г', category: 'насіння' },
+      { name: 'Кориця мелена', amount: 1, unit: 'г', category: 'спеції' }
     ],
     homePrepSteps: [
       'Сушаться окремо лише яблука: нарізати тонкими кубиками або скибочками і висушити в дегідраторі при 55°C (5-6 год).',
@@ -119,7 +123,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Картопляне пюре по-мисливськи з куркою та сиром',
     category: 'breakfast',
     mealTypes: ['breakfast', 'dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 90,
     kcalPerServing: 410,
     proteinPerServing: 22,
@@ -127,11 +131,13 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 40,
     fiberPerServing: 4.0,
     rawIngredients: [
-      { name: 'Картопляні пластівці (сухі, магазин)', amount: 160, unit: 'г', category: 'крупи' },
-      { name: 'Куряче філе варено-сушене (окремо)', amount: 75, unit: 'г', category: 'м\'ясо' },
-      { name: 'Сир Чеддер або Пармезан сухий (магазин)', amount: 65, unit: 'г', category: 'молочні' },
-      { name: 'Сухе молоко або сухі вершки (магазин)', amount: 40, unit: 'г', category: 'молочні' },
-      { name: 'Морква, зелена цибуля та кріп сушені (окремо)', amount: 20, unit: 'г', category: 'овочі' }
+      { name: 'Картопляні пластівці (сухі, магазин)', amount: 40, unit: 'г', category: 'крупи' },
+      { name: 'Куряче філе варено-сушене (окремо)', amount: 18.8, unit: 'г', category: 'м\'ясо' },
+      { name: 'Сир Чеддер або Пармезан сухий (магазин)', amount: 16.3, unit: 'г', category: 'молочні' },
+      { name: 'Сухе молоко або сухі вершки (магазин)', amount: 10, unit: 'г', category: 'молочні' },
+      { name: 'Морква сушена', amount: 2.5, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Зелена цибуля сушена', amount: 1.5, unit: 'г', category: 'зелень', rawToDryRatio: 10 },
+      { name: 'Кріп сушений', amount: 1, unit: 'г', category: 'зелень', rawToDryRatio: 10 }
     ],
     homePrepSteps: [
       'Сушаться окремо лише куряче філе та овочі/зелень! Картопляні пластівці, сухі вершки та сир купуються готовими в магазині.',
@@ -157,7 +163,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Яєчний скрембл зі шпинатом, сиром фета та сухариками',
     category: 'breakfast',
     mealTypes: ['breakfast'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 85,
     kcalPerServing: 390,
     proteinPerServing: 25,
@@ -165,11 +171,12 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 32,
     fiberPerServing: 3.8,
     rawIngredients: [
-      { name: 'Яєчний порошок / сухий меланж (магазин)', amount: 120, unit: 'г', category: 'яйця' },
-      { name: 'Сухарики пшеничні дрібні (магазин)', amount: 80, unit: 'г', category: 'хліб' },
-      { name: 'Сухе молоко незбиране (магазин)', amount: 60, unit: 'г', category: 'молочні' },
-      { name: 'Сир фета або твердий сушений (магазин)', amount: 50, unit: 'г', category: 'молочні' },
-      { name: 'Шпинат та томати сушені (окремо)', amount: 30, unit: 'г', category: 'овочі' }
+      { name: 'Яєчний порошок / сухий меланж (магазин)', amount: 30, unit: 'г', category: 'яйця' },
+      { name: 'Сухарики пшеничні дрібні (магазин)', amount: 20, unit: 'г', category: 'хліб' },
+      { name: 'Сухе молоко незбиране (магазин)', amount: 15, unit: 'г', category: 'молочні' },
+      { name: 'Сир фета або твердий сушений (магазин)', amount: 12.5, unit: 'г', category: 'молочні' },
+      { name: 'Шпинат сушений', amount: 3.5, unit: 'г', category: 'овочі', rawToDryRatio: 12 },
+      { name: 'Томати сушені', amount: 4, unit: 'г', category: 'овочі', rawToDryRatio: 14 }
     ],
     homePrepSteps: [
       'Сушаться окремо лише шпинат і томати: свіжий шпинат та нарізані томати висушити на окремих піддонах дегідратора при 55°C (4-5 год).',
@@ -197,7 +204,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Хумус похідний з нутового борошна з сушеним часником',
     category: 'spread',
     mealTypes: ['lunch', 'snack'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 60,
     kcalPerServing: 260,
     proteinPerServing: 12,
@@ -205,10 +212,12 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 32,
     fiberPerServing: 7.2,
     rawIngredients: [
-      { name: 'Нутове борошно або нутові пластівці (сухі, магазин)', amount: 170, unit: 'г', category: 'бобові' },
-      { name: 'Кунжут мелений або суха паста тахіні (магазин)', amount: 40, unit: 'г', category: 'насіння' },
-      { name: 'Часник та солодка паприка сушені (окремо)', amount: 20, unit: 'г', category: 'овочі' },
-      { name: 'Зіра (кумін) мелена, коріандр, лимонна кислота (магазин)', amount: 10, unit: 'г', category: 'спеції' }
+      { name: 'Нутове борошно або нутові пластівці (сухі, магазин)', amount: 42.5, unit: 'г', category: 'бобові' },
+      { name: 'Кунжут мелений або суха паста тахіні (магазин)', amount: 10, unit: 'г', category: 'насіння' },
+      { name: 'Часник сушений', amount: 2.5, unit: 'г', category: 'овочі', rawToDryRatio: 4.5 },
+      { name: 'Солодка паприка сушена', amount: 2.5, unit: 'г', category: 'спеції' },
+      { name: 'Зіра мелена та коріандр', amount: 2, unit: 'г', category: 'спеції' },
+      { name: 'Лимонна кислота', amount: 0.5, unit: 'г', category: 'спеції' }
     ],
     homePrepSteps: [
       'Варити і сушити рідкий хумус НЕ потрібно! Основа береться готовою сухою з магазину — інстантне нутове борошно або нутові пластівці.',
@@ -234,7 +243,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Рибний паштет-намазка з сушеним тунцем та зеленню',
     category: 'spread',
     mealTypes: ['lunch'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 55,
     kcalPerServing: 240,
     proteinPerServing: 28,
@@ -242,10 +251,11 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 12,
     fiberPerServing: 1.2,
     rawIngredients: [
-      { name: 'Тунець у власному соку або біла риба варено-сушена (окремо)', amount: 110, unit: 'г', category: 'риба' },
-      { name: 'Картопляні пластівці для основи паштету (магазин)', amount: 50, unit: 'г', category: 'крупи' },
-      { name: 'Сухе молоко або сухі вершки (магазин)', amount: 40, unit: 'г', category: 'молочні' },
-      { name: 'Цибуля ріпчаста та кріп сушені (окремо)', amount: 20, unit: 'г', category: 'овочі' }
+      { name: 'Тунець у власному соку або біла риба варено-сушена (окремо)', amount: 27.5, unit: 'г', category: 'риба' },
+      { name: 'Картопляні пластівці для основи паштету (магазин)', amount: 12.5, unit: 'г', category: 'крупи' },
+      { name: 'Сухе молоко або сухі вершки (магазин)', amount: 10, unit: 'г', category: 'молочні' },
+      { name: 'Цибуля ріпчаста сушена', amount: 3, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Кріп сушений', amount: 2, unit: 'г', category: 'зелень', rawToDryRatio: 10 }
     ],
     homePrepSteps: [
       'Сушаться окремо лише риба та зелень з цибулею! Не потрібно замішувати сиру пасту перед сушінням.',
@@ -271,7 +281,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Квасолевий паштет-намазка з сушеними томатами та часником',
     category: 'spread',
     mealTypes: ['lunch'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 60,
     kcalPerServing: 230,
     proteinPerServing: 14,
@@ -279,10 +289,12 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 38,
     fiberPerServing: 8.0,
     rawIngredients: [
-      { name: 'Квасолеві пластівці швидкого приготування (магазин)', amount: 180, unit: 'г', category: 'бобові' },
-      { name: 'Томати та часник сушені (окремо)', amount: 35, unit: 'г', category: 'овочі' },
-      { name: 'Горіхи волоські подрібнені (магазин)', amount: 15, unit: 'г', category: 'горіхи' },
-      { name: 'Розмарин, базилік та чорний перець сушені', amount: 10, unit: 'г', category: 'зелень' }
+      { name: 'Квасолеві пластівці швидкого приготування (магазин)', amount: 45, unit: 'г', category: 'бобові' },
+      { name: 'Томати сушені', amount: 6, unit: 'г', category: 'овочі', rawToDryRatio: 14 },
+      { name: 'Часник сушений', amount: 2.75, unit: 'г', category: 'овочі', rawToDryRatio: 4.5 },
+      { name: 'Горіхи волоські подрібнені (магазин)', amount: 3.8, unit: 'г', category: 'горіхи' },
+      { name: 'Пряні трави (розмарин, базилік)', amount: 1.5, unit: 'г', category: 'зелень' },
+      { name: 'Чорний перець мелений', amount: 1, unit: 'г', category: 'спеції' }
     ],
     homePrepSteps: [
       'Квасолеві пластівці беруться готовими сухими з магазину (або відварена біла квасоля сушиться окремо).',
@@ -308,7 +320,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Мексиканська закуска з сушених томатів, перцю та квасолі',
     category: 'spread',
     mealTypes: ['lunch', 'snack'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 55,
     kcalPerServing: 210,
     proteinPerServing: 11,
@@ -316,10 +328,12 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 40,
     fiberPerServing: 7.5,
     rawIngredients: [
-      { name: 'Квасоля чорна варено-сушена або пластівці (окремо)', amount: 110, unit: 'г', category: 'бобові' },
-      { name: 'Томати стиглі сушені кубиками (окремо)', amount: 60, unit: 'г', category: 'овочі' },
-      { name: 'Перець солодкий та чилі сушені (окремо)', amount: 35, unit: 'г', category: 'овочі' },
-      { name: 'Кінза та зелена цибуля сушені (окремо)', amount: 15, unit: 'г', category: 'зелень' }
+      { name: 'Квасоля чорна варено-сушена або пластівці (окремо)', amount: 27.5, unit: 'г', category: 'бобові' },
+      { name: 'Томати стиглі сушені кубиками (окремо)', amount: 15, unit: 'г', category: 'овочі' },
+      { name: 'Перець солодкий сушений', amount: 7, unit: 'г', category: 'овочі', rawToDryRatio: 17 },
+      { name: 'Перець чилі сушений', amount: 1.75, unit: 'г', category: 'спеції' },
+      { name: 'Кінза сушена', amount: 2, unit: 'г', category: 'зелень' },
+      { name: 'Зелена цибуля сушена', amount: 1.75, unit: 'г', category: 'зелень' }
     ],
     homePrepSteps: [
       'Кожен інгредієнт сушиться окремо на своєму лотку дегідратора: томати кубиками (55°C), солодкий і гострий перець (55°C), зелень (50°C) та відварена квасоля (60°C).',
@@ -346,7 +360,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Борщ український з яловичиною та сушеними овочами',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 75,
     kcalPerServing: 320,
     proteinPerServing: 22,
@@ -354,12 +368,15 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 36,
     fiberPerServing: 6.8,
     rawIngredients: [
-      { name: 'Картопляні пластівці або картопля сушена (магазин)', amount: 80, unit: 'г', category: 'крупи' },
-      { name: 'Яловичина варено-сушена фарш/волокна (сушиться окремо)', amount: 70, unit: 'г', category: 'м\'ясо' },
-      { name: 'Буряк столовий сушений соломкою (сушиться окремо)', amount: 60, unit: 'г', category: 'овочі' },
-      { name: 'Капуста білокачанна сушена (сушиться окремо)', amount: 40, unit: 'г', category: 'овочі' },
-      { name: 'Морква, цибуля та томати сушені (окремо)', amount: 35, unit: 'г', category: 'овочі' },
-      { name: 'Часник сушений, кріп, петрушка та лавровий лист', amount: 15, unit: 'г', category: 'зелень' }
+      { name: 'Картопляні пластівці або картопля сушена (магазин)', amount: 20, unit: 'г', category: 'крупи' },
+      { name: 'Яловичина варено-сушена фарш/волокна (сушиться окремо)', amount: 17.5, unit: 'г', category: 'м\'ясо' },
+      { name: 'Буряк столовий сушений соломкою (сушиться окремо)', amount: 15, unit: 'г', category: 'овочі' },
+      { name: 'Капуста білокачанна сушена (сушиться окремо)', amount: 10, unit: 'г', category: 'овочі' },
+      { name: 'Морква столова сушена соломкою', amount: 4, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Цибуля ріпчаста сушена', amount: 3, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Томати стиглі сушені кубиками', amount: 3, unit: 'г', category: 'овочі', rawToDryRatio: 14 },
+      { name: 'Часник сушений гранульований', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 4.5 },
+      { name: 'Сушена зелень (кріп, петрушка)', amount: 1, unit: 'г', category: 'зелень', rawToDryRatio: 10 }
     ],
     homePrepSteps: [
       'Варити і сушити готовий рідкий борщ НЕ потрібно! У дегідраторі сушаться окремо виключно овочі та м\'ясо.',
@@ -387,7 +404,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Чілі Кон Карне з яловичиною, квасолею та сушеними томатами',
     category: 'main',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 90,
     kcalPerServing: 430,
     proteinPerServing: 32,
@@ -395,11 +412,13 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 48,
     fiberPerServing: 9.5,
     rawIngredients: [
-      { name: 'Квасолеві пластівці або квасоля червона сушена (окремо)', amount: 150, unit: 'г', category: 'бобові' },
-      { name: 'Яловичий фарш варено-сушений (окремо)', amount: 90, unit: 'г', category: 'м\'ясо' },
-      { name: 'Томати сушені кубиками (окремо)', amount: 60, unit: 'г', category: 'овочі' },
-      { name: 'Перець болгарський та цибуля сушені (окремо)', amount: 45, unit: 'г', category: 'овочі' },
-      { name: 'Паприка копчена, зіра, чилі, часник сушений (магазин)', amount: 15, unit: 'г', category: 'спеції' }
+      { name: 'Квасолеві пластівці або квасоля червона сушена (окремо)', amount: 37.5, unit: 'г', category: 'бобові' },
+      { name: 'Яловичий фарш варено-сушений (окремо)', amount: 22.5, unit: 'г', category: 'м\'ясо' },
+      { name: 'Томати сушені кубиками (окремо)', amount: 15, unit: 'г', category: 'овочі' },
+      { name: 'Перець болгарський солодкий сушений', amount: 7, unit: 'г', category: 'овочі', rawToDryRatio: 17 },
+      { name: 'Цибуля ріпчаста сушена', amount: 4.25, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Часник сушений', amount: 1.5, unit: 'г', category: 'овочі', rawToDryRatio: 4.5 },
+      { name: 'Спеції чілі (копчена паприка, зіра, чилі)', amount: 2.25, unit: 'г', category: 'спеції' }
     ],
     homePrepSteps: [
       'Тушкувати і сушити всю страву разом НЕ потрібно! М\'ясо та овочі сушаться окремо.',
@@ -427,7 +446,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Кукурудзяний крем-суп (чаудер) з куркою та сушеними овочами',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 80,
     kcalPerServing: 390,
     proteinPerServing: 24,
@@ -435,11 +454,13 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 42,
     fiberPerServing: 4.8,
     rawIngredients: [
-      { name: 'Картопляні пластівці (сухі, магазин)', amount: 130, unit: 'г', category: 'крупи' },
-      { name: 'Куряче філе варено-сушене (окремо)', amount: 75, unit: 'г', category: 'м\'ясо' },
-      { name: 'Кукурудза солодка сушена зернами (окремо)', amount: 55, unit: 'г', category: 'овочі' },
-      { name: 'Сухе молоко або сухі вершки (магазин)', amount: 45, unit: 'г', category: 'молочні' },
-      { name: 'Морква, цибуля та кріп сушені (окремо)', amount: 15, unit: 'г', category: 'овочі' }
+      { name: 'Картопляні пластівці (сухі, магазин)', amount: 32.5, unit: 'г', category: 'крупи' },
+      { name: 'Куряче філе варено-сушене (окремо)', amount: 18.8, unit: 'г', category: 'м\'ясо' },
+      { name: 'Кукурудза солодка сушена зернами (окремо)', amount: 13.8, unit: 'г', category: 'овочі' },
+      { name: 'Сухе молоко або сухі вершки (магазин)', amount: 11.3, unit: 'г', category: 'молочні' },
+      { name: 'Морква сушена', amount: 2, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Цибуля ріпчаста сушена', amount: 1.25, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Кріп сушений', amount: 0.5, unit: 'г', category: 'зелень', rawToDryRatio: 10 }
     ],
     homePrepSteps: [
       'Варити суп вдома і збивати блендером НЕ потрібно! Кремову основу створюють сухі картопляні пластівці та сухі вершки з магазину.',
@@ -465,7 +486,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Суп-рагу з червоної сочевиці з сушеними овочами та карі',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 85,
     kcalPerServing: 360,
     proteinPerServing: 18,
@@ -473,10 +494,13 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 62,
     fiberPerServing: 10.5,
     rawIngredients: [
-      { name: 'Сочевиця червона колота швидкого варіння (суха, магазин)', amount: 220, unit: 'г', category: 'бобові' },
-      { name: 'Морква та гарбуз/батат сушені соломкою (окремо)', amount: 65, unit: 'г', category: 'овочі' },
-      { name: 'Томати та цибуля сушені (окремо)', amount: 40, unit: 'г', category: 'овочі' },
-      { name: 'Імбир мелений, карі, коріандр, часник (магазин)', amount: 15, unit: 'г', category: 'спеції' }
+      { name: 'Сочевиця червона колота швидкого варіння (суха, магазин)', amount: 55, unit: 'г', category: 'бобові' },
+      { name: 'Гарбуз або батат сушений соломкою', amount: 10, unit: 'г', category: 'овочі', rawToDryRatio: 13 },
+      { name: 'Морква сушена соломкою', amount: 6.25, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Томати сушені', amount: 6, unit: 'г', category: 'овочі', rawToDryRatio: 14 },
+      { name: 'Цибуля сушена', amount: 4, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Часник та імбир сушені', amount: 2, unit: 'г', category: 'овочі' },
+      { name: 'Спеції карі та коріандр', amount: 1.75, unit: 'г', category: 'спеції' }
     ],
     homePrepSteps: [
       'Червону сочевицю варити і сушити вдома НЕ потрібно! Колота червона сочевиця береться сухою з магазину — в поході вона розварюється сама за 5 хвилин.',
@@ -502,7 +526,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Горохово-квасолевий суп із салямі та сушеними овочами',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 80,
     kcalPerServing: 410,
     proteinPerServing: 20,
@@ -510,10 +534,13 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 44,
     fiberPerServing: 8.0,
     rawIngredients: [
-      { name: 'Горохові або квасолеві пластівці швидкі (сухі, магазин)', amount: 180, unit: 'г', category: 'бобові' },
-      { name: 'Салямі або сирокопчена ковбаса сушена (окремо)', amount: 80, unit: 'г', category: 'м\'ясо' },
-      { name: 'Морква, томати та цибуля сушені (окремо)', amount: 45, unit: 'г', category: 'овочі' },
-      { name: 'Часник сушений, копчена паприка, зелень', amount: 15, unit: 'г', category: 'зелень' }
+      { name: 'Горохові або квасолеві пластівці швидкі (сухі, магазин)', amount: 45, unit: 'г', category: 'бобові' },
+      { name: 'Салямі або сирокопчена ковбаса сушена (окремо)', amount: 20, unit: 'г', category: 'м\'ясо' },
+      { name: 'Морква сушена', amount: 4, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Томати сушені', amount: 4, unit: 'г', category: 'овочі', rawToDryRatio: 14 },
+      { name: 'Цибуля сушена', amount: 3.25, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Часник сушений', amount: 1.5, unit: 'г', category: 'овочі', rawToDryRatio: 4.5 },
+      { name: 'Паприка копчена та зелень', amount: 2.25, unit: 'г', category: 'спеції' }
     ],
     homePrepSteps: [
       'Горохові та квасолеві пластівці купуються готовими сухими в магазині (варити й сушити горохове пюре не потрібно).',
@@ -539,7 +566,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Кускус по-марокканськи з нутом, курагою та сушеними овочами',
     category: 'main',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 85,
     kcalPerServing: 370,
     proteinPerServing: 16,
@@ -547,11 +574,14 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 63,
     fiberPerServing: 9.8,
     rawIngredients: [
-      { name: 'Кускус швидкого приготування (сухий, магазин)', amount: 160, unit: 'г', category: 'крупи' },
-      { name: 'Нут варено-сушений або нутові пластівці (окремо)', amount: 70, unit: 'г', category: 'бобові' },
-      { name: 'Курага та родзинки нарізані (магазин)', amount: 55, unit: 'г', category: 'сухофрукти' },
-      { name: 'Томати, морква та цибуля сушені (окремо)', amount: 45, unit: 'г', category: 'овочі' },
-      { name: 'Зіра, коріандр, кориця, перець (магазин)', amount: 10, unit: 'г', category: 'спеції' }
+      { name: 'Кускус швидкого приготування (сухий, магазин)', amount: 40, unit: 'г', category: 'крупи' },
+      { name: 'Нут варено-сушений або нутові пластівці (окремо)', amount: 17.5, unit: 'г', category: 'бобові' },
+      { name: 'Курага сушена нарізана', amount: 7, unit: 'г', category: 'сухофрукти' },
+      { name: 'Родзинки темні', amount: 6.75, unit: 'г', category: 'сухофрукти' },
+      { name: 'Томати сушені', amount: 4, unit: 'г', category: 'овочі', rawToDryRatio: 14 },
+      { name: 'Морква сушена', amount: 4, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Цибуля сушена', amount: 3.25, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Пряна марокканська суміш (зіра, коріандр, кориця, перець)', amount: 2.5, unit: 'г', category: 'спеції' }
     ],
     homePrepSteps: [
       'Нічого не тушкується разом! Кускус, курага, родзинки та спеції купуються сухими в магазині.',
@@ -577,7 +607,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Картопляний суп з сушеною капустою та ковбасками (Caldo Verde)',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 70,
     kcalPerServing: 310,
     proteinPerServing: 16,
@@ -585,10 +615,12 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 37,
     fiberPerServing: 5.5,
     rawIngredients: [
-      { name: 'Картопляні пластівці (сухі, магазин)', amount: 145, unit: 'г', category: 'крупи' },
-      { name: 'Ковбаски мисливські сушені кружальцями (окремо)', amount: 75, unit: 'г', category: 'м\'ясо' },
-      { name: 'Капуста білокачанна або кале сушена (окремо)', amount: 40, unit: 'г', category: 'овочі' },
-      { name: 'Цибуля сушена, часник та зелень (окремо)', amount: 20, unit: 'г', category: 'овочі' }
+      { name: 'Картопляні пластівці (сухі, магазин)', amount: 36.3, unit: 'г', category: 'крупи' },
+      { name: 'Ковбаски мисливські сушені кружальцями (окремо)', amount: 18.8, unit: 'г', category: 'м\'ясо' },
+      { name: 'Капуста білокачанна або кале сушена (окремо)', amount: 10, unit: 'г', category: 'овочі' },
+      { name: 'Цибуля ріпчаста сушена', amount: 2.5, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Часник сушений', amount: 1.5, unit: 'г', category: 'овочі', rawToDryRatio: 4.5 },
+      { name: 'Сушена зелень', amount: 1, unit: 'г', category: 'зелень', rawToDryRatio: 10 }
     ],
     homePrepSteps: [
       'Картопляні пластівці беруться готові сухі з магазину (варити і сушити картоплю НЕ потрібно).',
@@ -616,7 +648,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Спагеті Болоньєзе з сушеним яловичим фаршем та томатами',
     category: 'main',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 95,
     kcalPerServing: 440,
     proteinPerServing: 28,
@@ -624,10 +656,14 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 53,
     fiberPerServing: 4.8,
     rawIngredients: [
-      { name: 'Спагеті твердих сортів сухі (магазин, ламати навпіл)', amount: 200, unit: 'г', category: 'макарони' },
-      { name: 'Фарш яловичий варено-сушений (окремо)', amount: 75, unit: 'г', category: 'м\'ясо' },
-      { name: 'Томати, солодкий перець, морква та цибуля сушені (окремо)', amount: 55, unit: 'г', category: 'овочі' },
-      { name: 'Сир Пармезан тертий сухий та базилік (магазин)', amount: 50, unit: 'г', category: 'молочні' }
+      { name: 'Спагеті твердих сортів сухі (магазин, ламати навпіл)', amount: 50, unit: 'г', category: 'макарони' },
+      { name: 'Фарш яловичий варено-сушений (окремо)', amount: 18.8, unit: 'г', category: 'м\'ясо' },
+      { name: 'Томати сушені кубиками', amount: 5, unit: 'г', category: 'овочі', rawToDryRatio: 14 },
+      { name: 'Перець солодкий сушений', amount: 3.5, unit: 'г', category: 'овочі', rawToDryRatio: 17 },
+      { name: 'Морква сушена', amount: 3, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Цибуля сушена', amount: 2.25, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Сир Пармезан тертий сухий', amount: 11.5, unit: 'г', category: 'молочні' },
+      { name: 'Базилік сушений', amount: 1, unit: 'г', category: 'зелень' }
     ],
     homePrepSteps: [
       'Макарони сушити НЕ потрібно — вони беруться сухими з магазину (обирайте пасту швидкого варіння 4-5 хв).',
@@ -654,7 +690,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Макарони по-італійськи з яловичиною, сушеними томатами та сиром',
     category: 'main',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 95,
     kcalPerServing: 450,
     proteinPerServing: 30,
@@ -662,10 +698,13 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 48,
     fiberPerServing: 4.2,
     rawIngredients: [
-      { name: 'Паста спіральки або метелики (суха, магазин)', amount: 200, unit: 'г', category: 'макарони' },
-      { name: 'Фарш яловичий варено-сушений (окремо)', amount: 70, unit: 'г', category: 'м\'ясо' },
-      { name: 'Томати сушені шматочками, часник та базилік (окремо)', amount: 50, unit: 'г', category: 'овочі' },
-      { name: 'Сухий тертий сир та сухі вершки (магазин)', amount: 60, unit: 'г', category: 'молочні' }
+      { name: 'Паста спіральки або метелики (суха, магазин)', amount: 50, unit: 'г', category: 'макарони' },
+      { name: 'Фарш яловичий варено-сушений (окремо)', amount: 17.5, unit: 'г', category: 'м\'ясо' },
+      { name: 'Томати сушені шматочками', amount: 9, unit: 'г', category: 'овочі', rawToDryRatio: 14 },
+      { name: 'Часник сушений', amount: 2, unit: 'г', category: 'овочі', rawToDryRatio: 4.5 },
+      { name: 'Базилік сушений', amount: 1.5, unit: 'г', category: 'зелень' },
+      { name: 'Сухий тертий сир', amount: 8, unit: 'г', category: 'молочні' },
+      { name: 'Сухі вершки (магазин)', amount: 7, unit: 'г', category: 'молочні' }
     ],
     homePrepSteps: [
       'Паста береться готова суха з магазину (сушити її не потрібно!).',
@@ -691,7 +730,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Паста з сушеним курячим філе та солодким перцем',
     category: 'main',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 90,
     kcalPerServing: 420,
     proteinPerServing: 32,
@@ -699,10 +738,14 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 50,
     fiberPerServing: 3.8,
     rawIngredients: [
-      { name: 'Паста пір\'я або ріжки (суха, магазин)', amount: 200, unit: 'г', category: 'макарони' },
-      { name: 'Куряче філе варено-сушене (окремо)', amount: 75, unit: 'г', category: 'м\'ясо' },
-      { name: 'Томати, солодкий перець та цибуля сушені (окремо)', amount: 50, unit: 'г', category: 'овочі' },
-      { name: 'Сухий тертий сир, часник та зелень (магазин)', amount: 35, unit: 'г', category: 'молочні' }
+      { name: 'Паста пір\'я або ріжки (суха, магазин)', amount: 50, unit: 'г', category: 'макарони' },
+      { name: 'Куряче філе варено-сушене (окремо)', amount: 18.8, unit: 'г', category: 'м\'ясо' },
+      { name: 'Томати сушені', amount: 5, unit: 'г', category: 'овочі', rawToDryRatio: 14 },
+      { name: 'Перець солодкий сушений', amount: 4, unit: 'г', category: 'овочі', rawToDryRatio: 17 },
+      { name: 'Цибуля ріпчаста сушена', amount: 3.5, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Сухий тертий сир', amount: 6.5, unit: 'г', category: 'молочні' },
+      { name: 'Часник сушений', amount: 1.25, unit: 'г', category: 'овочі', rawToDryRatio: 4.5 },
+      { name: 'Зелень сушена', amount: 1, unit: 'г', category: 'зелень' }
     ],
     homePrepSteps: [
       'Паста береться суха з пачки (не варити і не сушити вдома).',
@@ -728,7 +771,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Рисова локшина з куркою, сушеними овочами та кунжутом',
     category: 'main',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 85,
     kcalPerServing: 410,
     proteinPerServing: 26,
@@ -736,10 +779,14 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 50,
     fiberPerServing: 3.5,
     rawIngredients: [
-      { name: 'Локшина рисова або яєчна швидка (суха, магазин)', amount: 200, unit: 'г', category: 'макарони' },
-      { name: 'Куряче філе варено-сушене (окремо)', amount: 70, unit: 'г', category: 'м\'ясо' },
-      { name: 'Морква соломкою, перець та зелена цибуля сушені (окремо)', amount: 35, unit: 'г', category: 'овочі' },
-      { name: 'Кунжут смажений, арахіс, імбир та часник (магазин)', amount: 35, unit: 'г', category: 'горіхи' }
+      { name: 'Локшина рисова або яєчна швидка (суха, магазин)', amount: 50, unit: 'г', category: 'макарони' },
+      { name: 'Куряче філе варено-сушене (окремо)', amount: 17.5, unit: 'г', category: 'м\'ясо' },
+      { name: 'Морква сушена соломкою', amount: 3.5, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Перець солодкий сушений', amount: 3, unit: 'г', category: 'овочі', rawToDryRatio: 17 },
+      { name: 'Зелена цибуля сушена', amount: 2.25, unit: 'г', category: 'зелень' },
+      { name: 'Кунжут смажений', amount: 3.5, unit: 'г', category: 'насіння' },
+      { name: 'Арахіс подрібнений', amount: 3.25, unit: 'г', category: 'горіхи' },
+      { name: 'Часник та імбир мелені', amount: 2, unit: 'г', category: 'спеції' }
     ],
     homePrepSteps: [
       'Локшину сушити не потрібно — вона береться готовою сухою з магазину і запарюється за 3-4 хв!',
@@ -765,7 +812,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Плов похідний з пропареним рисом, куркою та сушеними овочами',
     category: 'main',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 90,
     kcalPerServing: 420,
     proteinPerServing: 26,
@@ -773,10 +820,13 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 55,
     fiberPerServing: 4.0,
     rawIngredients: [
-      { name: 'Рис пропарений або рисові пластівці (сухі, магазин)', amount: 210, unit: 'г', category: 'крупи' },
-      { name: 'Куряче філе або яловичина варено-сушена (окремо)', amount: 80, unit: 'г', category: 'м\'ясо' },
-      { name: 'Морква соломкою та цибуля сушені (окремо)', amount: 50, unit: 'г', category: 'овочі' },
-      { name: 'Барбарис сушений, зіра, куркума, часник (магазин)', amount: 20, unit: 'г', category: 'спеції' }
+      { name: 'Рис пропарений або рисові пластівці (сухі, магазин)', amount: 52.5, unit: 'г', category: 'крупи' },
+      { name: 'Куряче філе або яловичина варено-сушена (окремо)', amount: 20, unit: 'г', category: 'м\'ясо' },
+      { name: 'Морква сушена соломкою', amount: 7.5, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Цибуля ріпчаста сушена', amount: 5, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Барбарис сушений', amount: 2, unit: 'г', category: 'спеції' },
+      { name: 'Часник сушений', amount: 1.5, unit: 'г', category: 'овочі', rawToDryRatio: 4.5 },
+      { name: 'Спеції до плову (зіра, куркума)', amount: 1.5, unit: 'г', category: 'спеції' }
     ],
     homePrepSteps: [
       'Варити і сушити готовий плов з рисом НЕ потрібно! Рис береться сухим з магазину (обирайте пропарений рис швидкого варіння або рисові пластівці).',
@@ -803,7 +853,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Кускус по-середземноморськи з сушеними томатами та фетою',
     category: 'main',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 85,
     kcalPerServing: 390,
     proteinPerServing: 17,
@@ -811,10 +861,13 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 54,
     fiberPerServing: 5.2,
     rawIngredients: [
-      { name: 'Кускус швидкого приготування (сухий, магазин)', amount: 200, unit: 'г', category: 'крупи' },
-      { name: 'Сир фета сушений або Пармезан (магазин)', amount: 60, unit: 'г', category: 'молочні' },
-      { name: 'Томати та солодкий перець сушені (окремо)', amount: 50, unit: 'г', category: 'овочі' },
-      { name: 'Маслини сушені, орегано, базилік та часник', amount: 30, unit: 'г', category: 'овочі' }
+      { name: 'Кускус швидкого приготування (сухий, магазин)', amount: 50, unit: 'г', category: 'крупи' },
+      { name: 'Сир фета сушений або Пармезан (магазин)', amount: 15, unit: 'г', category: 'молочні' },
+      { name: 'Томати сушені', amount: 7, unit: 'г', category: 'овочі', rawToDryRatio: 14 },
+      { name: 'Перець солодкий сушений', amount: 5.5, unit: 'г', category: 'овочі', rawToDryRatio: 17 },
+      { name: 'Маслини сушені', amount: 4.5, unit: 'г', category: 'овочі' },
+      { name: 'Часник сушений', amount: 1.5, unit: 'г', category: 'овочі', rawToDryRatio: 4.5 },
+      { name: 'Сушені трави (орегано, базилік)', amount: 1.5, unit: 'г', category: 'зелень' }
     ],
     homePrepSteps: [
       'Кускус та сир беруться сухими з магазину.',
@@ -841,7 +894,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Локшина з сушеними білими грибами та печерицями у вершковому соусі',
     category: 'main',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 85,
     kcalPerServing: 380,
     proteinPerServing: 20,
@@ -849,10 +902,11 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 56,
     fiberPerServing: 8.5,
     rawIngredients: [
-      { name: 'Локшина яєчна або гречана тонка (суха, магазин)', amount: 190, unit: 'г', category: 'макарони' },
-      { name: 'Гриби печериці та білі сушені з цибулею (окремо)', amount: 55, unit: 'г', category: 'гриби' },
-      { name: 'Квасолеві пластівці або варено-сушена квасоля (окремо)', amount: 50, unit: 'г', category: 'бобові' },
-      { name: 'Сухі вершки або сметанний соус-порошок (магазин)', amount: 45, unit: 'г', category: 'молочні' }
+      { name: 'Локшина яєчна або гречана тонка (суха, магазин)', amount: 47.5, unit: 'г', category: 'макарони' },
+      { name: 'Гриби білі та печериці сушені', amount: 9, unit: 'г', category: 'гриби', rawToDryRatio: 9 },
+      { name: 'Цибуля ріпчаста сушена', amount: 4.75, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Квасолеві пластівці або варено-сушена квасоля (окремо)', amount: 12.5, unit: 'г', category: 'бобові' },
+      { name: 'Сухі вершки або сметанний соус-порошок (магазин)', amount: 11.3, unit: 'г', category: 'молочні' }
     ],
     homePrepSteps: [
       'Локшина та сухі вершки беруться готовими сухими з магазину (сушити локшину НЕ потрібно).',
@@ -881,7 +935,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Джерки яловичі класичні (в\'ялене м\'ясо смужками)',
     category: 'snack',
     mealTypes: ['snack', 'lunch'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 40,
     kcalPerServing: 165,
     proteinPerServing: 22,
@@ -889,8 +943,8 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 4,
     fiberPerServing: 0.0,
     rawIngredients: [
-      { name: 'Яловичина нежирна в\'ялена смужками (сушиться окремо)', amount: 145, unit: 'г', category: 'м\'ясо' },
-      { name: 'Спеції для маринаду (коріандр, чорний перець, часник, соєвий соус)', amount: 15, unit: 'г', category: 'спеції' }
+      { name: 'Яловичина нежирна в\'ялена смужками (сушиться окремо)', amount: 36.3, unit: 'г', category: 'м\'ясо' },
+      { name: 'Спеції для маринаду (коріандр, чорний перець, часник, соєвий соус)', amount: 3.8, unit: 'г', category: 'спеції' }
     ],
     homePrepSteps: [
       'Нежирну яловичу вирізку злегка підморозити, нарізати поперек волокон тонкими смужками 4 мм.',
@@ -915,7 +969,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Сушені яблука, ягоди та домашня фруктова пастила',
     category: 'snack',
     mealTypes: ['snack'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 35,
     kcalPerServing: 110,
     proteinPerServing: 1.0,
@@ -923,9 +977,9 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 26,
     fiberPerServing: 3.5,
     rawIngredients: [
-      { name: 'Яблука сушені часточками або пастила (окремо)', amount: 85, unit: 'г', category: 'фрукти' },
-      { name: 'Полуниця, вишня або малина сушені (окремо)', amount: 45, unit: 'г', category: 'ягоди' },
-      { name: 'Кориця та мед натуральний', amount: 10, unit: 'г', category: 'солодощі' }
+      { name: 'Яблука сушені часточками або пастила (окремо)', amount: 21.3, unit: 'г', category: 'фрукти' },
+      { name: 'Полуниця, вишня або малина сушені (окремо)', amount: 11.3, unit: 'г', category: 'ягоди' },
+      { name: 'Кориця та мед натуральний', amount: 2.5, unit: 'г', category: 'солодощі' }
     ],
     homePrepSteps: [
       'Яблука нарізати тонкими кільцями або перетерти в пюре з ягодами для пастили.',
@@ -950,7 +1004,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Домашні енергетичні батончики з горіхів, кураги та вівсянки',
     category: 'snack',
     mealTypes: ['snack'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 50,
     kcalPerServing: 240,
     proteinPerServing: 8,
@@ -958,10 +1012,10 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 22,
     fiberPerServing: 5.0,
     rawIngredients: [
-      { name: 'Курага, фініки та родзинки подрібнені (магазин)', amount: 80, unit: 'г', category: 'сухофрукти' },
-      { name: 'Арахіс, мигдаль або волоські горіхи (магазин)', amount: 55, unit: 'г', category: 'горіхи' },
-      { name: 'Вівсяні пластівці та насіння льону (магазин)', amount: 45, unit: 'г', category: 'крупи' },
-      { name: 'Мед та арахісова паста (магазин)', amount: 20, unit: 'г', category: 'горіхи' }
+      { name: 'Курага, фініки та родзинки подрібнені (магазин)', amount: 20, unit: 'г', category: 'сухофрукти' },
+      { name: 'Арахіс, мигдаль або волоські горіхи (магазин)', amount: 13.8, unit: 'г', category: 'горіхи' },
+      { name: 'Вівсяні пластівці та насіння льону (магазин)', amount: 11.3, unit: 'г', category: 'крупи' },
+      { name: 'Мед та арахісова паста (магазин)', amount: 5, unit: 'г', category: 'горіхи' }
     ],
     homePrepSteps: [
       'Всі інгредієнти вже сухі з магазину.',
@@ -986,7 +1040,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Карпатський трейл-мікс (горіхи, сушені ягоди та чорний шоколад)',
     category: 'snack',
     mealTypes: ['snack'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 45,
     kcalPerServing: 280,
     proteinPerServing: 9,
@@ -994,9 +1048,9 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 6,
     fiberPerServing: 3.5,
     rawIngredients: [
-      { name: 'Мигдаль, фундук та кеш\'ю смажені (магазин)', amount: 90, unit: 'г', category: 'горіхи' },
-      { name: 'Журавлина, вишня або яблука сушені (окремо)', amount: 50, unit: 'г', category: 'ягоди' },
-      { name: 'Шоколад чорний 70% шматочками (магазин)', amount: 40, unit: 'г', category: 'солодощі' }
+      { name: 'Мигдаль, фундук та кеш\'ю смажені (магазин)', amount: 22.5, unit: 'г', category: 'горіхи' },
+      { name: 'Журавлина, вишня або яблука сушені (окремо)', amount: 12.5, unit: 'г', category: 'ягоди' },
+      { name: 'Шоколад чорний 70% шматочками (магазин)', amount: 10, unit: 'г', category: 'солодощі' }
     ],
     homePrepSteps: [
       'Сушаться окремо лише ягоди/яблука (або купуються готовими сушеними).',
@@ -1023,7 +1077,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Вівсяна каша молочна з родзинками та волоськими горіхами',
     category: 'breakfast',
     mealTypes: ['breakfast'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 85,
     kcalPerServing: 365,
     proteinPerServing: 12,
@@ -1031,10 +1085,10 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 56,
     fiberPerServing: 6.0,
     rawIngredients: [
-      { name: 'Вівсяні пластівці швидкого приготування (магазин)', amount: 180, unit: 'г', category: 'крупи' },
-      { name: 'Молоко сухе незбиране 25% (магазин)', amount: 60, unit: 'г', category: 'молочні' },
-      { name: 'Родзинки без кісточок (магазин)', amount: 60, unit: 'г', category: 'сухофрукти' },
-      { name: 'Горіхи волоські очищені (магазин)', amount: 40, unit: 'г', category: 'горіхи' }
+      { name: 'Вівсяні пластівці швидкого приготування (магазин)', amount: 45, unit: 'г', category: 'крупи' },
+      { name: 'Молоко сухе незбиране 25% (магазин)', amount: 15, unit: 'г', category: 'молочні' },
+      { name: 'Родзинки без кісточок (магазин)', amount: 15, unit: 'г', category: 'сухофрукти' },
+      { name: 'Горіхи волоські очищені (магазин)', amount: 10, unit: 'г', category: 'горіхи' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — всі інгредієнти купуються готовими в магазині.',
@@ -1059,7 +1113,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Манна каша молочна з курагою та медом',
     category: 'breakfast',
     mealTypes: ['breakfast'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 90,
     kcalPerServing: 370,
     proteinPerServing: 11,
@@ -1067,10 +1121,10 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 65,
     fiberPerServing: 3.5,
     rawIngredients: [
-      { name: 'Крупа манна (магазин)', amount: 180, unit: 'г', category: 'крупи' },
-      { name: 'Молоко сухе незбиране 25% (магазин)', amount: 65, unit: 'г', category: 'молочні' },
-      { name: 'Курага нарізана смужками (магазин)', amount: 60, unit: 'г', category: 'сухофрукти' },
-      { name: 'Мед натуральний або згущене молоко (магазин)', amount: 55, unit: 'г', category: 'солодощі' }
+      { name: 'Крупа манна (магазин)', amount: 45, unit: 'г', category: 'крупи' },
+      { name: 'Молоко сухе незбиране 25% (магазин)', amount: 16.3, unit: 'г', category: 'молочні' },
+      { name: 'Курага нарізана смужками (магазин)', amount: 15, unit: 'г', category: 'сухофрукти' },
+      { name: 'Мед натуральний або згущене молоко (магазин)', amount: 13.8, unit: 'г', category: 'солодощі' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — змішати манну крупу, сухе молоко та нарізану курагу в зіп-пакет.',
@@ -1095,7 +1149,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Гречана каша молочна з пластівців із топленим маслом',
     category: 'breakfast',
     mealTypes: ['breakfast'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 80,
     kcalPerServing: 360,
     proteinPerServing: 13,
@@ -1103,9 +1157,9 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 52,
     fiberPerServing: 5.5,
     rawIngredients: [
-      { name: 'Гречані пластівці швидкого приготування (магазин)', amount: 200, unit: 'г', category: 'крупи' },
-      { name: 'Молоко сухе незбиране (магазин)', amount: 75, unit: 'г', category: 'молочні' },
-      { name: 'Масло топлене Гхі або вершкове (магазин)', amount: 45, unit: 'г', category: 'молочні' }
+      { name: 'Гречані пластівці швидкого приготування (магазин)', amount: 50, unit: 'г', category: 'крупи' },
+      { name: 'Молоко сухе незбиране (магазин)', amount: 18.8, unit: 'г', category: 'молочні' },
+      { name: 'Масло топлене Гхі або вершкове (магазин)', amount: 11.3, unit: 'г', category: 'молочні' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — змішати гречані пластівці та сухе молоко в зіп-пакет.'
@@ -1129,7 +1183,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Солодкий кускус із фініками, курагою та корицею',
     category: 'breakfast',
     mealTypes: ['breakfast'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 90,
     kcalPerServing: 355,
     proteinPerServing: 9,
@@ -1137,10 +1191,10 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 72,
     fiberPerServing: 6.0,
     rawIngredients: [
-      { name: 'Кускус швидкого приготування (магазин)', amount: 200, unit: 'г', category: 'крупи' },
-      { name: 'Фініки сушені без кісточки нарізані (магазин)', amount: 80, unit: 'г', category: 'сухофрукти' },
-      { name: 'Курага та родзинки (магазин)', amount: 70, unit: 'г', category: 'сухофрукти' },
-      { name: 'Кориця мелена та кокосова стружка (магазин)', amount: 10, unit: 'г', category: 'спеції' }
+      { name: 'Кускус швидкого приготування (магазин)', amount: 50, unit: 'г', category: 'крупи' },
+      { name: 'Фініки сушені без кісточки нарізані (магазин)', amount: 20, unit: 'г', category: 'сухофрукти' },
+      { name: 'Курага та родзинки (магазин)', amount: 17.5, unit: 'г', category: 'сухофрукти' },
+      { name: 'Кориця мелена та кокосова стружка (магазин)', amount: 2.5, unit: 'г', category: 'спеції' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — змішати сухий кускус із нарізаними фініками, курагою, родзинками та корицею в зіп-пакет.'
@@ -1164,7 +1218,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Кукурудзяна каша (банош) із твердим сиром та вершками',
     category: 'breakfast',
     mealTypes: ['breakfast'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 90,
     kcalPerServing: 395,
     proteinPerServing: 15,
@@ -1172,10 +1226,10 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 52,
     fiberPerServing: 4.0,
     rawIngredients: [
-      { name: 'Кукурудзяна крупа експрес / полента швидка (магазин)', amount: 200, unit: 'г', category: 'крупи' },
-      { name: 'Сир твердий Гауда або Чеддер (магазин)', amount: 90, unit: 'г', category: 'молочні' },
-      { name: 'Сухі вершки або сухе молоко (магазин)', amount: 50, unit: 'г', category: 'молочні' },
-      { name: 'Масло топлене (магазин)', amount: 20, unit: 'г', category: 'молочні' }
+      { name: 'Кукурудзяна крупа експрес / полента швидка (магазин)', amount: 50, unit: 'г', category: 'крупи' },
+      { name: 'Сир твердий Гауда або Чеддер (магазин)', amount: 22.5, unit: 'г', category: 'молочні' },
+      { name: 'Сухі вершки або сухе молоко (магазин)', amount: 12.5, unit: 'г', category: 'молочні' },
+      { name: 'Масло топлене (магазин)', amount: 5, unit: 'г', category: 'молочні' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — змішати кукурудзяну поленту швидкого варіння із сухими вершками у пакет. Твердий сир нарізати кубиками в таборі.'
@@ -1199,7 +1253,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Бутербродний обід: галети з салямі, твердим сиром та халвою',
     category: 'main',
     mealTypes: ['lunch'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 115,
     kcalPerServing: 510,
     proteinPerServing: 21,
@@ -1207,10 +1261,10 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 44,
     fiberPerServing: 4.0,
     rawIngredients: [
-      { name: 'Галети армійські або сухарі пшеничні (магазин)', amount: 160, unit: 'г', category: 'хліб' },
-      { name: 'Ковбаса сирокопчена салямі (магазин)', amount: 120, unit: 'г', category: 'м\'ясо' },
-      { name: 'Сир твердий Гауда / Чеддер (магазин)', amount: 100, unit: 'г', category: 'молочні' },
-      { name: 'Халва соняшникова або тахінна (магазин)', amount: 80, unit: 'г', category: 'солодощі' }
+      { name: 'Галети армійські або сухарі пшеничні (магазин)', amount: 40, unit: 'г', category: 'хліб' },
+      { name: 'Ковбаса сирокопчена салямі (магазин)', amount: 30, unit: 'г', category: 'м\'ясо' },
+      { name: 'Сир твердий Гауда / Чеддер (магазин)', amount: 25, unit: 'г', category: 'молочні' },
+      { name: 'Халва соняшникова або тахінна (магазин)', amount: 20, unit: 'г', category: 'солодощі' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — класичний ходовий обід без варіння із готових магазинних продуктів.',
@@ -1235,7 +1289,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Український обід на привалі: житні сухарі з салом, корейкою та шоколадом',
     category: 'main',
     mealTypes: ['lunch'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 110,
     kcalPerServing: 540,
     proteinPerServing: 14,
@@ -1243,10 +1297,10 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 40,
     fiberPerServing: 4.5,
     rawIngredients: [
-      { name: 'Сухарі житні або хлібці (магазин)', amount: 160, unit: 'г', category: 'хліб' },
-      { name: 'Сало солоне шпик із часником (магазин)', amount: 100, unit: 'г', category: 'м\'ясо' },
-      { name: 'Корейка копчена або балик (магазин)', amount: 100, unit: 'г', category: 'м\'ясо' },
-      { name: 'Шоколад чорний 70% (магазин)', amount: 80, unit: 'г', category: 'солодощі' }
+      { name: 'Сухарі житні або хлібці (магазин)', amount: 40, unit: 'г', category: 'хліб' },
+      { name: 'Сало солоне шпик із часником (магазин)', amount: 25, unit: 'г', category: 'м\'ясо' },
+      { name: 'Корейка копчена або балик (магазин)', amount: 25, unit: 'г', category: 'м\'ясо' },
+      { name: 'Шоколад чорний 70% (магазин)', amount: 20, unit: 'г', category: 'солодощі' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — всі продукти готові до походу.',
@@ -1271,7 +1325,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Гороховий суп експрес із мисливськими ковбасками та сухариками',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 90,
     kcalPerServing: 375,
     proteinPerServing: 18,
@@ -1279,9 +1333,9 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 44,
     fiberPerServing: 6.5,
     rawIngredients: [
-      { name: 'Суп гороховий у брикетах/пакетах швидкий (магазин)', amount: 180, unit: 'г', category: 'бобові' },
-      { name: 'Ковбаски мисливські сирокопчені (магазин)', amount: 100, unit: 'г', category: 'м\'ясо' },
-      { name: 'Сухарі житні або пшеничні до супу (магазин)', amount: 80, unit: 'г', category: 'хліб' }
+      { name: 'Суп гороховий у брикетах/пакетах швидкий (магазин)', amount: 45, unit: 'г', category: 'бобові' },
+      { name: 'Ковбаски мисливські сирокопчені (магазин)', amount: 25, unit: 'г', category: 'м\'ясо' },
+      { name: 'Сухарі житні або пшеничні до супу (магазин)', amount: 20, unit: 'г', category: 'хліб' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — береться магазинний брикет горохового супу, пачка сухариків та мисливські ковбаски у вакуумній упаковці.'
@@ -1305,7 +1359,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Похідний ланч-сет: галети з яблучною пастилою, курагою та щербетом',
     category: 'main',
     mealTypes: ['lunch'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 105,
     kcalPerServing: 390,
     proteinPerServing: 8,
@@ -1313,10 +1367,10 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 70,
     fiberPerServing: 6.0,
     rawIngredients: [
-      { name: 'Галети похідні або сухарі пшеничні (магазин)', amount: 160, unit: 'г', category: 'хліб' },
-      { name: 'Курага та чорнослив без кісточки (магазин)', amount: 100, unit: 'г', category: 'сухофрукти' },
-      { name: 'Пастила яблучна натуральна (магазин)', amount: 80, unit: 'г', category: 'солодощі' },
-      { name: 'Щербет або чорний шоколад (магазин)', amount: 80, unit: 'г', category: 'солодощі' }
+      { name: 'Галети похідні або сухарі пшеничні (магазин)', amount: 40, unit: 'г', category: 'хліб' },
+      { name: 'Курага та чорнослив без кісточки (магазин)', amount: 25, unit: 'г', category: 'сухофрукти' },
+      { name: 'Пастила яблучна натуральна (магазин)', amount: 20, unit: 'г', category: 'солодощі' },
+      { name: 'Щербет або чорний шоколад (магазин)', amount: 20, unit: 'г', category: 'солодощі' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — легкий рослинний обід без варіння із готових магазинних продуктів.'
@@ -1340,7 +1394,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Гречка по-купецьки з яловичою тушонкою',
     category: 'main',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 105,
     kcalPerServing: 430,
     proteinPerServing: 24,
@@ -1348,10 +1402,10 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 50,
     fiberPerServing: 7.0,
     rawIngredients: [
-      { name: 'Крупа гречана ядриця або пластівці (магазин)', amount: 220, unit: 'г', category: 'крупи' },
-      { name: 'Тушонка яловича у м\'якій реторт-упаковці (магазин)', amount: 160, unit: 'г', category: 'м\'ясо' },
-      { name: 'Олія соняшникова або смалець із тушонки (магазин)', amount: 25, unit: 'г', category: 'жири' },
-      { name: 'Сушений часник, цибуля та спеції (магазин)', amount: 15, unit: 'г', category: 'спеції' }
+      { name: 'Крупа гречана ядриця або пластівці (магазин)', amount: 55, unit: 'г', category: 'крупи' },
+      { name: 'Тушонка яловича у м\'якій реторт-упаковці (магазин)', amount: 40, unit: 'г', category: 'м\'ясо' },
+      { name: 'Олія соняшникова або смалець із тушонки (магазин)', amount: 6.3, unit: 'г', category: 'жири' },
+      { name: 'Сушений часник, цибуля та спеції (магазин)', amount: 3.8, unit: 'г', category: 'спеції' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — класична похідна вечеря з магазинних продуктів.',
@@ -1376,7 +1430,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Кускус із яловичою тушонкою та лісовими грибами',
     category: 'main',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 105,
     kcalPerServing: 440,
     proteinPerServing: 23,
@@ -1384,10 +1438,10 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 53,
     fiberPerServing: 4.5,
     rawIngredients: [
-      { name: 'Кускус швидкого приготування (магазин)', amount: 220, unit: 'г', category: 'крупи' },
-      { name: 'Тушонка яловича класична (магазин)', amount: 150, unit: 'г', category: 'м\'ясо' },
-      { name: 'Гриби сушені та солодка паприка (магазин)', amount: 30, unit: 'г', category: 'гриби' },
-      { name: 'Олія рослинна (магазин)', amount: 20, unit: 'г', category: 'жири' }
+      { name: 'Кускус швидкого приготування (магазин)', amount: 55, unit: 'г', category: 'крупи' },
+      { name: 'Тушонка яловича класична (магазин)', amount: 37.5, unit: 'г', category: 'м\'ясо' },
+      { name: 'Гриби сушені та солодка паприка (магазин)', amount: 7.5, unit: 'г', category: 'гриби' },
+      { name: 'Олія рослинна (магазин)', amount: 5, unit: 'г', category: 'жири' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — змішати кускус із магазинними сушеними грибами та паприкою в пакет, додати реторт-пакет тушонки.'
@@ -1411,7 +1465,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Макарони по-похідному з твердим сиром та салямі',
     category: 'main',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 105,
     kcalPerServing: 465,
     proteinPerServing: 22,
@@ -1419,10 +1473,10 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 53,
     fiberPerServing: 3.5,
     rawIngredients: [
-      { name: 'Макарони ріжки або спіральки твердих сортів (магазин)', amount: 220, unit: 'г', category: 'макарони' },
-      { name: 'Ковбаса сирокопчена салямі (магазин)', amount: 100, unit: 'г', category: 'м\'ясо' },
-      { name: 'Сир твердий Гауда / Чеддер (магазин)', amount: 80, unit: 'г', category: 'молочні' },
-      { name: 'Італійські трави та сушений часник (магазин)', amount: 20, unit: 'г', category: 'спеції' }
+      { name: 'Макарони ріжки або спіральки твердих сортів (магазин)', amount: 55, unit: 'г', category: 'макарони' },
+      { name: 'Ковбаса сирокопчена салямі (магазин)', amount: 25, unit: 'г', category: 'м\'ясо' },
+      { name: 'Сир твердий Гауда / Чеддер (магазин)', amount: 20, unit: 'г', category: 'молочні' },
+      { name: 'Італійські трави та сушений часник (магазин)', amount: 5, unit: 'г', category: 'спеції' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — макарони, сир і сирокопчена салямі купуються у звичайному супермаркеті.'
@@ -1446,7 +1500,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Картопляне пюре з мисливськими ковбасками та сиром',
     category: 'main',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 100,
     kcalPerServing: 435,
     proteinPerServing: 19,
@@ -1454,10 +1508,10 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 49,
     fiberPerServing: 4.0,
     rawIngredients: [
-      { name: 'Картопляні пластівці швидкого приготування (магазин)', amount: 180, unit: 'г', category: 'крупи' },
-      { name: 'Ковбаски мисливські або кабаноси (магазин)', amount: 120, unit: 'г', category: 'м\'ясо' },
-      { name: 'Сир твердий або плавлений (магазин)', amount: 60, unit: 'г', category: 'молочні' },
-      { name: 'Сухе молоко та сушений кріп (магазин)', amount: 40, unit: 'г', category: 'молочні' }
+      { name: 'Картопляні пластівці швидкого приготування (магазин)', amount: 45, unit: 'г', category: 'крупи' },
+      { name: 'Ковбаски мисливські або кабаноси (магазин)', amount: 30, unit: 'г', category: 'м\'ясо' },
+      { name: 'Сир твердий або плавлений (магазин)', amount: 15, unit: 'г', category: 'молочні' },
+      { name: 'Сухе молоко та сушений кріп (магазин)', amount: 10, unit: 'г', category: 'молочні' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — змішати картопляні пластівці з сухим молоком та сушеним кропом у пакет; ковбаски та сир додати при заварюванні.'
@@ -1481,7 +1535,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Плов похідний із пропареного рису з тушонкою',
     category: 'main',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 105,
     kcalPerServing: 445,
     proteinPerServing: 21,
@@ -1489,10 +1543,10 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 56,
     fiberPerServing: 3.0,
     rawIngredients: [
-      { name: 'Рис пропарений довгозерний (магазин)', amount: 220, unit: 'г', category: 'крупи' },
-      { name: 'Тушонка яловича або куряча (магазин)', amount: 150, unit: 'г', category: 'м\'ясо' },
-      { name: 'Олія соняшникова (магазин)', amount: 30, unit: 'г', category: 'жири' },
-      { name: 'Приправа до плову: зіра, барбарис, часник (магазин)', amount: 20, unit: 'г', category: 'спеції' }
+      { name: 'Рис пропарений довгозерний (магазин)', amount: 55, unit: 'г', category: 'крупи' },
+      { name: 'Тушонка яловича або куряча (магазин)', amount: 37.5, unit: 'г', category: 'м\'ясо' },
+      { name: 'Олія соняшникова (магазин)', amount: 7.5, unit: 'г', category: 'жири' },
+      { name: 'Приправа до плову: зіра, барбарис, часник (магазин)', amount: 5, unit: 'г', category: 'спеції' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — змішати пропарений рис із приправою до плову в пакет, додати реторт-пакет тушонки.'
@@ -1516,7 +1570,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Червона сочевиця з булгуром та пряними спеціями карі',
     category: 'main',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 90,
     kcalPerServing: 375,
     proteinPerServing: 18,
@@ -1524,10 +1578,10 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 57,
     fiberPerServing: 8.5,
     rawIngredients: [
-      { name: 'Сочевиця червона колота швидка (магазин)', amount: 160, unit: 'г', category: 'бобові' },
-      { name: 'Булгур дрібний швидкого варіння (магазин)', amount: 140, unit: 'г', category: 'крупи' },
-      { name: 'Олія соняшникова або оливкова (магазин)', amount: 35, unit: 'г', category: 'жири' },
-      { name: 'Сушені томати, часник та спеції карі (магазин)', amount: 25, unit: 'г', category: 'спеції' }
+      { name: 'Сочевиця червона колота швидка (магазин)', amount: 40, unit: 'г', category: 'бобові' },
+      { name: 'Булгур дрібний швидкого варіння (магазин)', amount: 35, unit: 'г', category: 'крупи' },
+      { name: 'Олія соняшникова або оливкова (магазин)', amount: 8.8, unit: 'г', category: 'жири' },
+      { name: 'Сушені томати, часник та спеції карі (магазин)', amount: 6.3, unit: 'г', category: 'спеції' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — змішати в одному пакеті червону сочевицю, дрібний булгур та готові сухі спеції з магазину.'
@@ -1551,7 +1605,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Макарони з лісовими грибами, оливковою олією та травами',
     category: 'main',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 90,
     kcalPerServing: 385,
     proteinPerServing: 14,
@@ -1559,10 +1613,10 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 60,
     fiberPerServing: 5.0,
     rawIngredients: [
-      { name: 'Макарони твердих сортів спіральки (магазин)', amount: 230, unit: 'г', category: 'макарони' },
-      { name: 'Гриби лісові сушені мелені/слайсами (магазин)', amount: 50, unit: 'г', category: 'гриби' },
-      { name: 'В\'ялені томати та солодкий перець (магазин)', amount: 45, unit: 'г', category: 'спеції' },
-      { name: 'Олія оливкова або соняшникова (магазин)', amount: 35, unit: 'г', category: 'жири' }
+      { name: 'Макарони твердих сортів спіральки (магазин)', amount: 57.5, unit: 'г', category: 'макарони' },
+      { name: 'Гриби лісові сушені мелені/слайсами (магазин)', amount: 12.5, unit: 'г', category: 'гриби' },
+      { name: 'В\'ялені томати та солодкий перець (магазин)', amount: 11.3, unit: 'г', category: 'спеції' },
+      { name: 'Олія оливкова або соняшникова (магазин)', amount: 8.8, unit: 'г', category: 'жири' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — всі інгредієнти купуються готовими сухими у відділі бакалії та спецій.'
@@ -1586,7 +1640,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Енергетичний перекус: мигдаль, курага та чорний шоколад',
     category: 'snack',
     mealTypes: ['snack'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 60,
     kcalPerServing: 305,
     proteinPerServing: 7,
@@ -1594,9 +1648,9 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 29,
     fiberPerServing: 5.0,
     rawIngredients: [
-      { name: 'Мигдаль сушений смажений (магазин)', amount: 80, unit: 'г', category: 'горіхи' },
-      { name: 'Курага без кісточки (магазин)', amount: 80, unit: 'г', category: 'сухофрукти' },
-      { name: 'Шоколад чорний 70%+ (магазин)', amount: 80, unit: 'г', category: 'солодощі' }
+      { name: 'Мигдаль сушений смажений (магазин)', amount: 20, unit: 'г', category: 'горіхи' },
+      { name: 'Курага без кісточки (магазин)', amount: 20, unit: 'г', category: 'сухофрукти' },
+      { name: 'Шоколад чорний 70%+ (магазин)', amount: 20, unit: 'г', category: 'солодощі' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — розфасувати мигдаль, курагу та чорний шоколад у денний пакет кишенькового перекусу.'
@@ -1620,7 +1674,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Солодкий привал: злаковий батончик, волоські горіхи та халва',
     category: 'snack',
     mealTypes: ['snack'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 60,
     kcalPerServing: 310,
     proteinPerServing: 8,
@@ -1628,9 +1682,9 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 28,
     fiberPerServing: 4.0,
     rawIngredients: [
-      { name: 'Батончик енергетичний злаковий (магазин)', amount: 100, unit: 'г', category: 'солодощі' },
-      { name: 'Халва соняшникова порційна (магазин)', amount: 80, unit: 'г', category: 'солодощі' },
-      { name: 'Горіхи волоські очищені (магазин)', amount: 60, unit: 'г', category: 'горіхи' }
+      { name: 'Батончик енергетичний злаковий (магазин)', amount: 25, unit: 'г', category: 'солодощі' },
+      { name: 'Халва соняшникова порційна (магазин)', amount: 20, unit: 'г', category: 'солодощі' },
+      { name: 'Горіхи волоські очищені (магазин)', amount: 15, unit: 'г', category: 'горіхи' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — скласти готові злакові батончики, порційну халву та горіхи в пакет перекусу.'
@@ -1654,7 +1708,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Фруктово-шоколадний перекус: фініки, пастила та чорний шоколад',
     category: 'snack',
     mealTypes: ['snack'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 60,
     kcalPerServing: 245,
     proteinPerServing: 3,
@@ -1662,9 +1716,9 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 43,
     fiberPerServing: 5.0,
     rawIngredients: [
-      { name: 'Фініки та курага без кісточки (магазин)', amount: 100, unit: 'г', category: 'сухофрукти' },
-      { name: 'Пастила яблучна натуральна (магазин)', amount: 70, unit: 'г', category: 'солодощі' },
-      { name: 'Шоколад чорний 70% (магазин)', amount: 70, unit: 'г', category: 'солодощі' }
+      { name: 'Фініки та курага без кісточки (магазин)', amount: 25, unit: 'г', category: 'сухофрукти' },
+      { name: 'Пастила яблучна натуральна (магазин)', amount: 17.5, unit: 'г', category: 'солодощі' },
+      { name: 'Шоколад чорний 70% (магазин)', amount: 17.5, unit: 'г', category: 'солодощі' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — готовий безгоріховий енергетичний перекус із магазинних сухофруктів, пастили та шоколаду.'
@@ -1690,7 +1744,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Борщ червоний пісний із сушеними грибами (ТК «Глобус»)',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 52,
     kcalPerServing: 185,
     proteinPerServing: 8,
@@ -1698,13 +1752,15 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 34,
     fiberPerServing: 6.5,
     rawIngredients: [
-      { name: 'Картопля сушена (окремо або пластівці)', amount: 80, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
-      { name: 'Помідори сушені (усушка 1:16)', amount: 32, unit: 'г', category: 'овочі', rawToDryRatio: 16.0 },
-      { name: 'Гриби лісові сушені (замість м\'яса — 7 г/ос)', amount: 28, unit: 'г', category: 'гриби', rawToDryRatio: 9.0 },
-      { name: 'Перець червоний солодкий сушений (усушка 1:17)', amount: 24, unit: 'г', category: 'овочі', rawToDryRatio: 17.0 },
-      { name: 'Буряк столовий сушений (4 г/ос)', amount: 16, unit: 'г', category: 'овочі', rawToDryRatio: 7.5 },
-      { name: 'Капуста білокачанна сушена (усушка 1:11)', amount: 16, unit: 'г', category: 'овочі', rawToDryRatio: 11.0 },
-      { name: 'Цибуля ріпчаста, морква та зелень (кріп, петрушка) сушені', amount: 12, unit: 'г', category: 'овочі', rawToDryRatio: 10.0 }
+      { name: 'Картопля сушена (окремо або пластівці)', amount: 20, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Помідори сушені (усушка 1:16)', amount: 8, unit: 'г', category: 'овочі', rawToDryRatio: 16 },
+      { name: 'Гриби лісові сушені (замість м\'яса — 7 г/ос)', amount: 7, unit: 'г', category: 'гриби', rawToDryRatio: 9 },
+      { name: 'Перець червоний солодкий сушений (усушка 1:17)', amount: 6, unit: 'г', category: 'овочі', rawToDryRatio: 17 },
+      { name: 'Буряк столовий сушений', amount: 4, unit: 'г', category: 'овочі', rawToDryRatio: 7.5 },
+      { name: 'Капуста білокачанна сушена (усушка 1:11)', amount: 4, unit: 'г', category: 'овочі', rawToDryRatio: 11 },
+      { name: 'Цибуля ріпчаста сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Морква столова сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Зелень сушена (кріп, петрушка)', amount: 1, unit: 'г', category: 'зелень', rawToDryRatio: 10 }
     ],
     homePrepSteps: [
       'Класична норма ТК КПІ «Глобус» у розрахунку на 1 людину: картопля — 20 г, гриби сушені — 7 г, помідор — 8 г, перець червоний — 6 г, буряк — 4 г, капуста білокачанна — 4 г, морква — 1 г, цибуля — 1 г, зелень (кріп і петрушка) — 0,5 г.',
@@ -1729,7 +1785,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Борщ червоний з м\'ясом та сушеною квасолею (ТК «Глобус»)',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 65,
     kcalPerServing: 265,
     proteinPerServing: 18,
@@ -1737,13 +1793,16 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 35,
     fiberPerServing: 6.8,
     rawIngredients: [
-      { name: 'Картопля сушена (20 г/ос)', amount: 80, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
-      { name: 'М\'ясо яловиче сушене шматочками (15 г/ос, усушка 1:5)', amount: 60, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5.0 },
-      { name: 'Помідори сушені (8 г/ос, усушка 1:16)', amount: 32, unit: 'г', category: 'овочі', rawToDryRatio: 16.0 },
-      { name: 'Перець червоний сушений (6 г/ос, усушка 1:17)', amount: 24, unit: 'г', category: 'овочі', rawToDryRatio: 17.0 },
-      { name: 'Квасоля консервована/відварена сушена (5 г/ос)', amount: 20, unit: 'г', category: 'бобові', rawToDryRatio: 3.0 },
-      { name: 'Буряк сушений (4 г/ос) та капуста білокачанна (4 г/ос)', amount: 32, unit: 'г', category: 'овочі', rawToDryRatio: 9.0 },
-      { name: 'Морква (1 г/ос), цибуля (1 г/ос) та зелень (0,5 г/ос) сушені', amount: 12, unit: 'г', category: 'овочі', rawToDryRatio: 10.0 }
+      { name: 'Картопля сушена', amount: 20, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'М\'ясо яловиче сушене шматочками', amount: 15, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5 },
+      { name: 'Помідори сушені', amount: 8, unit: 'г', category: 'овочі', rawToDryRatio: 16 },
+      { name: 'Перець червоний сушений', amount: 6, unit: 'г', category: 'овочі', rawToDryRatio: 17 },
+      { name: 'Квасоля консервована/відварена сушена', amount: 5, unit: 'г', category: 'бобові', rawToDryRatio: 3 },
+      { name: 'Буряк столовий сушений', amount: 4, unit: 'г', category: 'овочі', rawToDryRatio: 8 },
+      { name: 'Капуста білокачанна сушена', amount: 4, unit: 'г', category: 'овочі', rawToDryRatio: 11 },
+      { name: 'Морква сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Цибуля сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Зелень сушена (кріп, петрушка)', amount: 0.5, unit: 'г', category: 'зелень', rawToDryRatio: 10 }
     ],
     homePrepSteps: [
       'За розкладкою ТК «Глобус»: до основного складу червоного борщу з м\'ясом (15 г/ос) додається сушена консервована (або попередньо відварена) квасоля з розрахунку 5 г/людину.',
@@ -1768,7 +1827,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Розсольник похідний з м\'ясом, рисом та солоними огірками (ТК «Глобус»)',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 70,
     kcalPerServing: 280,
     proteinPerServing: 16,
@@ -1776,12 +1835,16 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 40,
     fiberPerServing: 4.2,
     rawIngredients: [
-      { name: 'Рис білий або пропарений (20 г/ос, магазин)', amount: 80, unit: 'г', category: 'крупи' },
-      { name: 'Картопля сушена (20 г/ос)', amount: 80, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
-      { name: 'М\'ясо сушене шматочками (15 г/ос, усушка 1:5)', amount: 60, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5.0 },
-      { name: 'Огірки солоні бочкові сушені (6 г/ос)', amount: 24, unit: 'г', category: 'овочі', rawToDryRatio: 12.0 },
-      { name: 'Помідори (2 г/ос) та перець солодкий (1,5 г/ос) сушені', amount: 14, unit: 'г', category: 'овочі', rawToDryRatio: 16.0 },
-      { name: 'Капуста білокачанна (2 г/ос), морква (1 г), цибуля (1 г) та зелень (0,5 г)', amount: 18, unit: 'г', category: 'овочі', rawToDryRatio: 11.0 }
+      { name: 'Рис білий або пропарений', amount: 20, unit: 'г', category: 'крупи' },
+      { name: 'Картопля сушена', amount: 20, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'М\'ясо сушене шматочками', amount: 15, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5 },
+      { name: 'Огірки солоні бочкові сушені', amount: 6, unit: 'г', category: 'овочі', rawToDryRatio: 12 },
+      { name: 'Помідори сушені', amount: 2, unit: 'г', category: 'овочі', rawToDryRatio: 16 },
+      { name: 'Перець червоний солодкий сушений', amount: 1.5, unit: 'г', category: 'овочі', rawToDryRatio: 17 },
+      { name: 'Капуста білокачанна сушена', amount: 2, unit: 'г', category: 'овочі', rawToDryRatio: 11 },
+      { name: 'Морква сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Цибуля сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Зелень сушена', amount: 0.5, unit: 'г', category: 'зелень', rawToDryRatio: 10 }
     ],
     homePrepSteps: [
       'Норма ТК «Глобус» на 1 особу: м\'ясо шматочками — 15 г, рис — 20 г, картопля — 20 г, огірки солоні сушені — 6 г, капуста — 2 г, помідори — 2 г, перець — 1,5 г, цибуля — 1 г, морква — 1 г, зелень — 0,5 г.',
@@ -1806,7 +1869,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Овочевий суп з м\'ясом, цвітною капустою, горошком та кукурудзою (ТК «Глобус»)',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 50,
     kcalPerServing: 210,
     proteinPerServing: 16,
@@ -1814,12 +1877,17 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 26,
     fiberPerServing: 5.0,
     rawIngredients: [
-      { name: 'Картопля сушена (20 г/ос)', amount: 80, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
-      { name: 'М\'ясо сушене шматочками (15 г/ос, усушка 1:5)', amount: 60, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5.0 },
-      { name: 'Кукурудза солодка (3 г/ос) та зелений горошок (2 г/ос) сушені', amount: 20, unit: 'г', category: 'овочі', rawToDryRatio: 4.5 },
-      { name: 'Цвітна капуста (2 г/ос, 1:15) та білокачанна капуста (2 г/ос, 1:11)', amount: 16, unit: 'г', category: 'овочі', rawToDryRatio: 13.0 },
-      { name: 'Помідори (2 г/ос) та перець солодкий (1,5 г/ос) сушені', amount: 14, unit: 'г', category: 'овочі', rawToDryRatio: 16.0 },
-      { name: 'Морква (1 г/ос), цибуля (1 г/ос) та зелень (0,5 г/ос) сушені', amount: 10, unit: 'г', category: 'овочі', rawToDryRatio: 10.0 }
+      { name: 'Картопля сушена', amount: 20, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'М\'ясо сушене шматочками', amount: 15, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5 },
+      { name: 'Кукурудза солодка сушена', amount: 3, unit: 'г', category: 'овочі', rawToDryRatio: 4.5 },
+      { name: 'Зелений горошок сушений', amount: 2, unit: 'г', category: 'овочі', rawToDryRatio: 4.5 },
+      { name: 'Цвітна капуста сушена', amount: 2, unit: 'г', category: 'овочі', rawToDryRatio: 15 },
+      { name: 'Білокачанна капуста сушена', amount: 2, unit: 'г', category: 'овочі', rawToDryRatio: 11 },
+      { name: 'Помідори сушені', amount: 2, unit: 'г', category: 'овочі', rawToDryRatio: 16 },
+      { name: 'Перець червоний солодкий сушений', amount: 1.5, unit: 'г', category: 'овочі', rawToDryRatio: 17 },
+      { name: 'Морква сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Цибуля сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Зелень сушена (кріп, петрушка)', amount: 0.5, unit: 'г', category: 'зелень', rawToDryRatio: 10 }
     ],
     homePrepSteps: [
       'Норма ТК «Глобус» на 1 людину: м\'ясо шматочками — 15 г, картопля — 20 г, цвітна капуста — 2 г, білокачанна капуста — 2 г, кукурудза солодка — 3 г, зелений горошок — 2 г, помідори — 2 г, перець — 1,5 г, цибуля — 1 г, морква — 1 г, зелень — 0,5 г.',
@@ -1844,7 +1912,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Грибний суп із гречкою та сушеними лісовими грибами (ТК «Глобус»)',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 53,
     kcalPerServing: 195,
     proteinPerServing: 8,
@@ -1852,11 +1920,14 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 36,
     fiberPerServing: 5.5,
     rawIngredients: [
-      { name: 'Гречана крупа (20 г/ос, магазин)', amount: 80, unit: 'г', category: 'крупи' },
-      { name: 'Картопля сушена (20 г/ос)', amount: 80, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
-      { name: 'Гриби лісові сушені (7 г/ос)', amount: 28, unit: 'г', category: 'гриби', rawToDryRatio: 9.0 },
-      { name: 'Капуста білокачанна (2 г/ос) та перець солодкий (1,5 г/ос) сушені', amount: 14, unit: 'г', category: 'овочі', rawToDryRatio: 13.0 },
-      { name: 'Цибуля ріпчаста (1 г/ос), морква (1 г/ос) та зелень (0,5 г/ос) сушені', amount: 10, unit: 'г', category: 'овочі', rawToDryRatio: 10.0 }
+      { name: 'Гречана крупа', amount: 20, unit: 'г', category: 'крупи' },
+      { name: 'Картопля сушена', amount: 20, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Гриби лісові сушені', amount: 7, unit: 'г', category: 'гриби', rawToDryRatio: 9 },
+      { name: 'Капуста білокачанна сушена', amount: 2, unit: 'г', category: 'овочі', rawToDryRatio: 11 },
+      { name: 'Перець солодкий сушений', amount: 1.5, unit: 'г', category: 'овочі', rawToDryRatio: 17 },
+      { name: 'Цибуля ріпчаста сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Морква сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Зелень сушена', amount: 0.5, unit: 'г', category: 'зелень', rawToDryRatio: 10 }
     ],
     homePrepSteps: [
       'Норма ТК «Глобус» на 1 людину: гречка — 20 г, картопля — 20 г, гриби — 7 г, капуста білокачанна — 2 г, перець — 1,5 г, цибуля — 1 г, морква — 1 г, зелень — 0,5 г.',
@@ -1881,7 +1952,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Гречаний суп із сушеним м\'ясом та овочами (ТК «Глобус»)',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 60,
     kcalPerServing: 245,
     proteinPerServing: 16,
@@ -1889,10 +1960,10 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 33,
     fiberPerServing: 4.5,
     rawIngredients: [
-      { name: 'Гречана крупа (20 г/ос, магазин)', amount: 80, unit: 'г', category: 'крупи' },
-      { name: 'Картопля сушена (20 г/ос)', amount: 80, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
-      { name: 'М\'ясо сушене шматочками (15 г/ос, усушка 1:5)', amount: 60, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5.0 },
-      { name: 'Капуста білокачанна (2 г/ос), морква (1 г), цибуля (1 г), зелень (0,5 г)', amount: 20, unit: 'г', category: 'овочі', rawToDryRatio: 10.0 }
+      { name: 'Гречана крупа', amount: 20, unit: 'г', category: 'крупи' },
+      { name: 'Картопля сушена', amount: 20, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'М\'ясо сушене шматочками', amount: 15, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5 },
+      { name: 'Капуста білокачанна , морква (1 г), цибуля (1 г), зелень (0,5 г)', amount: 5, unit: 'г', category: 'овочі', rawToDryRatio: 10 }
     ],
     homePrepSteps: [
       'Норма ТК «Глобус» на 1 людину: м\'ясо шматочками — 15 г, гречка — 20 г, картопля — 20 г, капуста білокачанна — 2 г, цибуля — 1 г, морква — 1 г, зелень — 0,5 г.',
@@ -1917,7 +1988,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Юшка (Уха) похідна з сушеною рибою та рисом (ТК «Глобус»)',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 59,
     kcalPerServing: 230,
     proteinPerServing: 17,
@@ -1925,10 +1996,13 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 34,
     fiberPerServing: 2.8,
     rawIngredients: [
-      { name: 'Рис білий або пропарений (20 г/ос, магазин)', amount: 80, unit: 'г', category: 'крупи' },
-      { name: 'Картопля сушена (20 г/ос)', amount: 80, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
-      { name: 'Риба варено-сушена шматочками (15 г/ос, усушка 1:9)', amount: 60, unit: 'г', category: 'риба', rawToDryRatio: 9.0 },
-      { name: 'Перець солодкий (1,5 г/ос), морква (1 г), цибуля (1 г) та зелень (0,5 г)', amount: 16, unit: 'г', category: 'овочі', rawToDryRatio: 11.0 }
+      { name: 'Рис білий або пропарений', amount: 20, unit: 'г', category: 'крупи' },
+      { name: 'Картопля сушена', amount: 20, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Риба варено-сушена шматочками', amount: 15, unit: 'г', category: 'риба', rawToDryRatio: 9 },
+      { name: 'Перець солодкий сушений', amount: 1.5, unit: 'г', category: 'овочі', rawToDryRatio: 17 },
+      { name: 'Морква сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Цибуля сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Зелень сушена', amount: 0.5, unit: 'г', category: 'зелень', rawToDryRatio: 10 }
     ],
     homePrepSteps: [
       'Норма ТК «Глобус» на 1 людину: риба сушена — 15 г, рис — 20 г, картопля — 20 г, перець — 1,5 г, цибуля — 1 г, морква — 1 г, зелень — 0,5 г.',
@@ -1953,7 +2027,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Суп із фунчозою (рисовою вермішеллю), м\'ясом та цвітною капустою (ТК «Глобус»)',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 83,
     kcalPerServing: 325,
     proteinPerServing: 16,
@@ -1961,11 +2035,15 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 54,
     fiberPerServing: 3.8,
     rawIngredients: [
-      { name: 'Фунчоза / рисова або звичайна вермішель (40 г/ос, магазин)', amount: 160, unit: 'г', category: 'макарони' },
-      { name: 'Картопля сушена (20 г/ос)', amount: 80, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
-      { name: 'М\'ясо сушене шматочками (15 г/ос, усушка 1:5)', amount: 60, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5.0 },
-      { name: 'Цвітна капуста (2 г/ос) та білокачанна капуста (2 г/ос) сушені', amount: 16, unit: 'г', category: 'овочі', rawToDryRatio: 13.0 },
-      { name: 'Перець червоний (1,5 г/ос), морква (1 г), цибуля (1 г), зелень (0,5 г)', amount: 16, unit: 'г', category: 'овочі', rawToDryRatio: 11.0 }
+      { name: 'Фунчоза / рисова або звичайна вермішель', amount: 40, unit: 'г', category: 'макарони' },
+      { name: 'Картопля сушена', amount: 20, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'М\'ясо сушене шматочками', amount: 15, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5 },
+      { name: 'Цвітна капуста сушена', amount: 2, unit: 'г', category: 'овочі', rawToDryRatio: 15 },
+      { name: 'Білокачанна капуста сушена', amount: 2, unit: 'г', category: 'овочі', rawToDryRatio: 11 },
+      { name: 'Перець червоний сушений', amount: 1.5, unit: 'г', category: 'овочі', rawToDryRatio: 17 },
+      { name: 'Морква сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Цибуля сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Зелень сушена', amount: 0.5, unit: 'г', category: 'зелень', rawToDryRatio: 10 }
     ],
     homePrepSteps: [
       'Норма ТК «Глобус» на 1 людину: фунчоза — 40 г (можна замінити на звичайну тонку вермішель), картопля — 20 г, м\'ясо шматочками — 15 г, цвітна капуста — 2 г, білокачанна капуста — 2 г, перець червоний — 1,5 г, цибуля — 1 г, морква — 1 г, зелень — 0,5 г.',
@@ -1990,7 +2068,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Суп картопляний з м\'ясом та цвітною капустою (ТК «Глобус»)',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 65,
     kcalPerServing: 255,
     proteinPerServing: 16,
@@ -1998,11 +2076,15 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 36,
     fiberPerServing: 4.5,
     rawIngredients: [
-      { name: 'Картопля сушена соломкою/пластівцями (40 г/ос)', amount: 160, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
-      { name: 'М\'ясо сушене шматочками (15 г/ос, усушка 1:5)', amount: 60, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5.0 },
-      { name: 'Цвітна капуста (2 г/ос) та білокачанна капуста (2 г/ос) сушені', amount: 16, unit: 'г', category: 'овочі', rawToDryRatio: 13.0 },
-      { name: 'Помідор (2 г/ос) та перець червоний (1,5 г/ос) сушені', amount: 14, unit: 'г', category: 'овочі', rawToDryRatio: 16.0 },
-      { name: 'Морква (1 г/ос), цибуля (1 г/ос) та зелень (0,5 г/ос) сушені', amount: 10, unit: 'г', category: 'овочі', rawToDryRatio: 10.0 }
+      { name: 'Картопля сушена соломкою/пластівцями', amount: 40, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'М\'ясо сушене шматочками', amount: 15, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5 },
+      { name: 'Цвітна капуста сушена', amount: 2, unit: 'г', category: 'овочі', rawToDryRatio: 15 },
+      { name: 'Білокачанна капуста сушена', amount: 2, unit: 'г', category: 'овочі', rawToDryRatio: 11 },
+      { name: 'Помідори сушені', amount: 2, unit: 'г', category: 'овочі', rawToDryRatio: 16 },
+      { name: 'Перець червоний сушений', amount: 1.5, unit: 'г', category: 'овочі', rawToDryRatio: 17 },
+      { name: 'Морква сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Цибуля сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Зелень сушена (кріп, петрушка)', amount: 0.5, unit: 'г', category: 'зелень', rawToDryRatio: 10 }
     ],
     homePrepSteps: [
       'Норма ТК «Глобус» на 1 людину: картопля — 40 г, м\'ясо шматочками — 15 г, цвітна капуста — 2 г, білокачанна капуста — 2 г, помідор — 2 г, перець червоний — 1,5 г, цибуля — 1 г, морква — 1 г, зелень — 0,5 г.',
@@ -2027,7 +2109,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Суп Харчо похідний з яловичиною, рисом та томатами (ТК «Глобус»)',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 70,
     kcalPerServing: 295,
     proteinPerServing: 20,
@@ -2035,11 +2117,11 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 38,
     fiberPerServing: 3.8,
     rawIngredients: [
-      { name: 'М\'ясо яловиче сушене шматочками (20 г/ос, усушка 1:5)', amount: 80, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5.0 },
-      { name: 'Рис довгозерний або пропарений (20 г/ос, магазин)', amount: 80, unit: 'г', category: 'крупи' },
-      { name: 'Картопля сушена (20 г/ос)', amount: 80, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
-      { name: 'Перець червоний (3 г/ос) та помідори сушені (2 г/ос)', amount: 20, unit: 'г', category: 'овочі', rawToDryRatio: 16.0 },
-      { name: 'Капуста (2 г), морква (1 г), цибуля (1 г), зелень, часник та хмелі-сунелі', amount: 20, unit: 'г', category: 'овочі', rawToDryRatio: 10.0 }
+      { name: 'М\'ясо яловиче сушене шматочками', amount: 20, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5 },
+      { name: 'Рис довгозерний або пропарений', amount: 20, unit: 'г', category: 'крупи' },
+      { name: 'Картопля сушена', amount: 20, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Перець червоний та помідори сушені', amount: 5, unit: 'г', category: 'овочі', rawToDryRatio: 16 },
+      { name: 'Капуста (2 г), морква (1 г), цибуля (1 г), зелень, часник та хмелі-сунелі', amount: 5, unit: 'г', category: 'овочі', rawToDryRatio: 10 }
     ],
     homePrepSteps: [
       'Норма ТК «Глобус» на 1 людину: м\'ясо шматочками — 20 г (підвищена м\'ясна норма!), рис — 20 г, картопля — 20 г, перець — 3 г, помідори — 2 г, капуста — 2 г, цибуля — 1 г, морква — 1 г, зелень — 0,5 г + спеції харчо (хмелі-сунелі, часник, червоний перець).',
@@ -2064,7 +2146,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Солянка похідна з копченостями, солоними огірками, лимоном та маслинами (ТК «Глобус»)',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 75,
     kcalPerServing: 310,
     proteinPerServing: 18,
@@ -2072,12 +2154,16 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 39,
     fiberPerServing: 4.5,
     rawIngredients: [
-      { name: 'Картопля сушена (25 г/ос)', amount: 100, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
-      { name: 'Рис білий або пропарений (20 г/ос, магазин)', amount: 80, unit: 'г', category: 'крупи' },
-      { name: 'М\'ясо сушене + копчене куряче стегенце або ковбаса (15-20 г/ос)', amount: 64, unit: 'г', category: 'м\'ясо', rawToDryRatio: 4.5 },
-      { name: 'Помідори сушені (4 г/ос) та перець солодкий (4 г/ос)', amount: 32, unit: 'г', category: 'овочі', rawToDryRatio: 16.0 },
-      { name: 'Маслини сушені (3 г/ос) та солоні бочкові огірки сушені (2 г/ос)', amount: 20, unit: 'г', category: 'овочі', rawToDryRatio: 10.0 },
-      { name: 'Лимон сушений кружальцями (1,5 г/ос), цибуля (1 г) та морква (1 г)', amount: 14, unit: 'г', category: 'овочі', rawToDryRatio: 9.0 }
+      { name: 'Картопля сушена', amount: 25, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Рис білий або пропарений', amount: 20, unit: 'г', category: 'крупи' },
+      { name: 'М\'ясо сушене + копчене куряче стегенце або ковбаса (15-20 г/ос)', amount: 16, unit: 'г', category: 'м\'ясо', rawToDryRatio: 4.5 },
+      { name: 'Помідори сушені', amount: 4, unit: 'г', category: 'овочі', rawToDryRatio: 16 },
+      { name: 'Перець солодкий сушений', amount: 4, unit: 'г', category: 'овочі', rawToDryRatio: 17 },
+      { name: 'Маслини сушені', amount: 3, unit: 'г', category: 'овочі', rawToDryRatio: 10 },
+      { name: 'Огірки солоні бочкові сушені', amount: 2, unit: 'г', category: 'овочі', rawToDryRatio: 12 },
+      { name: 'Лимон сушений кружальцями', amount: 1.5, unit: 'г', category: 'фрукти', rawToDryRatio: 9 },
+      { name: 'Цибуля сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Морква сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 7 }
     ],
     homePrepSteps: [
       'Поєднання основного рецепта ТК «Глобус» та варіанту з коментарів (nata_mik): копчений курячий окорочок або сушене м\'ясо з копченостями (15-20 г/ос), картопля (20-30 г), рис (20 г), помідори, перець, сушені бочкові солоні огірки, маслини (3 г) та сушений лимон (1,5 г).',
@@ -2102,7 +2188,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Французький сирний суп із копченостями та спагеті (ТК «Глобус»)',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 103,
     kcalPerServing: 415,
     proteinPerServing: 19,
@@ -2110,11 +2196,13 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 52,
     fiberPerServing: 3.5,
     rawIngredients: [
-      { name: 'Макарони спагеті сухі (40 г/ос, магазин)', amount: 160, unit: 'г', category: 'макарони' },
-      { name: 'Сир плавлений (25 г/ос — з розрахунку 0,5 сирка на 1 л казана)', amount: 100, unit: 'г', category: 'молочні' },
-      { name: 'Картопля сушена (20 г/ос)', amount: 80, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
-      { name: 'Копчена ковбаса, бастурма або балик (15 г/ос — для аромату диму)', amount: 60, unit: 'г', category: 'м\'ясо' },
-      { name: 'Цибуля (1 г/ос), морква (1 г/ос), зелень (0,5 г/ос) та спеції', amount: 12, unit: 'г', category: 'овочі', rawToDryRatio: 10.0 }
+      { name: 'Макарони спагеті сухі', amount: 40, unit: 'г', category: 'макарони' },
+      { name: 'Сир плавлений', amount: 25, unit: 'г', category: 'молочні' },
+      { name: 'Картопля сушена', amount: 20, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Копчена ковбаса, бастурма або балик', amount: 15, unit: 'г', category: 'м\'ясо' },
+      { name: 'Цибуля ріпчаста сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Морква сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Зелень сушена та спеції', amount: 1, unit: 'г', category: 'зелень', rawToDryRatio: 10 }
     ],
     homePrepSteps: [
       'Рецепт із коментарів ТК «Глобус» (avzaskalna): копчена ковбаса чи бастурма/балик — 15 г/ос, спагеті — 40 г/ос, картопля сушена — 20 г/ос, плавлений сир — об\'єм казана навпіл (напр. 5 сирків на 10-літровий казан), цибуля — 1 г, морква — 1 г, зелень — 0,5 г.',
@@ -2139,7 +2227,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Гуляш по-угорськи з чипетке (дрібною вермішеллю), яловичиною та паприкою (ТК «Глобус»)',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 83,
     kcalPerServing: 320,
     proteinPerServing: 18,
@@ -2147,11 +2235,14 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 49,
     fiberPerServing: 5.5,
     rawIngredients: [
-      { name: 'Картопля сушена (35 г/ос)', amount: 140, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
-      { name: 'Вермішель дрібна «рис» або домашні сушені чипетке (15 г/ос)', amount: 60, unit: 'г', category: 'макарони' },
-      { name: 'М\'ясо яловиче сушене (15 г/ос, усушка 1:5)', amount: 60, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5.0 },
-      { name: 'Перець солодкий сушений (5 г/ос) та помідори сушені (5 г/ос)', amount: 40, unit: 'г', category: 'овочі', rawToDryRatio: 16.0 },
-      { name: 'Цибуля сушена (3 г/ос), томатний порошок (3 г/ос) та солодка паприка (2 г/ос)', amount: 32, unit: 'г', category: 'овочі', rawToDryRatio: 8.0 }
+      { name: 'Картопля сушена', amount: 35, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Вермішель дрібна «рис» або домашні сушені чипетке', amount: 15, unit: 'г', category: 'макарони' },
+      { name: 'М\'ясо яловиче сушене', amount: 15, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5 },
+      { name: 'Перець солодкий сушений', amount: 5, unit: 'г', category: 'овочі', rawToDryRatio: 17 },
+      { name: 'Помідори сушені', amount: 5, unit: 'г', category: 'овочі', rawToDryRatio: 16 },
+      { name: 'Цибуля сушена', amount: 3, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Томатний порошок сушений', amount: 3, unit: 'г', category: 'овочі', rawToDryRatio: 8 },
+      { name: 'Солодка паприка мелена', amount: 2, unit: 'г', category: 'спеції', rawToDryRatio: 8 }
     ],
     homePrepSteps: [
       'Рецепт із коментарів ТК «Глобус» (nata_mik): картопля — 35 г, вермішель у вигляді крупного рису або домашні щипані галушки «чипетке» — 15 г, м\'ясо сушене — 15 г, перець солодкий — 5 г, помідори сушені — 5 г, цибуля — 3 г, томатний порошок — 3 г, паприка солодка — 2 г.',
@@ -2176,7 +2267,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Лагман похідний із локшиною, яловичиною та сушеними баклажанами (ТК «Глобус»)',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 89,
     kcalPerServing: 345,
     proteinPerServing: 19,
@@ -2184,12 +2275,14 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 54,
     fiberPerServing: 6.5,
     rawIngredients: [
-      { name: 'Локшина або вермішель твердих сортів (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'макарони' },
-      { name: 'М\'ясо яловиче сушене (15 г/ос, усушка 1:5)', amount: 60, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5.0 },
-      { name: 'Картопля сушена (10 г/ос)', amount: 40, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
-      { name: 'Помідори сушені (10 г/ос, усушка 1:16)', amount: 40, unit: 'г', category: 'овочі', rawToDryRatio: 16.0 },
-      { name: 'Баклажани сушені (5 г/ос, 1:14) та перець солодкий сушений (5 г/ос, 1:17)', amount: 40, unit: 'г', category: 'овочі', rawToDryRatio: 15.5 },
-      { name: 'Морква сушена (5 г/ос) та цибуля сушена (4 г/ос)', amount: 36, unit: 'г', category: 'овочі', rawToDryRatio: 8.0 }
+      { name: 'Локшина або вермішель твердих сортів', amount: 35, unit: 'г', category: 'макарони' },
+      { name: 'М\'ясо яловиче сушене', amount: 15, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5 },
+      { name: 'Картопля сушена', amount: 10, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Помідори сушені', amount: 10, unit: 'г', category: 'овочі', rawToDryRatio: 16 },
+      { name: 'Баклажани сушені', amount: 5, unit: 'г', category: 'овочі', rawToDryRatio: 14 },
+      { name: 'Перець солодкий сушений', amount: 5, unit: 'г', category: 'овочі', rawToDryRatio: 17 },
+      { name: 'Морква сушена соломкою', amount: 5, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Цибуля ріпчаста сушена', amount: 4, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 }
     ],
     homePrepSteps: [
       'Рецепт із коментарів ТК «Глобус» (nata_mik): вермішель/локшина — 35 г, м\'ясо сушене — 15 г, картопля — 10 г, помідори сушені — 10 г, морква — 5 г, перець солодкий — 5 г, баклажани сушені — 5 г, цибуля — 4 г.',
@@ -2214,7 +2307,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Зелений борщ із сушеним щавлем, картоплею, м\'ясом та яйцем (ТК «Глобус»)',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 80,
     kcalPerServing: 315,
     proteinPerServing: 21,
@@ -2222,12 +2315,14 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 40,
     fiberPerServing: 4.5,
     rawIngredients: [
-      { name: 'Картопля сушена (30 г/ос)', amount: 120, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
-      { name: 'Рис або гречка (15 г/ос, магазин)', amount: 60, unit: 'г', category: 'крупи' },
-      { name: 'М\'ясо сушене шматочками (15 г/ос, усушка 1:5)', amount: 60, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5.0 },
-      { name: 'Яєчний порошок / сухий омлет (10 г/ос, або варені яйця на перші дні)', amount: 40, unit: 'г', category: 'яйця' },
-      { name: 'Щавель сушений (листя без стебел!) та весняна зелень (6 г/ос)', amount: 24, unit: 'г', category: 'зелень', rawToDryRatio: 12.0 },
-      { name: 'Морква та цибуля сушені (4 г/ос)', amount: 16, unit: 'г', category: 'овочі', rawToDryRatio: 8.0 }
+      { name: 'Картопля сушена', amount: 30, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Рис або гречка', amount: 15, unit: 'г', category: 'крупи' },
+      { name: 'М\'ясо сушене шматочками', amount: 15, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5 },
+      { name: 'Яєчний порошок / сухий омлет', amount: 10, unit: 'г', category: 'яйця' },
+      { name: 'Щавель сушений (листя без стебел)', amount: 4, unit: 'г', category: 'зелень', rawToDryRatio: 12 },
+      { name: 'Весняна зелень (кріп, петрушка)', amount: 2, unit: 'г', category: 'зелень', rawToDryRatio: 12 },
+      { name: 'Морква сушена', amount: 2, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Цибуля сушена', amount: 2, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 }
     ],
     homePrepSteps: [
       'За досвідом учасниць ТК «Глобус» (Marisha, Катерина, nata): щавель сушити потрібно ТІЛЬКИ листя без ніжок/стебел (бо стебла у поході не розварюються і лишаються «соломою»).',
@@ -2254,7 +2349,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Куліш похідний з кукурудзяним борошном, пюре, грибами та м\'ясом (ТК «Глобус»)',
     category: 'main',
     mealTypes: ['breakfast', 'dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 81,
     kcalPerServing: 310,
     proteinPerServing: 14,
@@ -2262,11 +2357,12 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 53,
     fiberPerServing: 5.0,
     rawIngredients: [
-      { name: 'Кукурудзяне борошно або дрібна крупа (45 г/ос, магазин)', amount: 180, unit: 'г', category: 'крупи' },
-      { name: 'Картопляне пюре сухе пластівцями (20 г/ос, магазин)', amount: 80, unit: 'г', category: 'крупи' },
-      { name: 'Гриби лісові сушені (7 г/ос)', amount: 28, unit: 'г', category: 'гриби', rawToDryRatio: 9.0 },
-      { name: 'М\'ясо сушене шматочками (7 г/ос, усушка 1:5)', amount: 28, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5.0 },
-      { name: 'Цибуля ріпчаста (1 г/ос) та морква (1 г/ос) сушені', amount: 8, unit: 'г', category: 'овочі', rawToDryRatio: 8.0 }
+      { name: 'Кукурудзяне борошно або дрібна крупа', amount: 45, unit: 'г', category: 'крупи' },
+      { name: 'Картопляне пюре сухе пластівцями', amount: 20, unit: 'г', category: 'крупи' },
+      { name: 'Гриби лісові сушені', amount: 7, unit: 'г', category: 'гриби', rawToDryRatio: 9 },
+      { name: 'М\'ясо сушене шматочками', amount: 7, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5 },
+      { name: 'Цибуля ріпчаста сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Морква сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 7 }
     ],
     homePrepSteps: [
       'Норма ТК «Глобус» на 1 людину: кукурудзяне борошно — 45 г, картопля-пюре — 20 г, гриби сушені — 7 г, м\'ясо шматочками — 7 г, цибуля — 1 г, морква — 1 г.',
@@ -2291,7 +2387,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Банош карпатський із сушеною бринзою та картопляним пюре (ТК «Глобус»)',
     category: 'breakfast',
     mealTypes: ['breakfast', 'dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 82,
     kcalPerServing: 325,
     proteinPerServing: 13,
@@ -2299,10 +2395,11 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 51,
     fiberPerServing: 3.8,
     rawIngredients: [
-      { name: 'Кукурудзяне борошно або дрібна полента (45 г/ос, магазин)', amount: 180, unit: 'г', category: 'крупи' },
-      { name: 'Картопляне пюре сухе (20 г/ос, магазин)', amount: 80, unit: 'г', category: 'крупи' },
-      { name: 'Сир тертий, бажано карпатська бринза (15 г/ос)', amount: 60, unit: 'г', category: 'молочні' },
-      { name: 'Цибуля ріпчаста (1 г/ос) та морква (1 г/ос) сушені', amount: 8, unit: 'г', category: 'овочі', rawToDryRatio: 8.0 }
+      { name: 'Кукурудзяне борошно або дрібна полента', amount: 45, unit: 'г', category: 'крупи' },
+      { name: 'Картопляне пюре сухе', amount: 20, unit: 'г', category: 'крупи' },
+      { name: 'Сир тертий, бажано карпатська бринза', amount: 15, unit: 'г', category: 'молочні' },
+      { name: 'Цибуля ріпчаста сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Морква сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 7 }
     ],
     homePrepSteps: [
       'Норма ТК «Глобус» на 1 людину: склад кулешу (кукурудзяне борошно 45 г + картопля-пюре 20 г + цибуля 1 г + морква 1 г), але м\'ясо та гриби замінюються на тертий сир (бажано бринзу) з розрахунку 15 г/людину.',
@@ -2327,7 +2424,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Гречка з сушеним м\'ясом шматочками та овочами (ТК «Глобус»)',
     category: 'main',
     mealTypes: ['breakfast', 'dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 83,
     kcalPerServing: 315,
     proteinPerServing: 21,
@@ -2335,9 +2432,11 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 46,
     fiberPerServing: 7.0,
     rawIngredients: [
-      { name: 'Крупа гречана ядриця (65 г/ос, магазин)', amount: 260, unit: 'г', category: 'крупи' },
-      { name: 'М\'ясо яловиче сушене шматочками (15 г/ос, усушка 1:5)', amount: 60, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5.0 },
-      { name: 'Цибуля сушена (1 г/ос), морква (1 г/ос) та зелень (0,5 г/ос)', amount: 12, unit: 'г', category: 'овочі', rawToDryRatio: 9.0 }
+      { name: 'Крупа гречана ядриця', amount: 65, unit: 'г', category: 'крупи' },
+      { name: 'М\'ясо яловиче сушене шматочками', amount: 15, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5 },
+      { name: 'Цибуля сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Морква сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Зелень сушена', amount: 0.5, unit: 'г', category: 'зелень', rawToDryRatio: 10 }
     ],
     homePrepSteps: [
       'Норма ТК «Глобус» на 1 людину: гречка — 65 г, м\'ясо сушене шматочками — 15 г, цибуля сушена — 1 г, морква — 1 г, зелень — 0,5 г.',
@@ -2362,7 +2461,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Фунчоза (або макарони) з сушеною рибою та овочами (ТК «Глобус»)',
     category: 'main',
     mealTypes: ['breakfast', 'dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 88,
     kcalPerServing: 310,
     proteinPerServing: 14,
@@ -2370,9 +2469,11 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 59,
     fiberPerServing: 2.5,
     rawIngredients: [
-      { name: 'Фунчоза або макарони твердих сортів (70 г/ос, магазин)', amount: 280, unit: 'г', category: 'макарони' },
-      { name: 'Риба варено-сушена шматочками (15 г/ос, усушка 1:9)', amount: 60, unit: 'г', category: 'риба', rawToDryRatio: 9.0 },
-      { name: 'Цибуля сушена (1 г/ос), морква (1 г/ос) та зелень (0,5 г/ос)', amount: 12, unit: 'г', category: 'овочі', rawToDryRatio: 9.0 }
+      { name: 'Фунчоза або макарони твердих сортів', amount: 70, unit: 'г', category: 'макарони' },
+      { name: 'Риба варено-сушена шматочками', amount: 15, unit: 'г', category: 'риба', rawToDryRatio: 9 },
+      { name: 'Цибуля сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Морква сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Зелень сушена', amount: 0.5, unit: 'г', category: 'зелень', rawToDryRatio: 10 }
     ],
     homePrepSteps: [
       'Норма ТК «Глобус» на 1 людину: макарони або фунчоза — 70 г, риба сушена шматочками — 15 г, цибуля — 1 г, морква — 1 г, зелень — 0,5 г.',
@@ -2397,7 +2498,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Макарони (або фунчоза) з м\'ясом у салі, горошком, кукурудзою та овочами (ТК «Глобус»)',
     category: 'main',
     mealTypes: ['breakfast', 'dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 114,
     kcalPerServing: 450,
     proteinPerServing: 21,
@@ -2405,11 +2506,13 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 56,
     fiberPerServing: 4.8,
     rawIngredients: [
-      { name: 'Макарони або фунчоза (70 г/ос, магазин)', amount: 280, unit: 'г', category: 'макарони' },
-      { name: 'М\'ясо в салі / домашня тушонка (30 г/ос)', amount: 120, unit: 'г', category: 'м\'ясо', rawToDryRatio: 2.5 },
-      { name: 'Зелений горошок (3 г/ос) та кукурудза солодка (3 г/ос) сушені', amount: 24, unit: 'г', category: 'овочі', rawToDryRatio: 4.5 },
-      { name: 'Цвітна капуста (2 г), помідори (2 г) та перець солодкий (1,5 г) сушені', amount: 22, unit: 'г', category: 'овочі', rawToDryRatio: 15.0 },
-      { name: 'Морква (1 г/ос), цибуля (1 г/ос) та зелень (0,5 г/ос) сушені', amount: 10, unit: 'г', category: 'овочі', rawToDryRatio: 10.0 }
+      { name: 'Макарони або фунчоза', amount: 70, unit: 'г', category: 'макарони' },
+      { name: 'М\'ясо в салі / домашня тушонка', amount: 30, unit: 'г', category: 'м\'ясо', rawToDryRatio: 2.5 },
+      { name: 'Зелений горошок та кукурудза солодка сушені', amount: 6, unit: 'г', category: 'овочі', rawToDryRatio: 4.5 },
+      { name: 'Цвітна капуста (2 г), помідори (2 г) та перець солодкий (1,5 г) сушені', amount: 5.5, unit: 'г', category: 'овочі', rawToDryRatio: 15 },
+      { name: 'Морква сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Цибуля сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Зелень сушена (кріп, петрушка)', amount: 0.5, unit: 'г', category: 'зелень', rawToDryRatio: 10 }
     ],
     homePrepSteps: [
       'Норма ТК «Глобус» на 1 людину: макарони/фунчоза — 70 г, м\'ясо в салі — 30 г, зелений горошок — 3 г, кукурудза солодка — 3 г, цвітна капуста — 2 г, помідори — 2 г, перець — 1,5 г, цибуля — 1 г, морква — 1 г, зелень — 0,5 г.',
@@ -2434,7 +2537,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Гарбузова каша молочна з пшоном або рисом (ТК «Глобус»)',
     category: 'breakfast',
     mealTypes: ['breakfast', 'dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 75,
     kcalPerServing: 275,
     proteinPerServing: 10,
@@ -2442,10 +2545,10 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 49,
     fiberPerServing: 4.5,
     rawIngredients: [
-      { name: 'Пшоно або рис (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'крупи' },
-      { name: 'Гарбуз сушений стружкою (20 г/ос, усушка 1:13 зі шкіркою та насінням)', amount: 80, unit: 'г', category: 'овочі', rawToDryRatio: 13.0 },
-      { name: 'Сухе молоко незбиране (15 г/ос, магазин)', amount: 60, unit: 'г', category: 'молочні' },
-      { name: 'Цукор або родзинки до каші (5 г/ос, магазин)', amount: 20, unit: 'г', category: 'солодощі' }
+      { name: 'Пшоно або рис', amount: 35, unit: 'г', category: 'крупи' },
+      { name: 'Гарбуз сушений стружкою', amount: 20, unit: 'г', category: 'овочі', rawToDryRatio: 13 },
+      { name: 'Сухе молоко незбиране', amount: 15, unit: 'г', category: 'молочні' },
+      { name: 'Цукор або родзинки до каші', amount: 5, unit: 'г', category: 'солодощі' }
     ],
     homePrepSteps: [
       'Норма ТК «Глобус» на 1 людину: пшоно або рис — 30-35 г, гарбуз сушений — 20 г, сухе молоко — 15 г.',
@@ -2470,7 +2573,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Пшенична каша (Артек) із м\'ясом у салі та сушеними овочами (ТК «Глобус»)',
     category: 'main',
     mealTypes: ['breakfast', 'dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 98,
     kcalPerServing: 390,
     proteinPerServing: 19,
@@ -2478,9 +2581,9 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 45,
     fiberPerServing: 3.8,
     rawIngredients: [
-      { name: 'Крупа пшенична дрібна (65 г/ос, магазин)', amount: 260, unit: 'г', category: 'крупи' },
-      { name: 'М\'ясо в салі / тушонка домашня (30 г/ос)', amount: 120, unit: 'г', category: 'м\'ясо', rawToDryRatio: 2.5 },
-      { name: 'Цибуля сушена (1,5 г/ос) та морква сушена (1,5 г/ос)', amount: 12, unit: 'г', category: 'овочі', rawToDryRatio: 8.0 }
+      { name: 'Крупа пшенична дрібна', amount: 65, unit: 'г', category: 'крупи' },
+      { name: 'М\'ясо в салі / тушонка домашня', amount: 30, unit: 'г', category: 'м\'ясо', rawToDryRatio: 2.5 },
+      { name: 'Цибуля сушена та морква сушена', amount: 3, unit: 'г', category: 'овочі', rawToDryRatio: 8 }
     ],
     homePrepSteps: [
       'Норма ТК «Глобус» на 1 людину: пшенична крупа — 65 г (можна також чергувати з гречкою або рисом 65 г), м\'ясо в салі — 30 г, цибуля — 1 г, морква — 1 г.',
@@ -2505,7 +2608,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Фунчоза (або макарони) з твердим сиром, горошком та кукурудзою (ТК «Глобус»)',
     category: 'main',
     mealTypes: ['breakfast', 'dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 114,
     kcalPerServing: 410,
     proteinPerServing: 16,
@@ -2513,11 +2616,13 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 63,
     fiberPerServing: 4.8,
     rawIngredients: [
-      { name: 'Макарони або фунчоза (70 г/ос, магазин)', amount: 280, unit: 'г', category: 'макарони' },
-      { name: 'Сир твердий (30 г/ос, магазин)', amount: 120, unit: 'г', category: 'молочні' },
-      { name: 'Зелений горошок (3 г/ос) та кукурудза солодка (3 г/ос) сушені', amount: 24, unit: 'г', category: 'овочі', rawToDryRatio: 4.5 },
-      { name: 'Цвітна капуста (2 г), помідори (2 г) та перець (1,5 г) сушені', amount: 22, unit: 'г', category: 'овочі', rawToDryRatio: 15.0 },
-      { name: 'Морква (1 г/ос), цибуля (1 г/ос) та зелень (0,5 г/ос) сушені', amount: 10, unit: 'г', category: 'овочі', rawToDryRatio: 10.0 }
+      { name: 'Макарони або фунчоза', amount: 70, unit: 'г', category: 'макарони' },
+      { name: 'Сир твердий', amount: 30, unit: 'г', category: 'молочні' },
+      { name: 'Зелений горошок та кукурудза солодка сушені', amount: 6, unit: 'г', category: 'овочі', rawToDryRatio: 4.5 },
+      { name: 'Цвітна капуста (2 г), помідори (2 г) та перець (1,5 г) сушені', amount: 5.5, unit: 'г', category: 'овочі', rawToDryRatio: 15 },
+      { name: 'Морква сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Цибуля сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Зелень сушена (кріп, петрушка)', amount: 0.5, unit: 'г', category: 'зелень', rawToDryRatio: 10 }
     ],
     homePrepSteps: [
       'Норма ТК «Глобус» на 1 людину: макарони/фунчоза — 70 г, сир твердий (замість м\'яса) — 30 г, зелений горошок — 3 г, кукурудза солодка — 3 г, цвітна капуста — 2 г, помідори — 2 г, перець — 1,5 г, цибуля — 1 г, морква — 1 г, зелень — 0,5 г.',
@@ -2542,7 +2647,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Плов по-глобусівськи з м\'ясом у салі, кукурудзою та зеленим горошком (ТК «Глобус»)',
     category: 'main',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 122,
     kcalPerServing: 510,
     proteinPerServing: 24,
@@ -2550,11 +2655,11 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 56,
     fiberPerServing: 4.5,
     rawIngredients: [
-      { name: 'Рис пропарений (65 г/ос, магазин)', amount: 260, unit: 'г', category: 'крупи' },
-      { name: 'М\'ясо в салі (40-60 г/ос за розкладкою ТК «Глобус»)', amount: 160, unit: 'г', category: 'м\'ясо', rawToDryRatio: 2.8 },
-      { name: 'Помідори сушені (4 г/ос) та перець солодкий сушений (3 г/ос)', amount: 28, unit: 'г', category: 'овочі', rawToDryRatio: 16.5 },
-      { name: 'Зелений горошок (3 г/ос) та кукурудза солодка (3 г/ос) сушені', amount: 24, unit: 'г', category: 'овочі', rawToDryRatio: 4.5 },
-      { name: 'Морква сушена (2 г/ос), цибуля (1 г/ос), зелень та спеції до плову', amount: 16, unit: 'г', category: 'овочі', rawToDryRatio: 9.0 }
+      { name: 'Рис пропарений', amount: 65, unit: 'г', category: 'крупи' },
+      { name: 'М\'ясо в салі (40-60 г/ос за розкладкою ТК «Глобус»)', amount: 40, unit: 'г', category: 'м\'ясо', rawToDryRatio: 2.8 },
+      { name: 'Помідори сушені та перець солодкий сушений', amount: 7, unit: 'г', category: 'овочі', rawToDryRatio: 16.5 },
+      { name: 'Зелений горошок та кукурудза солодка сушені', amount: 6, unit: 'г', category: 'овочі', rawToDryRatio: 4.5 },
+      { name: 'Морква сушена , цибуля , зелень та спеції до плову', amount: 4, unit: 'г', category: 'овочі', rawToDryRatio: 9 }
     ],
     homePrepSteps: [
       'Фірмова святкова вечеря ТК «Глобус»: рис — 65 г/ос, м\'ясо в салі — 40-60 г/ос, помідори сушені — 4 г, перець солодкий — 3 г, зелений горошок — 3 г, кукурудза солодка — 3 г, морква — 2 г, цибуля — 1 г, зелень — 0,5 г.',
@@ -2579,7 +2684,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Картопля сушена з лісовими грибами та м\'ясом (ТК «Глобус»)',
     category: 'main',
     mealTypes: ['breakfast', 'dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 77,
     kcalPerServing: 270,
     proteinPerServing: 14,
@@ -2587,10 +2692,12 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 44,
     fiberPerServing: 5.5,
     rawIngredients: [
-      { name: 'Картопля сушена кубиками/пластівцями (60 г/ос)', amount: 240, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
-      { name: 'Гриби лісові сушені (7 г/ос)', amount: 28, unit: 'г', category: 'гриби', rawToDryRatio: 9.0 },
-      { name: 'М\'ясо сушене шматочками (7 г/ос, усушка 1:5)', amount: 28, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5.0 },
-      { name: 'Цибуля ріпчаста (1 г/ос), морква (1 г/ос) та зелень (0,5 г/ос) сушені', amount: 12, unit: 'г', category: 'овочі', rawToDryRatio: 9.0 }
+      { name: 'Картопля сушена кубиками/пластівцями', amount: 60, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Гриби лісові сушені', amount: 7, unit: 'г', category: 'гриби', rawToDryRatio: 9 },
+      { name: 'М\'ясо сушене шматочками', amount: 7, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5 },
+      { name: 'Цибуля ріпчаста сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Морква сушена', amount: 1, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Зелень сушена', amount: 0.5, unit: 'г', category: 'зелень', rawToDryRatio: 10 }
     ],
     homePrepSteps: [
       'Норма ТК «Глобус» на 1 людину: картопля сушена — 60 г, гриби — 7 г, м\'ясо шматочками — 7 г, цибуля — 1 г, морква — 1 г, зелень — 0,5 г.',
@@ -2615,7 +2722,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Вермішель (або фунчоза) по-флотськи з сушеним фаршем (ТК «Глобус»)',
     category: 'main',
     mealTypes: ['breakfast', 'dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 89,
     kcalPerServing: 335,
     proteinPerServing: 18,
@@ -2623,9 +2730,9 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 52,
     fiberPerServing: 3.5,
     rawIngredients: [
-      { name: 'Макарони / вермішель або фунчоза (70 г/ос, магазин)', amount: 280, unit: 'г', category: 'макарони' },
-      { name: 'М\'ясо фарш варено-сушений (15 г/ос, усушка 1:5)', amount: 60, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5.0 },
-      { name: 'Перець солодкий (1,5 г/ос), цибуля (1 г), морква (1 г) та зелень (0,5 г)', amount: 16, unit: 'г', category: 'овочі', rawToDryRatio: 11.0 }
+      { name: 'Макарони / вермішель або фунчоза', amount: 70, unit: 'г', category: 'макарони' },
+      { name: 'М\'ясо фарш варено-сушений', amount: 15, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5 },
+      { name: 'Перець солодкий , цибуля (1 г), морква (1 г) та зелень (0,5 г)', amount: 4, unit: 'г', category: 'овочі', rawToDryRatio: 11 }
     ],
     homePrepSteps: [
       'Норма ТК «Глобус» на 1 людину: макарони/фунчоза — 70 г, м\'ясний фарш сушений — 15 г, перець солодкий — 1,5 г, цибуля — 1 г, морква — 1 г, зелень — 0,5 г.',
@@ -2650,7 +2757,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Рагу овочеве зі стручковою квасолею, кабачками, м\'ясом та сиром (ТК «Глобус»)',
     category: 'main',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 83,
     kcalPerServing: 315,
     proteinPerServing: 21,
@@ -2658,13 +2765,13 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 36,
     fiberPerServing: 6.8,
     rawIngredients: [
-      { name: 'Картопляне пюре сухе (15 г/ос) + картопля сушена (10 г/ос)', amount: 100, unit: 'г', category: 'овочі', rawToDryRatio: 4.0 },
-      { name: 'М\'ясо сушене шматочками (15 г/ос, усушка 1:5)', amount: 60, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5.0 },
-      { name: 'Сир твердий (15 г/ос, магазин)', amount: 60, unit: 'г', category: 'молочні' },
-      { name: 'Квасоля стручкова сушена (10 г/ос, усушка 1:10)', amount: 40, unit: 'г', category: 'овочі', rawToDryRatio: 10.0 },
-      { name: 'Капуста цвітна (4 г/ос, 1:15) та кабачки сушені (3 г/ос, 1:25)', amount: 28, unit: 'г', category: 'овочі', rawToDryRatio: 19.0 },
-      { name: 'Морква (3 г/ос) та цибуля ріпчаста (3 г/ос) сушені', amount: 24, unit: 'г', category: 'овочі', rawToDryRatio: 8.0 },
-      { name: 'Перець солодкий (2 г/ос), помідори (2 г/ос) та зелень (0,5 г/ос) сушені', amount: 18, unit: 'г', category: 'овочі', rawToDryRatio: 15.0 }
+      { name: 'Картопляне пюре сухе + картопля сушена', amount: 25, unit: 'г', category: 'овочі', rawToDryRatio: 4 },
+      { name: 'М\'ясо сушене шматочками', amount: 15, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5 },
+      { name: 'Сир твердий', amount: 15, unit: 'г', category: 'молочні' },
+      { name: 'Квасоля стручкова сушена', amount: 10, unit: 'г', category: 'овочі', rawToDryRatio: 10 },
+      { name: 'Капуста цвітна та кабачки сушені', amount: 7, unit: 'г', category: 'овочі', rawToDryRatio: 19 },
+      { name: 'Морква та цибуля ріпчаста сушені', amount: 6, unit: 'г', category: 'овочі', rawToDryRatio: 8 },
+      { name: 'Перець солодкий , помідори та зелень сушені', amount: 4.5, unit: 'г', category: 'овочі', rawToDryRatio: 15 }
     ],
     homePrepSteps: [
       'Норма ТК «Глобус» на 1 людину: картопляне пюре — 15 г, картопля сушена — 10 г, м\'ясо шматочками — 15 г, сир — 15 г, квасоля стручкова — 10 г, капуста цвітна — 4 г, морква — 3 г, цибуля — 3 г, кабачки — 3 г (усушка 1:25!), перець солодкий — 2 г, помідори — 2 г, зелень — 0,5 г.',
@@ -2689,7 +2796,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Вівсянка солона з сушеним м\'ясом та спеціями (ТК «Глобус»)',
     category: 'breakfast',
     mealTypes: ['breakfast', 'dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 83,
     kcalPerServing: 325,
     proteinPerServing: 20,
@@ -2697,9 +2804,9 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 43,
     fiberPerServing: 6.0,
     rawIngredients: [
-      { name: 'Вівсяні пластівці Геркулес (60 г/ос, магазин)', amount: 240, unit: 'г', category: 'крупи' },
-      { name: 'М\'ясо яловиче або куряче сушене (18 г/ос, усушка 1:5)', amount: 72, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5.0 },
-      { name: 'Цибуля сушена, морква, часник, паприка та зелень (5 г/ос)', amount: 20, unit: 'г', category: 'овочі', rawToDryRatio: 9.0 }
+      { name: 'Вівсяні пластівці Геркулес', amount: 60, unit: 'г', category: 'крупи' },
+      { name: 'М\'ясо яловиче або куряче сушене', amount: 18, unit: 'г', category: 'м\'ясо', rawToDryRatio: 5 },
+      { name: 'Цибуля сушена, морква, часник, паприка та зелень', amount: 5, unit: 'г', category: 'овочі', rawToDryRatio: 9 }
     ],
     homePrepSteps: [
       'Рецепт із коментарів ТК «Глобус» (natika): несолодка вівсянка з сушеним м\'ясом, сушеною цибулею та ароматними спеціями.',
@@ -2724,7 +2831,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Манна каша на згущеному молоці з цукатами, курагою та родзинками (ТК «Глобус»)',
     category: 'breakfast',
     mealTypes: ['breakfast'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 115,
     kcalPerServing: 410,
     proteinPerServing: 10,
@@ -2732,10 +2839,10 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 77,
     fiberPerServing: 3.5,
     rawIngredients: [
-      { name: 'Крупа манна (55 г/ос, магазин)', amount: 220, unit: 'г', category: 'крупи' },
-      { name: 'Згущене молоко (30 г/ос, дой-пак магазин)', amount: 120, unit: 'г', category: 'молочні' },
-      { name: 'Родзинки без кісточок (15 г/ос, магазин)', amount: 60, unit: 'г', category: 'сухофрукти' },
-      { name: 'Цукати (10 г/ос) та курага нарізана (5 г/ос, магазин)', amount: 60, unit: 'г', category: 'сухофрукти' }
+      { name: 'Крупа манна', amount: 55, unit: 'г', category: 'крупи' },
+      { name: 'Згущене молоко', amount: 30, unit: 'г', category: 'молочні' },
+      { name: 'Родзинки без кісточок', amount: 15, unit: 'г', category: 'сухофрукти' },
+      { name: 'Цукати та курага нарізана', amount: 15, unit: 'г', category: 'сухофрукти' }
     ],
     homePrepSteps: [
       'Рецепт із коментарів ТК «Глобус» (theWRM): крупа манна — 50-60 г, згущене молоко, цукати — 10-15 г, курага порізана — 10 г, родзинки — 15-20 г, масло — 3 г.',
@@ -2762,7 +2869,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Узвар похідний із сушених груш, яблук та чорносливу (ТК «Глобус»)',
     category: 'snack',
     mealTypes: ['dinner', 'breakfast'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 15,
     kcalPerServing: 40,
     proteinPerServing: 0.5,
@@ -2770,9 +2877,9 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 9.5,
     fiberPerServing: 1.5,
     rawIngredients: [
-      { name: 'Груша сушена (5 г/ос, усушка 1:7 за ТК «Глобус»)', amount: 20, unit: 'г', category: 'фрукти', rawToDryRatio: 7.0 },
-      { name: 'Яблуко сушене скибочками (5 г/ос)', amount: 20, unit: 'г', category: 'фрукти', rawToDryRatio: 6.5 },
-      { name: 'Чорнослив в\'ялений без кісточки (5 г/ос)', amount: 20, unit: 'г', category: 'сухофрукти' }
+      { name: 'Груша сушена', amount: 5, unit: 'г', category: 'фрукти', rawToDryRatio: 7 },
+      { name: 'Яблуко сушене скибочками', amount: 5, unit: 'г', category: 'фрукти', rawToDryRatio: 6.5 },
+      { name: 'Чорнослив в\'ялений без кісточки', amount: 5, unit: 'г', category: 'сухофрукти' }
     ],
     homePrepSteps: [
       'Норма ТК «Глобус» для узвару на 1 людину: груша сушена — 5 г, яблуко сушене — 5 г, чорнослив — 5 г (або варіант компоту «Яблуко 7 г + Груша 7 г»).',
@@ -2797,7 +2904,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Компот вітамінний із сушених ягід: вишня, смородина, полуниця, чорниця (ТК «Глобус»)',
     category: 'snack',
     mealTypes: ['dinner', 'breakfast'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 15,
     kcalPerServing: 42,
     proteinPerServing: 0.6,
@@ -2805,9 +2912,9 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 10.0,
     fiberPerServing: 2.0,
     rawIngredients: [
-      { name: 'Вишня без кісточки або чорниця сушена (5-7 г/ос)', amount: 20, unit: 'г', category: 'ягоди', rawToDryRatio: 6.5 },
-      { name: 'Смородина чорна сушена (5 г/ос)', amount: 20, unit: 'г', category: 'ягоди', rawToDryRatio: 6.0 },
-      { name: 'Полуниця, малина або яблуко сушені (5 г/ос)', amount: 20, unit: 'г', category: 'ягоди', rawToDryRatio: 7.5 }
+      { name: 'Вишня без кісточки або чорниця сушена (5-7 г/ос)', amount: 5, unit: 'г', category: 'ягоди', rawToDryRatio: 6.5 },
+      { name: 'Смородина чорна сушена', amount: 5, unit: 'г', category: 'ягоди', rawToDryRatio: 6 },
+      { name: 'Полуниця, малина або яблуко сушені', amount: 5, unit: 'г', category: 'ягоди', rawToDryRatio: 7.5 }
     ],
     homePrepSteps: [
       'Класичні ягідні мікси ТК «Глобус» на 1 людину (14-15 г сухих ягід/ос): 1) Вишня 5 г + смородина 5 г + полуниця 5 г; 2) Полуниця 5 г + смородина 5 г + яблуко 5 г; 3) Чорниця 10 г + смородина 4 г; 4) Малина 7 г + яблуко 7 г.',
@@ -2832,7 +2939,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Гаряче похідне какао зі згущеним молоком, корицею та ваніллю (ТК «Глобус»)',
     category: 'snack',
     mealTypes: ['breakfast', 'snack', 'dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 47,
     kcalPerServing: 165,
     proteinPerServing: 7,
@@ -2840,9 +2947,9 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 21,
     fiberPerServing: 3.5,
     rawIngredients: [
-      { name: 'Какао-порошок натуральний (25 г/ос, магазин)', amount: 100, unit: 'г', category: 'спеції' },
-      { name: 'Згущене молоко або сухе молоко з цукром (20 г/ос, магазин)', amount: 80, unit: 'г', category: 'молочні' },
-      { name: 'Кориця мелена та ванільний цукор (2 г/ос, магазин)', amount: 8, unit: 'г', category: 'спеції' }
+      { name: 'Какао-порошок натуральний', amount: 25, unit: 'г', category: 'спеції' },
+      { name: 'Згущене молоко або сухе молоко з цукром', amount: 20, unit: 'г', category: 'молочні' },
+      { name: 'Кориця мелена та ванільний цукор', amount: 2, unit: 'г', category: 'спеції' }
     ],
     homePrepSteps: [
       'Рецепт із коментарів ТК «Глобус» (avzaskalna): какао-порошок — 25-30 г/ос, згущене молоко — 20 г/ос, ванільний цукор — 2 г на 1 л, кориця — 5 г на 1 л.',
@@ -2869,7 +2976,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Похідний обід-перекус: ковбаса с/к, сухарі та шоколад (ТК «Глобус»)',
     category: 'main',
     mealTypes: ['lunch', 'snack'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 100,
     kcalPerServing: 470,
     proteinPerServing: 12,
@@ -2877,9 +2984,9 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 47,
     fiberPerServing: 3.0,
     rawIngredients: [
-      { name: 'Ковбаса сирокопчена салямі (30 г/ос, магазин)', amount: 120, unit: 'г', category: 'м\'ясо' },
-      { name: 'Шоколад чорний або молочний (40 г/ос, магазин)', amount: 160, unit: 'г', category: 'солодощі' },
-      { name: 'Сухарі звичайні пшеничні (30 г/ос, магазин)', amount: 120, unit: 'г', category: 'хліб' }
+      { name: 'Ковбаса сирокопчена салямі', amount: 30, unit: 'г', category: 'м\'ясо' },
+      { name: 'Шоколад чорний або молочний', amount: 40, unit: 'г', category: 'солодощі' },
+      { name: 'Сухарі звичайні пшеничні', amount: 30, unit: 'г', category: 'хліб' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — класичний ходовий обід-перекус ТК «Глобус», що взагалі не потребує готування.',
@@ -2904,7 +3011,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Похідний обід-перекус: твердий сир, горіхи, сухарі та шоколад (ТК «Глобус»)',
     category: 'main',
     mealTypes: ['lunch', 'snack'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 110,
     kcalPerServing: 510,
     proteinPerServing: 16,
@@ -2912,10 +3019,10 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 48,
     fiberPerServing: 4.0,
     rawIngredients: [
-      { name: 'Сир твердий Гауда / Чеддер (30 г/ос, магазин)', amount: 120, unit: 'г', category: 'молочні' },
-      { name: 'Сухарі пшеничні або галети (30 г/ос, магазин)', amount: 120, unit: 'г', category: 'хліб' },
-      { name: 'Горішки кеш\'ю або мигдаль (25 г/ос, магазин)', amount: 100, unit: 'г', category: 'горіхи' },
-      { name: 'Шоколад чорний (25 г/ос, магазин)', amount: 100, unit: 'г', category: 'солодощі' }
+      { name: 'Сир твердий Гауда / Чеддер', amount: 30, unit: 'г', category: 'молочні' },
+      { name: 'Сухарі пшеничні або галети', amount: 30, unit: 'г', category: 'хліб' },
+      { name: 'Горішки кеш\'ю або мигдаль', amount: 25, unit: 'г', category: 'горіхи' },
+      { name: 'Шоколад чорний', amount: 25, unit: 'г', category: 'солодощі' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — ситний білковий обід без вогню.',
@@ -2940,7 +3047,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Похідний обід-перекус: солоне сало, житні сухарі, часник та шоколад (ТК «Глобус»)',
     category: 'main',
     mealTypes: ['lunch', 'snack'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 105,
     kcalPerServing: 535,
     proteinPerServing: 10,
@@ -2948,10 +3055,10 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 45,
     fiberPerServing: 3.5,
     rawIngredients: [
-      { name: 'Сало солоне шпик (30 г/ос, домашнє або магазин)', amount: 120, unit: 'г', category: 'жири' },
-      { name: 'Сухарі житні домашні або армійські (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'хліб' },
-      { name: 'Шоколад чорний 70%+ (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'солодощі' },
-      { name: 'Часник свіжий або сушений (5 г/ос)', amount: 20, unit: 'г', category: 'овочі' }
+      { name: 'Сало солоне шпик', amount: 30, unit: 'г', category: 'жири' },
+      { name: 'Сухарі житні домашні або армійські', amount: 35, unit: 'г', category: 'хліб' },
+      { name: 'Шоколад чорний 70%+', amount: 35, unit: 'г', category: 'солодощі' },
+      { name: 'Часник свіжий або сушений', amount: 5, unit: 'г', category: 'овочі' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — традиційний висококалорійний обід на гірському привалі.',
@@ -2976,7 +3083,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Похідний обід-перекус: рибні консерви з сухарями та печивом (ТК «Глобус»)',
     category: 'main',
     mealTypes: ['lunch', 'snack'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 120,
     kcalPerServing: 430,
     proteinPerServing: 16,
@@ -2984,9 +3091,9 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 50,
     fiberPerServing: 2.5,
     rawIngredients: [
-      { name: 'Консерви рибні в олії (сардина/тунець, 60 г/ос)', amount: 240, unit: 'г', category: 'риба' },
-      { name: 'Сухарі звичайні або галети (30 г/ос, магазин)', amount: 120, unit: 'г', category: 'хліб' },
-      { name: 'Печиво цукрове до чаю (30 г/ос, магазин)', amount: 120, unit: 'г', category: 'хліб' }
+      { name: 'Консерви рибні в олії (сардина/тунець, 60 г/ос)', amount: 60, unit: 'г', category: 'риба' },
+      { name: 'Сухарі звичайні або галети', amount: 30, unit: 'г', category: 'хліб' },
+      { name: 'Печиво цукрове до чаю', amount: 30, unit: 'г', category: 'хліб' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — швидкий обід із готових консервів та печива.'
@@ -3012,7 +3119,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Макарони з твердим сиром, тушонкою та топленим маслом (ТК «Глобус»)',
     category: 'breakfast',
     mealTypes: ['breakfast', 'dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 185,
     kcalPerServing: 680,
     proteinPerServing: 27,
@@ -3020,10 +3127,10 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 84,
     fiberPerServing: 4.0,
     rawIngredients: [
-      { name: 'Макарони твердих сортів (100 г/ос, магазин)', amount: 400, unit: 'г', category: 'макарони' },
-      { name: 'Тушонка яловича класична (45 г/ос, магазин)', amount: 180, unit: 'г', category: 'м\'ясо' },
-      { name: 'Сир твердий тертий (30 г/ос, магазин)', amount: 120, unit: 'г', category: 'молочні' },
-      { name: 'Масло топлене гхі (10 г/ос, магазин)', amount: 40, unit: 'г', category: 'молочні' }
+      { name: 'Макарони твердих сортів', amount: 100, unit: 'г', category: 'макарони' },
+      { name: 'Тушонка яловича класична', amount: 45, unit: 'г', category: 'м\'ясо' },
+      { name: 'Сир твердий тертий', amount: 30, unit: 'г', category: 'молочні' },
+      { name: 'Масло топлене гхі', amount: 10, unit: 'г', category: 'молочні' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — суперпоживний ранковий заряд для важких гірських переходів.',
@@ -3048,7 +3155,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Мюслі молочні з солодкими сухарями та сухим молоком (ТК «Глобус»)',
     category: 'breakfast',
     mealTypes: ['breakfast'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 125,
     kcalPerServing: 465,
     proteinPerServing: 14,
@@ -3056,9 +3163,9 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 78,
     fiberPerServing: 7.0,
     rawIngredients: [
-      { name: 'Мюслі злакові з фруктами та горіхами (80 г/ос, магазин)', amount: 320, unit: 'г', category: 'крупи' },
-      { name: 'Сухе молоко незбиране 25% (15 г/ос, магазин)', amount: 60, unit: 'г', category: 'молочні' },
-      { name: 'Сухарі солодкі з родзинками (30 г/ос, магазин)', amount: 120, unit: 'г', category: 'хліб' }
+      { name: 'Мюслі злакові з фруктами та горіхами', amount: 80, unit: 'г', category: 'крупи' },
+      { name: 'Сухе молоко незбиране 25%', amount: 15, unit: 'г', category: 'молочні' },
+      { name: 'Сухарі солодкі з родзинками', amount: 30, unit: 'г', category: 'хліб' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — змішати мюслі з сухим молоком у зіп-пакет на швидкий ранок.'
@@ -3082,7 +3189,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Каша Арнаутка з тушонкою, кетчупом та пряниками (ТК «Глобус»)',
     category: 'breakfast',
     mealTypes: ['breakfast', 'dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 175,
     kcalPerServing: 540,
     proteinPerServing: 19,
@@ -3090,10 +3197,10 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 87,
     fiberPerServing: 5.5,
     rawIngredients: [
-      { name: 'Крупа Арнаутка яра пшенична (80 г/ос, магазин)', amount: 320, unit: 'г', category: 'крупи' },
-      { name: 'Тушонка яловича класична (45 г/ос, магазин)', amount: 180, unit: 'г', category: 'м\'ясо' },
-      { name: 'Кетчуп томатний (20 г/ос, магазин)', amount: 80, unit: 'г', category: 'спеції' },
-      { name: 'Пряники медові до чаю (30 г/ос, магазин)', amount: 120, unit: 'г', category: 'хліб' }
+      { name: 'Крупа Арнаутка яра пшенична', amount: 80, unit: 'г', category: 'крупи' },
+      { name: 'Тушонка яловича класична', amount: 45, unit: 'г', category: 'м\'ясо' },
+      { name: 'Кетчуп томатний', amount: 20, unit: 'г', category: 'спеції' },
+      { name: 'Пряники медові до чаю', amount: 30, unit: 'г', category: 'хліб' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — пшенична крупа арнаутка зі спеціями засипається в пакет на сніданок.'
@@ -3117,7 +3224,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Вівсянка з курагою, родзинками, топленим маслом та какао (ТК «Глобус»)',
     category: 'breakfast',
     mealTypes: ['breakfast'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 175,
     kcalPerServing: 620,
     proteinPerServing: 16,
@@ -3125,11 +3232,11 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 102,
     fiberPerServing: 10.0,
     rawIngredients: [
-      { name: 'Вівсяні пластівці (80 г/ос, магазин)', amount: 320, unit: 'г', category: 'крупи' },
-      { name: 'Курага без кісточки (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'сухофрукти' },
-      { name: 'Родзинки темні (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'сухофрукти' },
-      { name: 'Сухе молоко незбиране (15 г/ос, магазин)', amount: 60, unit: 'г', category: 'молочні' },
-      { name: 'Масло топлене гхі (10 г/ос, магазин)', amount: 40, unit: 'г', category: 'молочні' }
+      { name: 'Вівсяні пластівці', amount: 80, unit: 'г', category: 'крупи' },
+      { name: 'Курага без кісточки', amount: 35, unit: 'г', category: 'сухофрукти' },
+      { name: 'Родзинки темні', amount: 35, unit: 'г', category: 'сухофрукти' },
+      { name: 'Сухе молоко незбиране', amount: 15, unit: 'г', category: 'молочні' },
+      { name: 'Масло топлене гхі', amount: 10, unit: 'г', category: 'молочні' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — змішати вівсянку, сухе молоко та нарізані сухофрукти у пакет сніданку.'
@@ -3153,7 +3260,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Рис солодкий молочний з горішками, топленим маслом та печивом (ТК «Глобус»)',
     category: 'breakfast',
     mealTypes: ['breakfast'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 170,
     kcalPerServing: 670,
     proteinPerServing: 15,
@@ -3161,11 +3268,11 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 94,
     fiberPerServing: 4.5,
     rawIngredients: [
-      { name: 'Рис пропарений або круглозерний (80 г/ос, магазин)', amount: 320, unit: 'г', category: 'крупи' },
-      { name: 'Горішки волоські, мигдаль або кеш\'ю (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'горіхи' },
-      { name: 'Сухе молоко незбиране (15 г/ос, магазин)', amount: 60, unit: 'г', category: 'молочні' },
-      { name: 'Масло топлене (10 г/ос, магазин)', amount: 40, unit: 'г', category: 'молочні' },
-      { name: 'Печиво цукрове до чаю (30 г/ос, магазин)', amount: 120, unit: 'г', category: 'хліб' }
+      { name: 'Рис пропарений або круглозерний', amount: 80, unit: 'г', category: 'крупи' },
+      { name: 'Горішки волоські, мигдаль або кеш\'ю', amount: 35, unit: 'г', category: 'горіхи' },
+      { name: 'Сухе молоко незбиране', amount: 15, unit: 'г', category: 'молочні' },
+      { name: 'Масло топлене', amount: 10, unit: 'г', category: 'молочні' },
+      { name: 'Печиво цукрове до чаю', amount: 30, unit: 'г', category: 'хліб' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — змішати рис з сухим молоком та подрібненими горіхами у пакет сніданку.'
@@ -3189,7 +3296,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Гречка по-похідному з тушонкою, кетчупом та солодкими сухарями (ТК «Глобус»)',
     category: 'breakfast',
     mealTypes: ['breakfast', 'dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 175,
     kcalPerServing: 535,
     proteinPerServing: 20,
@@ -3197,10 +3304,10 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 84,
     fiberPerServing: 9.0,
     rawIngredients: [
-      { name: 'Крупа гречана ядриця (80 г/ос, магазин)', amount: 320, unit: 'г', category: 'крупи' },
-      { name: 'Тушонка яловича класична (45 г/ос, магазин)', amount: 180, unit: 'г', category: 'м\'ясо' },
-      { name: 'Кетчуп томатний (20 г/ос, магазин)', amount: 80, unit: 'г', category: 'спеції' },
-      { name: 'Сухарі солодкі з родзинками (30 г/ос, магазин)', amount: 120, unit: 'г', category: 'хліб' }
+      { name: 'Крупа гречана ядриця', amount: 80, unit: 'г', category: 'крупи' },
+      { name: 'Тушонка яловича класична', amount: 45, unit: 'г', category: 'м\'ясо' },
+      { name: 'Кетчуп томатний', amount: 20, unit: 'г', category: 'спеції' },
+      { name: 'Сухарі солодкі з родзинками', amount: 30, unit: 'г', category: 'хліб' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — готова магазинна гречана основа з тушонкою та кетчупом.'
@@ -3226,7 +3333,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Суп із плавленим сирком, вермішеллю, тушонкою та салом (ТК «Глобус»)',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 150,
     kcalPerServing: 520,
     proteinPerServing: 21,
@@ -3234,12 +3341,13 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 38,
     fiberPerServing: 3.5,
     rawIngredients: [
-      { name: 'Тушонка яловича класична (45 г/ос, магазин)', amount: 180, unit: 'г', category: 'м\'ясо' },
-      { name: 'Сирок плавлений Дружба (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'молочні' },
-      { name: 'Сало солоне шпик до супу (30 г/ос, магазин/дім)', amount: 120, unit: 'г', category: 'жири' },
-      { name: 'Макарони або вермішель у суп (20 г/ос, магазин)', amount: 80, unit: 'г', category: 'макарони' },
-      { name: 'Картопля сушена (17 г/ос, усушка 1:6.5)', amount: 68, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
-      { name: 'Морква (1.5 г/ос) та цибуля (1.5 г/ос) сушені', amount: 12, unit: 'г', category: 'овочі', rawToDryRatio: 8.0 }
+      { name: 'Тушонка яловича класична', amount: 45, unit: 'г', category: 'м\'ясо' },
+      { name: 'Сирок плавлений Дружба', amount: 35, unit: 'г', category: 'молочні' },
+      { name: 'Сало солоне шпик до супу', amount: 30, unit: 'г', category: 'жири' },
+      { name: 'Макарони або вермішель у суп', amount: 20, unit: 'г', category: 'макарони' },
+      { name: 'Картопля сушена', amount: 17, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Морква столова сушена', amount: 1.5, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Цибуля ріпчаста сушена', amount: 1.5, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 }
     ],
     homePrepSteps: [
       'У дегідраторі сушаться картопля, цибуля та морква.',
@@ -3264,7 +3372,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Юшка по-похідному з рибною консервою, крупою, тушонкою та салом (ТК «Глобус»)',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 172,
     kcalPerServing: 570,
     proteinPerServing: 27,
@@ -3272,12 +3380,13 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 36,
     fiberPerServing: 3.0,
     rawIngredients: [
-      { name: 'Консерва рибна сардина/горбуша в олії (60 г/ос, магазин)', amount: 240, unit: 'г', category: 'риба' },
-      { name: 'Тушонка яловича класична (45 г/ос, магазин)', amount: 180, unit: 'г', category: 'м\'ясо' },
-      { name: 'Сало солоне шпик до юшки (30 г/ос, дім/магазин)', amount: 120, unit: 'г', category: 'жири' },
-      { name: 'Картопля сушена (17 г/ос, усушка 1:6.5)', amount: 68, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
-      { name: 'Крупа в суп рис або пшоно (17 г/ос, магазин)', amount: 68, unit: 'г', category: 'крупи' },
-      { name: 'Морква (1.5 г/ос) та цибуля (1.5 г/ос) сушені', amount: 12, unit: 'г', category: 'овочі', rawToDryRatio: 8.0 }
+      { name: 'Консерва рибна сардина/горбуша в олії', amount: 60, unit: 'г', category: 'риба' },
+      { name: 'Тушонка яловича класична', amount: 45, unit: 'г', category: 'м\'ясо' },
+      { name: 'Сало солоне шпик до юшки', amount: 30, unit: 'г', category: 'жири' },
+      { name: 'Картопля сушена', amount: 17, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Крупа в суп рис або пшоно', amount: 17, unit: 'г', category: 'крупи' },
+      { name: 'Морква столова сушена', amount: 1.5, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Цибуля ріпчаста сушена', amount: 1.5, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 }
     ],
     homePrepSteps: [
       'У дегідраторі сушаться картопля, морква та цибуля; решта інгредієнтів магазинні.'
@@ -3301,7 +3410,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Борщ похідний із тушонкою, сушеним буряком, квасолею, капустою та салом (ТК «Глобус»)',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 126,
     kcalPerServing: 460,
     proteinPerServing: 16,
@@ -3309,11 +3418,14 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 31,
     fiberPerServing: 5.5,
     rawIngredients: [
-      { name: 'Тушонка яловича класична (45 г/ос, магазин)', amount: 180, unit: 'г', category: 'м\'ясо' },
-      { name: 'Сало солоне шпик (30 г/ос, дім/магазин)', amount: 120, unit: 'г', category: 'жири' },
-      { name: 'Картопля сушена (17 г/ос, усушка 1:6.5)', amount: 68, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
-      { name: 'Томатна паста концентрована (17 г/ос, магазин)', amount: 68, unit: 'г', category: 'спеції' },
-      { name: 'Буряк (4 г/ос), капуста (5 г/ос), квасоля (5 г/ос) та морква (1.5 г/ос) сушені', amount: 62, unit: 'г', category: 'овочі', rawToDryRatio: 9.0 }
+      { name: 'Тушонка яловича класична', amount: 45, unit: 'г', category: 'м\'ясо' },
+      { name: 'Сало солоне шпик', amount: 30, unit: 'г', category: 'жири' },
+      { name: 'Картопля сушена', amount: 17, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Томатна паста концентрована', amount: 17, unit: 'г', category: 'спеції' },
+      { name: 'Буряк столовий сушений', amount: 4, unit: 'г', category: 'овочі', rawToDryRatio: 8 },
+      { name: 'Капуста білокачанна сушена', amount: 5, unit: 'г', category: 'овочі', rawToDryRatio: 11 },
+      { name: 'Квасоля відварена сушена', amount: 5, unit: 'г', category: 'бобові', rawToDryRatio: 9 },
+      { name: 'Морква столова сушена', amount: 1.5, unit: 'г', category: 'овочі', rawToDryRatio: 7 }
     ],
     homePrepSteps: [
       'У дегідраторі сушаться картопля, буряк, капуста, квасоля та морква.',
@@ -3338,7 +3450,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Грибний суп із сушеними білими грибами, тушонкою та салом (ТК «Глобус»)',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 103,
     kcalPerServing: 420,
     proteinPerServing: 15,
@@ -3346,11 +3458,12 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 23,
     fiberPerServing: 4.0,
     rawIngredients: [
-      { name: 'Тушонка яловича класична (45 г/ос, магазин)', amount: 180, unit: 'г', category: 'м\'ясо' },
-      { name: 'Сало солоне шпик (30 г/ос, дім/магазин)', amount: 120, unit: 'г', category: 'жири' },
-      { name: 'Картопля сушена (17 г/ос, усушка 1:6.5)', amount: 68, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
-      { name: 'Гриби лісові сушені (8 г/ос, усушка 1:9)', amount: 32, unit: 'г', category: 'гриби', rawToDryRatio: 9.0 },
-      { name: 'Морква (1.5 г/ос) та цибуля (1.5 г/ос) сушені', amount: 12, unit: 'г', category: 'овочі', rawToDryRatio: 8.0 }
+      { name: 'Тушонка яловича класична', amount: 45, unit: 'г', category: 'м\'ясо' },
+      { name: 'Сало солоне шпик', amount: 30, unit: 'г', category: 'жири' },
+      { name: 'Картопля сушена', amount: 17, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Гриби лісові сушені', amount: 8, unit: 'г', category: 'гриби', rawToDryRatio: 9 },
+      { name: 'Морква столова сушена', amount: 1.5, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Цибуля ріпчаста сушена', amount: 1.5, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 }
     ],
     homePrepSteps: [
       'У дегідраторі сушаться лісові гриби, картопля, морква та цибуля.'
@@ -3374,7 +3487,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Гороховий суп із брикету з тушонкою, крупою та салом (ТК «Глобус»)',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 147,
     kcalPerServing: 540,
     proteinPerServing: 22,
@@ -3382,12 +3495,13 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 46,
     fiberPerServing: 6.5,
     rawIngredients: [
-      { name: 'Тушонка яловича класична (45 г/ос, магазин)', amount: 180, unit: 'г', category: 'м\'ясо' },
-      { name: 'Гороховий суп у брикеті (40 г/ос, магазин)', amount: 160, unit: 'г', category: 'бобові' },
-      { name: 'Сало солоне шпик (30 г/ос, дім/магазин)', amount: 120, unit: 'г', category: 'жири' },
-      { name: 'Картопля сушена (17 г/ос, усушка 1:6.5)', amount: 68, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
-      { name: 'Крупа в суп (17 г/ос, магазин)', amount: 68, unit: 'г', category: 'крупи' },
-      { name: 'Морква (1.5 г/ос) та цибуля (1.5 г/ос) сушені', amount: 12, unit: 'г', category: 'овочі', rawToDryRatio: 8.0 }
+      { name: 'Тушонка яловича класична', amount: 45, unit: 'г', category: 'м\'ясо' },
+      { name: 'Гороховий суп у брикеті', amount: 40, unit: 'г', category: 'бобові' },
+      { name: 'Сало солоне шпик', amount: 30, unit: 'г', category: 'жири' },
+      { name: 'Картопля сушена', amount: 17, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Крупа в суп', amount: 17, unit: 'г', category: 'крупи' },
+      { name: 'Морква столова сушена', amount: 1.5, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Цибуля ріпчаста сушена', amount: 1.5, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 }
     ],
     homePrepSteps: [
       'Гороховий брикет, крупа, тушонка та сало магазинні, сушаться лише картопля, цибуля та морква.'
@@ -3411,7 +3525,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'М\'ясний суп із вермішеллю, картоплею, тушонкою та салом (ТК «Глобус»)',
     category: 'soup',
     mealTypes: ['dinner'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 115,
     kcalPerServing: 440,
     proteinPerServing: 15,
@@ -3419,11 +3533,12 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 29,
     fiberPerServing: 3.0,
     rawIngredients: [
-      { name: 'Тушонка яловича класична (45 г/ос, магазин)', amount: 180, unit: 'г', category: 'м\'ясо' },
-      { name: 'Сало солоне шпик (30 г/ос, дім/магазин)', amount: 120, unit: 'г', category: 'жири' },
-      { name: 'Макарони або вермішель у суп (20 г/ос, магазин)', amount: 80, unit: 'г', category: 'макарони' },
-      { name: 'Картопля сушена (17 г/ос, усушка 1:6.5)', amount: 68, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
-      { name: 'Морква (1.5 г/ос) та цибуля (1.5 г/ос) сушені', amount: 12, unit: 'г', category: 'овочі', rawToDryRatio: 8.0 }
+      { name: 'Тушонка яловича класична', amount: 45, unit: 'г', category: 'м\'ясо' },
+      { name: 'Сало солоне шпик', amount: 30, unit: 'г', category: 'жири' },
+      { name: 'Макарони або вермішель у суп', amount: 20, unit: 'г', category: 'макарони' },
+      { name: 'Картопля сушена', amount: 17, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Морква столова сушена', amount: 1.5, unit: 'г', category: 'овочі', rawToDryRatio: 7 },
+      { name: 'Цибуля ріпчаста сушена', amount: 1.5, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 }
     ],
     homePrepSteps: [
       'У дегідраторі сушаться картопля, морква та цибуля.'
@@ -3449,7 +3564,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Перекус ходовий: курага, родзинки та льодяники (ТК «Глобус»)',
     category: 'snack',
     mealTypes: ['snack'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 95,
     kcalPerServing: 275,
     proteinPerServing: 3,
@@ -3457,9 +3572,9 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 65,
     fiberPerServing: 4.5,
     rawIngredients: [
-      { name: 'Курага сушена без кісточки (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'сухофрукти' },
-      { name: 'Родзинки темні без кісточки (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'сухофрукти' },
-      { name: 'Цукерки смоктальні карамель/льодяники (25 г/ос, магазин)', amount: 100, unit: 'г', category: 'солодощі' }
+      { name: 'Курага сушена без кісточки', amount: 35, unit: 'г', category: 'сухофрукти' },
+      { name: 'Родзинки темні без кісточки', amount: 35, unit: 'г', category: 'сухофрукти' },
+      { name: 'Цукерки смоктальні карамель/льодяники', amount: 25, unit: 'г', category: 'солодощі' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — розфасувати в щоденні кишенькові пакетики на ходовий перехід.'
@@ -3483,7 +3598,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Перекус ходовий: грильяж горіховий та льодяники (ТК «Глобус»)',
     category: 'snack',
     mealTypes: ['snack'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 60,
     kcalPerServing: 220,
     proteinPerServing: 2.5,
@@ -3491,8 +3606,8 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 42,
     fiberPerServing: 1.5,
     rawIngredients: [
-      { name: 'Грильяж горіховий похідний (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'солодощі' },
-      { name: 'Цукерки смоктальні карамель/льодяники (25 г/ос, магазин)', amount: 100, unit: 'г', category: 'солодощі' }
+      { name: 'Грильяж горіховий похідний', amount: 35, unit: 'г', category: 'солодощі' },
+      { name: 'Цукерки смоктальні карамель/льодяники', amount: 25, unit: 'г', category: 'солодощі' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — кишенькове харчування для переходу.'
@@ -3516,7 +3631,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Перекус ходовий: горіховий мікс та льодяники (ТК «Глобус»)',
     category: 'snack',
     mealTypes: ['snack'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 60,
     kcalPerServing: 270,
     proteinPerServing: 7,
@@ -3524,8 +3639,8 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 26,
     fiberPerServing: 3.0,
     rawIngredients: [
-      { name: 'Горішки кеш\'ю, мигдаль, арахіс (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'горіхи' },
-      { name: 'Цукерки смоктальні карамель/льодяники (25 г/ос, магазин)', amount: 100, unit: 'г', category: 'солодощі' }
+      { name: 'Горішки кеш\'ю, мигдаль, арахіс', amount: 35, unit: 'г', category: 'горіхи' },
+      { name: 'Цукерки смоктальні карамель/льодяники', amount: 25, unit: 'г', category: 'солодощі' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — висококалорійний горіховий перекус з льодяниками.'
@@ -3549,7 +3664,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Перекус ходовий: ірис вершковий та льодяники (ТК «Глобус»)',
     category: 'snack',
     mealTypes: ['snack'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 60,
     kcalPerServing: 240,
     proteinPerServing: 1.5,
@@ -3557,8 +3672,8 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 52,
     fiberPerServing: 0.0,
     rawIngredients: [
-      { name: 'Ірис вершковий Золотий ключик (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'солодощі' },
-      { name: 'Цукерки смоктальні карамель/льодяники (25 г/ос, магазин)', amount: 100, unit: 'г', category: 'солодощі' }
+      { name: 'Ірис вершковий Золотий ключик', amount: 35, unit: 'г', category: 'солодощі' },
+      { name: 'Цукерки смоктальні карамель/льодяники', amount: 25, unit: 'г', category: 'солодощі' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — класичні швидкі вуглеводи на крутому підйомі.'
@@ -3582,7 +3697,7 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     title: 'Перекус ходовий: козинаки соняшникові та льодяники (ТК «Глобус»)',
     category: 'snack',
     mealTypes: ['snack'],
-    servingsYield: 4,
+    servingsYield: 1,
     dryWeightPerServingGrams: 60,
     kcalPerServing: 265,
     proteinPerServing: 4.5,
@@ -3590,8 +3705,8 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     carbsPerServing: 41,
     fiberPerServing: 1.8,
     rawIngredients: [
-      { name: 'Козинаки соняшникові (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'солодощі' },
-      { name: 'Цукерки смоктальні карамель/льодяники (25 г/ос, магазин)', amount: 100, unit: 'г', category: 'солодощі' }
+      { name: 'Козинаки соняшникові', amount: 35, unit: 'г', category: 'солодощі' },
+      { name: 'Цукерки смоктальні карамель/льодяники', amount: 25, unit: 'г', category: 'солодощі' }
     ],
     homePrepSteps: [
       'Сушарка не потрібна — натуральний соняшниковий енергетик з льодяниками.'
