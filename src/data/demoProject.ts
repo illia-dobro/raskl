@@ -100,23 +100,19 @@ export function createDemoProject(): HikeProject {
           ],
         },
         lunch: {
-          title: 'Обід: Хумус швидкий із сухарями та сиром',
+          title: 'Обід: Хумус похідний із галетами та твердим сиром',
           items: [
-            { id: 'd1-l1', sourceType: 'recipe', sourceId: 'recipe-quick-hummus', gramsPerPerson: 60 },
-            { id: 'd1-l2', sourceType: 'product', sourceId: 'bread-crackers-rye', gramsPerPerson: 40 },
-            { id: 'd1-l3', sourceType: 'product', sourceId: 'dairy-cheese-hard', gramsPerPerson: 35 },
-            { id: 'd1-l4', sourceType: 'product', sourceId: 'drink-tea-black', gramsPerPerson: 5 },
+            { id: 'd1-l1', sourceType: 'recipe', sourceId: 'recipe-quick-hummus', gramsPerPerson: 80 },
+            { id: 'd1-l2', sourceType: 'product', sourceId: 'dairy-cheese-hard', gramsPerPerson: 35 },
+            { id: 'd1-l3', sourceType: 'product', sourceId: 'drink-tea-black', gramsPerPerson: 5 },
           ],
         },
         dinner: {
-          title: 'Вечеря: Суп овочевий із куркою та сухарями',
+          title: 'Вечеря: Паста з курячим філе та солодким перцем',
           items: [
-            { id: 'd1-d1', sourceType: 'product', sourceId: 'grain-pasta-horns', gramsPerPerson: 60 },
-            { id: 'd1-d2', sourceType: 'product', sourceId: 'meat-chicken-dried', gramsPerPerson: 30 },
-            { id: 'd1-d3', sourceType: 'product', sourceId: 'veg-carrots-dried', gramsPerPerson: 10 },
-            { id: 'd1-d4', sourceType: 'product', sourceId: 'veg-onions-dried', gramsPerPerson: 8 },
-            { id: 'd1-d5', sourceType: 'product', sourceId: 'spice-salt', gramsPerPerson: 8 },
-            { id: 'd1-d6', sourceType: 'product', sourceId: 'sweet-chocolate-dark', gramsPerPerson: 30 },
+            { id: 'd1-d1', sourceType: 'recipe', sourceId: 'recipe-spicy-chicken-pasta', gramsPerPerson: 90 },
+            { id: 'd1-d2', sourceType: 'product', sourceId: 'drink-tea-black', gramsPerPerson: 5 },
+            { id: 'd1-d3', sourceType: 'product', sourceId: 'sweet-chocolate-dark', gramsPerPerson: 30 },
           ],
         },
       },
@@ -146,13 +142,11 @@ export function createDemoProject(): HikeProject {
           ],
         },
         lunch: {
-          title: 'Сало з сухарями, часником та халвою',
+          title: 'Український обід на привалі: житні сухарі з салом, часником та шоколадом',
           items: [
-            { id: 'd2-l1', sourceType: 'product', sourceId: 'fat-salo', gramsPerPerson: 40 },
-            { id: 'd2-l2', sourceType: 'product', sourceId: 'bread-crackers-rye', gramsPerPerson: 40 },
-            { id: 'd2-l3', sourceType: 'product', sourceId: 'veg-garlic-fresh', gramsPerPerson: 5 },
-            { id: 'd2-l4', sourceType: 'product', sourceId: 'sweet-halva', gramsPerPerson: 45 },
-            { id: 'd2-l5', sourceType: 'product', sourceId: 'drink-tea-black', gramsPerPerson: 5 },
+            { id: 'd2-l1', sourceType: 'recipe', sourceId: 'recipe-globus-lunch-salo-crackers-choc', gramsPerPerson: 100 },
+            { id: 'd2-l2', sourceType: 'product', sourceId: 'sweet-halva', gramsPerPerson: 40 },
+            { id: 'd2-l3', sourceType: 'product', sourceId: 'drink-tea-black', gramsPerPerson: 5 },
           ],
         },
         dinner: {
@@ -264,12 +258,11 @@ export function createDemoProject(): HikeProject {
       notes: 'Штурм перевалу 1Б, льодовик, ранній вихід о 5:00',
       meals: {
         breakfast: {
-          title: 'Манна каша з родзинками та згущеним молоком',
+          title: 'Манна каша на згущеному молоці з цукатами та родзинками',
           items: [
-            { id: 'd5-b1', sourceType: 'product', sourceId: 'grain-semolina', gramsPerPerson: 60 },
-            { id: 'd5-b2', sourceType: 'product', sourceId: 'fruit-dried-raisins', gramsPerPerson: 30 },
-            { id: 'd5-b3', sourceType: 'product', sourceId: 'dairy-condensed-milk', gramsPerPerson: 45 },
-            { id: 'd5-b4', sourceType: 'product', sourceId: 'drink-tea-black', gramsPerPerson: 5 },
+            { id: 'd5-b1', sourceType: 'recipe', sourceId: 'recipe-simple-globus-semolina-condensed', gramsPerPerson: 85 },
+            { id: 'd5-b2', sourceType: 'product', sourceId: 'drink-tea-black', gramsPerPerson: 5 },
+            { id: 'd5-b3', sourceType: 'product', sourceId: 'sweet-sugar', gramsPerPerson: 15 },
           ],
         },
         snack: {
@@ -326,11 +319,10 @@ export function createDemoProject(): HikeProject {
           ],
         },
         lunch: {
-          title: 'Кукурудзяний чаудер з куркою та беконом',
+          title: 'Бутербродний обід: галети з салямі, твердим сиром та халвою',
           items: [
-            { id: 'd6-l1', sourceType: 'recipe', sourceId: 'recipe-corn-chowder', gramsPerPerson: 80 },
-            { id: 'd6-l2', sourceType: 'product', sourceId: 'dairy-cheese-hard', gramsPerPerson: 40 },
-            { id: 'd6-l3', sourceType: 'product', sourceId: 'sweet-halva', gramsPerPerson: 45 },
+            { id: 'd6-l1', sourceType: 'recipe', sourceId: 'recipe-simple-lunch-salami-cheese', gramsPerPerson: 115 },
+            { id: 'd6-l2', sourceType: 'product', sourceId: 'sweet-halva', gramsPerPerson: 40 },
           ],
         },
         dinner: {
@@ -369,9 +361,9 @@ export function createDemoProject(): HikeProject {
           ],
         },
         lunch: {
-          title: 'Рагу з батату та червоної сочевиці',
+          title: 'Похідний обід-перекус: рибні консерви з сухарями та печивом',
           items: [
-            { id: 'd7-l1', sourceType: 'recipe', sourceId: 'recipe-sweet-potato-lentil-stew', gramsPerPerson: 85 },
+            { id: 'd7-l1', sourceType: 'recipe', sourceId: 'recipe-globus-lunch-fish-canned-crackers', gramsPerPerson: 100 },
             { id: 'd7-l2', sourceType: 'product', sourceId: 'bread-cookies-sugar', gramsPerPerson: 40 },
           ],
         },
@@ -409,11 +401,10 @@ export function createDemoProject(): HikeProject {
           ],
         },
         lunch: {
-          title: 'Обід перед автобусом: салямі з галетами та сиром',
+          title: 'Похідний обід-перекус: ковбаса с/к, сухарі та шоколад',
           items: [
-            { id: 'd8-l1', sourceType: 'product', sourceId: 'meat-sausage-salami', gramsPerPerson: 50 },
-            { id: 'd8-l2', sourceType: 'product', sourceId: 'dairy-cheese-hard', gramsPerPerson: 40 },
-            { id: 'd8-l3', sourceType: 'product', sourceId: 'bread-galette-army', gramsPerPerson: 40 },
+            { id: 'd8-l1', sourceType: 'recipe', sourceId: 'recipe-globus-lunch-salami-choc', gramsPerPerson: 100 },
+            { id: 'd8-l2', sourceType: 'product', sourceId: 'dairy-cheese-hard', gramsPerPerson: 35 },
           ],
         },
         dinner: {

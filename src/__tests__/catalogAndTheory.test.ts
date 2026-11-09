@@ -146,4 +146,68 @@ describe('Knowledge Base & Catalogs from 4 Books', () => {
       }
     }
   });
+
+  it('demo project uses cohesive dish recipes rather than loose raw product lists for all meals', () => {
+    const demo = createDemoProject();
+    // День 1 вечеря: тепер повноцінна страва (паста з куркою), а не 5 сирих інгредієнтів
+    const d1DinnerRecipes = demo.days[0].meals.dinner.items.filter(it => it.sourceType === 'recipe');
+    expect(d1DinnerRecipes.length).toBe(1);
+    expect(d1DinnerRecipes[0].sourceId).toBe('recipe-spicy-chicken-pasta');
+
+    // День 5 сніданок: манна каша на згущеному молоці
+    const d5BreakfastRecipes = demo.days[4].meals.breakfast.items.filter(it => it.sourceType === 'recipe');
+    expect(d5BreakfastRecipes.length).toBe(1);
+    expect(d5BreakfastRecipes[0].sourceId).toBe('recipe-simple-globus-semolina-condensed');
+
+    // День 6 обід: холодний бутербродний обід (без варіння) замість гарячого супу чаудера
+    const d6LunchRecipes = demo.days[5].meals.lunch.items.filter(it => it.sourceType === 'recipe');
+    expect(d6LunchRecipes.length).toBe(1);
+    const d6Dish = getRecipeById(d6LunchRecipes[0].sourceId);
+    expect(d6Dish?.campRehydration.boilMinutes).toBe(0);
+
+    // День 7 обід: холодний перекус із рибними консервами та сухарями
+    const d7LunchRecipes = demo.days[6].meals.lunch.items.filter(it => it.sourceType === 'recipe');
+    expect(d7LunchRecipes.length).toBe(1);
+    const d7Dish = getRecipeById(d7LunchRecipes[0].sourceId);
+    expect(d7Dish?.campRehydration.boilMinutes).toBe(0);
+  });
+
+  it('universal hot meal classification: savory mains and porridges are available for BOTH breakfast and dinner', () => {
+    const hotUniversalDishes = [
+      'recipe-spicy-chicken-pasta',
+      'recipe-canyon-chili',
+      'recipe-chicken-pilaf-oriental',
+      'recipe-simple-buckwheat-tushonka',
+      'recipe-simple-polenta-cheese',
+      'recipe-quick-oatmeal-plus',
+      'recipe-granola-alpine',
+      'recipe-globus-kulesh',
+      'recipe-globus-pasta-navy-style',
+    ];
+    for (const id of hotUniversalDishes) {
+      const dish = getRecipeById(id);
+      expect(dish).toBeDefined();
+      expect(dish?.mealTypes).toContain('breakfast');
+      expect(dish?.mealTypes).toContain('dinner');
+    }
+  });
+
+  it('spread recipes (hummus, pate, salsa) always include crackers or galettes in their ingredients', () => {
+    const spreads = [
+      'recipe-quick-hummus',
+      'recipe-creamy-tuna-spread',
+      'recipe-white-bean-pate',
+      'recipe-black-bean-salsa',
+    ];
+    for (const id of spreads) {
+      const spread = getRecipeById(id);
+      expect(spread).toBeDefined();
+      expect(spread?.category).toBe('spread');
+      expect(spread?.campRehydration.boilMinutes).toBe(0);
+      const hasBreadOrCrackers = spread?.rawIngredients.some(
+        ing => ing.category === 'хліб' || ing.name.toLowerCase().includes('галет') || ing.name.toLowerCase().includes('сухар')
+      );
+      expect(hasBreadOrCrackers).toBe(true);
+    }
+  });
 });

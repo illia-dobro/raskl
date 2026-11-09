@@ -12,7 +12,7 @@ interface QuickAddDishModalProps {
   onClose: () => void;
 }
 
-type CategoryTab = 'popular' | 'lunch' | 'breakfast' | 'soup' | 'main' | 'snack' | 'drink' | 'all';
+type CategoryTab = 'popular' | 'lunch' | 'breakfast' | 'soup' | 'main' | 'spread' | 'snack' | 'drink' | 'all';
 
 export function getDishBadge(
   category: string,
@@ -30,22 +30,25 @@ export function getDishBadge(
       colorClass: 'bg-amber-50 text-amber-800 border-amber-200',
     };
   }
-  if (mealTypes.includes('lunch') && boilMinutes === 0) {
+  if (category === 'lunch' || (mealTypes.includes('lunch') && boilMinutes === 0)) {
     return { text: '🥪 Холодний обід (без варіння)', colorClass: 'bg-sky-50 text-sky-800 border-sky-200' };
   }
-  if (category === 'breakfast') {
-    return { text: '🥣 Сніданок / Каша', colorClass: 'bg-orange-50 text-orange-800 border-orange-200' };
-  }
   if (category === 'spread') {
-    return { text: '🥫 Холодна намазка / паштет', colorClass: 'bg-teal-50 text-teal-800 border-teal-200' };
+    return { text: '🥫 Холодна намазка / паштет (з сухарями)', colorClass: 'bg-teal-50 text-teal-800 border-teal-200' };
+  }
+  if (category === 'breakfast') {
+    return { text: '🥣 Солодка каша / Мюслі (сніданок/вечеря)', colorClass: 'bg-orange-50 text-orange-800 border-orange-200' };
   }
   if (category === 'snack') {
     return { text: '🍫 Снек / карманка', colorClass: 'bg-purple-50 text-purple-800 border-purple-200' };
   }
-  if (isSimple) {
-    return { text: '🛒 Магазинна страва', colorClass: 'bg-blue-50 text-blue-800 border-blue-200' };
+  if (category === 'drink') {
+    return { text: '☕ Похідний напій', colorClass: 'bg-emerald-50 text-emerald-800 border-emerald-200' };
   }
-  return { text: '🍛 Гаряча страва (дегідрат)', colorClass: 'bg-indigo-50 text-indigo-800 border-indigo-200' };
+  if (isSimple) {
+    return { text: '🛒 Магазинна страва (сніданок/вечеря)', colorClass: 'bg-blue-50 text-blue-800 border-blue-200' };
+  }
+  return { text: '🍛 Гаряча страва (сніданок/вечеря)', colorClass: 'bg-indigo-50 text-indigo-800 border-indigo-200' };
 }
 
 export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
@@ -64,7 +67,7 @@ export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
     mealType === 'lunch'
       ? 'lunch'
       : mealType === 'breakfast'
-        ? 'breakfast'
+        ? 'main'
         : mealType === 'dinner'
           ? 'soup'
           : mealType === 'snack'
@@ -192,8 +195,11 @@ export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
     }
     if (activeCategory === 'lunch') {
       return list.filter(
-        item => item.mealTypes?.includes('lunch') && item.boilMinutes === 0
+        item => item.category === 'lunch' || (item.mealTypes?.includes('lunch') && item.boilMinutes === 0)
       );
+    }
+    if (activeCategory === 'main') {
+      return list.filter(item => item.category === 'main');
     }
     if (activeCategory === 'breakfast') {
       return list.filter(item => item.category === 'breakfast');
@@ -201,8 +207,8 @@ export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
     if (activeCategory === 'soup') {
       return list.filter(item => item.category === 'soup');
     }
-    if (activeCategory === 'main') {
-      return list.filter(item => item.category === 'main' || item.category === 'spread');
+    if (activeCategory === 'spread') {
+      return list.filter(item => item.category === 'spread');
     }
     if (activeCategory === 'snack') {
       return list.filter(item => item.category === 'snack');
@@ -343,6 +349,39 @@ export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
             </button>
             <button
               type="button"
+              onClick={() => { setActiveCategory('main'); setSearch(''); }}
+              className={`px-3 py-1.5 rounded-lg font-bold shrink-0 transition ${
+                activeCategory === 'main' && !search
+                  ? 'bg-indigo-600 text-white shadow-2xs'
+                  : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'
+              }`}
+            >
+              🍛 Другі страви & каші (сніданок/вечеря)
+            </button>
+            <button
+              type="button"
+              onClick={() => { setActiveCategory('breakfast'); setSearch(''); }}
+              className={`px-3 py-1.5 rounded-lg font-bold shrink-0 transition ${
+                activeCategory === 'breakfast' && !search
+                  ? 'bg-amber-600 text-white shadow-2xs'
+                  : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'
+              }`}
+            >
+              🥣 Солодкі каші & мюслі
+            </button>
+            <button
+              type="button"
+              onClick={() => { setActiveCategory('soup'); setSearch(''); }}
+              className={`px-3 py-1.5 rounded-lg font-bold shrink-0 transition ${
+                activeCategory === 'soup' && !search
+                  ? 'bg-sky-600 text-white shadow-2xs'
+                  : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'
+              }`}
+            >
+              🍲 Супи та борщі (вечеря)
+            </button>
+            <button
+              type="button"
               onClick={() => { setActiveCategory('lunch'); setSearch(''); }}
               className={`px-3 py-1.5 rounded-lg font-bold shrink-0 transition ${
                 activeCategory === 'lunch' && !search
@@ -354,36 +393,14 @@ export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
             </button>
             <button
               type="button"
-              onClick={() => { setActiveCategory('breakfast'); setSearch(''); }}
+              onClick={() => { setActiveCategory('spread'); setSearch(''); }}
               className={`px-3 py-1.5 rounded-lg font-bold shrink-0 transition ${
-                activeCategory === 'breakfast' && !search
-                  ? 'bg-amber-600 text-white shadow-2xs'
+                activeCategory === 'spread' && !search
+                  ? 'bg-teal-700 text-white shadow-2xs'
                   : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'
               }`}
             >
-              🥣 Сніданки / Каші
-            </button>
-            <button
-              type="button"
-              onClick={() => { setActiveCategory('soup'); setSearch(''); }}
-              className={`px-3 py-1.5 rounded-lg font-bold shrink-0 transition ${
-                activeCategory === 'soup' && !search
-                  ? 'bg-sky-600 text-white shadow-2xs'
-                  : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'
-              }`}
-            >
-              🍲 Супи та борщі
-            </button>
-            <button
-              type="button"
-              onClick={() => { setActiveCategory('main'); setSearch(''); }}
-              className={`px-3 py-1.5 rounded-lg font-bold shrink-0 transition ${
-                activeCategory === 'main' && !search
-                  ? 'bg-indigo-600 text-white shadow-2xs'
-                  : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'
-              }`}
-            >
-              🍛 Другі страви
+              🥫 Намазки та паштети (з сухарями)
             </button>
             <button
               type="button"
@@ -394,7 +411,7 @@ export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
                   : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'
               }`}
             >
-              🍫 Перекуси & Сир/Сало
+              🍫 Снеки & карманка
             </button>
             <button
               type="button"

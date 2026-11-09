@@ -13,7 +13,7 @@ import {
 } from '../types/domain';
 import { createDemoProject } from '../data/demoProject';
 import { createEmptyProject } from '../data/emptyProject';
-import { autoFillProject, AutoFillFilters, DEFAULT_AUTOFILL_FILTERS, hasLegacyProductListInMeals } from '../domain/autoFill';
+import { autoFillProject, AutoFillFilters, hasLegacyProductListInMeals } from '../domain/autoFill';
 import { autoAssignStagePackages } from '../domain/loadDistributor';
 
 export type AppTabId = 'theory' | 'route' | 'menu' | 'catalog' | 'shopping' | 'distribution';
@@ -540,7 +540,9 @@ export const useProjectStore = create<ProjectState>()(
       }),
       onRehydrateStorage: () => state => {
         if (state && hasLegacyProductListInMeals(state.project)) {
-          state.autoFillMenu(DEFAULT_AUTOFILL_FILTERS);
+          if (state.project.id === 'demo-carpathian-highlands') {
+            state.resetToDemoProject();
+          }
         }
       },
     }

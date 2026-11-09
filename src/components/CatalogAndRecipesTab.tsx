@@ -67,10 +67,18 @@ export const CatalogAndRecipesTab: React.FC = () => {
     const matchCat =
       selectedCategory === 'all' ||
       (selectedCategory === 'lunch'
-        ? r.mealTypes.includes('lunch') && (r.campRehydration?.boilMinutes ?? 0) === 0
+        ? r.category === 'lunch' || (r.mealTypes.includes('lunch') && (r.campRehydration?.boilMinutes ?? 0) === 0)
         : selectedCategory === 'soup'
           ? r.category === 'soup'
-          : r.category === selectedCategory || r.mealTypes.includes(selectedCategory as MealType));
+          : selectedCategory === 'main'
+            ? r.category === 'main'
+            : selectedCategory === 'breakfast'
+              ? r.category === 'breakfast'
+              : selectedCategory === 'spread'
+                ? r.category === 'spread'
+                : selectedCategory === 'snack'
+                  ? r.category === 'snack'
+                  : r.category === selectedCategory || r.mealTypes.includes(selectedCategory as MealType));
     return matchSearch && matchCat;
   });
 
@@ -206,12 +214,12 @@ export const CatalogAndRecipesTab: React.FC = () => {
             className="bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs font-semibold text-slate-700 outline-none"
           >
             <option value="all">Всі типи страв</option>
-            <option value="lunch">🥪 Холодні обіди (без варіння: ковбаса, сир, сало, сухарі, консерви)</option>
-            <option value="soup">🍲 Супи та борщі (гарячі перші страви)</option>
-            <option value="breakfast">🥣 Сніданки та солодкі каші</option>
-            <option value="main">🍛 Другі гарячі страви (каші з м'ясом, пасти, плов)</option>
-            <option value="spread">🥫 Намазки, паштети та хумус</option>
-            <option value="snack">🍫 Снеки, карманка та солодощі</option>
+            <option value="main">🍛 Гарячі другі страви та каші (сніданок / вечеря)</option>
+            <option value="breakfast">🥣 Солодкі каші, мюслі та гранола (сніданок / вечеря)</option>
+            <option value="soup">🍲 Гарячі супи та борщі (вечеря у таборі)</option>
+            <option value="lunch">🥪 Холодні похідні обіди (без варіння: ковбаса, сир, сало, сухарі, консерви)</option>
+            <option value="spread">🥫 Намазки, паштети та хумус (до сухарів та галет)</option>
+            <option value="snack">🍫 Снеки, карманка та солодощі (на переходах)</option>
           </select>
         ) : (
           <select
@@ -253,19 +261,19 @@ export const CatalogAndRecipesTab: React.FC = () => {
                 <div className="flex flex-wrap items-center gap-1.5 mt-1.5">
                   {recipe.category === 'soup' ? (
                     <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-200">
-                      🍲 Гаряча перша страва ({recipe.campRehydration.boilMinutes} хв)
+                      🍲 Гарячий суп ({recipe.campRehydration.boilMinutes} хв)
                     </span>
-                  ) : recipe.mealTypes.includes('lunch') && recipe.campRehydration.boilMinutes === 0 ? (
+                  ) : recipe.category === 'lunch' || (recipe.mealTypes.includes('lunch') && recipe.campRehydration.boilMinutes === 0) ? (
                     <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-sky-50 text-sky-800 border border-sky-200">
                       🥪 Холодний обід (без варіння)
                     </span>
-                  ) : recipe.category === 'breakfast' ? (
-                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-orange-50 text-orange-800 border border-orange-200">
-                      🥣 Сніданок / Каша
-                    </span>
                   ) : recipe.category === 'spread' ? (
                     <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-teal-50 text-teal-800 border border-teal-200">
-                      🥫 Холодна намазка / паштет
+                      🥫 Холодна намазка / паштет (з сухарями)
+                    </span>
+                  ) : recipe.category === 'breakfast' ? (
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-orange-50 text-orange-800 border border-orange-200">
+                      🥣 Солодка каша / Мюслі (сніданок/вечеря)
                     </span>
                   ) : recipe.category === 'snack' ? (
                     <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-purple-50 text-purple-800 border border-purple-200">
@@ -273,7 +281,7 @@ export const CatalogAndRecipesTab: React.FC = () => {
                     </span>
                   ) : (
                     <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-indigo-50 text-indigo-800 border border-indigo-200">
-                      🍛 Гаряча друга страва
+                      🍛 Гаряча друга страва / каша (сніданок/вечеря)
                     </span>
                   )}
                 </div>

@@ -80,7 +80,7 @@ export function calculateStageParticipantQuotas(
     });
   });
 
-  return initialQuotas.map(q => {
+  const result = initialQuotas.map(q => {
     const targetFoodWeightGrams = Math.round(q.rawFoodTarget * scale);
     const assignedFoodWeightGrams = Math.round(assignedByParticipant[q.participantId] || 0);
     const totalLoadGrams = q.sharedGearGrams + assignedFoodWeightGrams;
@@ -96,6 +96,18 @@ export function calculateStageParticipantQuotas(
       stageTotalFoodGrossGrams,
     };
   });
+
+  // Забезпечуємо точну відповідність суми квот загальній вазі їжі етапу
+  const currentSum = result.reduce((acc, r) => acc + r.targetFoodWeightGrams, 0);
+  const diff = stageTotalFoodGrossGrams - currentSum;
+  if (diff !== 0) {
+    const candidate = result.find(r => r.targetFoodWeightGrams > 0);
+    if (candidate) {
+      candidate.targetFoodWeightGrams += diff;
+    }
+  }
+
+  return result;
 }
 
 /**

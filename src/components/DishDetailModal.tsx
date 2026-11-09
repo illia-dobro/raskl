@@ -238,8 +238,10 @@ export const DishDetailModal: React.FC<DishDetailModalProps> = ({
                 {recipe.campRehydration.waterRatioNote}
               </p>
               <div className="flex flex-wrap gap-4 pt-1 font-semibold text-slate-700">
-                {recipe.campRehydration.boilMinutes > 0 && (
+                {recipe.campRehydration.boilMinutes > 0 ? (
                   <span>🔥 Варіння: <b>{recipe.campRehydration.boilMinutes} хв</b></span>
+                ) : (
+                  <span className="text-emerald-800 font-bold">✨ Без варіння (холодна страва)</span>
                 )}
                 {recipe.campRehydration.soakMinutes > 0 && (
                   <span>⏳ Замочування: <b>{recipe.campRehydration.soakMinutes} хв</b></span>

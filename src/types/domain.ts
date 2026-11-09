@@ -69,7 +69,7 @@ export interface RawIngredient {
 export interface DehydratedRecipe {
   id: string;
   title: string;
-  category: 'breakfast' | 'soup' | 'main' | 'snack' | 'spread';
+  category: 'breakfast' | 'soup' | 'main' | 'lunch' | 'snack' | 'spread';
   mealTypes: MealType[];
   servingsYield: number;             // Базова кількість порцій у рецепті (напр. 4)
   dryWeightPerServingGrams: number;  // Вага 1 сухої порції у грамах
