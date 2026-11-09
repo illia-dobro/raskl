@@ -199,6 +199,7 @@ export const CatalogAndRecipesTab: React.FC = () => {
             className="bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs font-semibold text-slate-700 outline-none"
           >
             <option value="all">Всі типи страв</option>
+            <option value="lunch">Холодні обіди та перекуси (без варіння)</option>
             <option value="breakfast">Сніданки</option>
             <option value="soup">Супи та борщі</option>
             <option value="main">Другі страви та пасти</option>

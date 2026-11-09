@@ -121,7 +121,16 @@ export function autoFillProject(
 
   // Підбір страв за стилем приготування (але ЗАВЖДИ саме повноцінні СТРАВИ >= 100 ккал, а не компоти чи окремі продукти!)
   const recipePoolForMeal = (meal: MealType): DehydratedRecipe[] => {
-    const forMeal = dietOkRecipes.filter(r => r.mealTypes.includes(meal) && r.kcalPerServing >= 100);
+    let forMeal = dietOkRecipes.filter(r => r.mealTypes.includes(meal) && r.kcalPerServing >= 100);
+
+    // На ходовий обід (lunch) у поході беруться саме холодні перекуси без варіння (boilMinutes === 0: ковбаса, сир, сало, сухарі, шоколад, рибні консерви тощо)
+    if (meal === 'lunch') {
+      const coldNoCookLunches = forMeal.filter(r => r.campRehydration.boilMinutes === 0);
+      if (coldNoCookLunches.length > 0) {
+        forMeal = coldNoCookLunches;
+      }
+    }
+
     if (filters.cooking === 'simple') {
       const simpleOnly = forMeal.filter(r => isSimpleStoreRecipe(r));
       if (simpleOnly.length > 0) return simpleOnly;

@@ -2861,6 +2861,754 @@ export const DEHYDRATED_RECIPES: DehydratedRecipe[] = [
     },
     packagingTareRatio: 0.04,
     sourceBook: 'Турклуб КПІ «Глобус» (avzaskalna, tkg.org.ua/node/22586)'
+  },
+
+  // --- 8. Холодні обіди-перекуси без варіння за розкладкою ТК «Глобус» (все, що не готується) ---
+  {
+    id: 'recipe-globus-lunch-salami-choc',
+    title: 'Похідний обід-перекус: ковбаса с/к, сухарі та шоколад (ТК «Глобус»)',
+    category: 'main',
+    mealTypes: ['lunch', 'snack'],
+    servingsYield: 4,
+    dryWeightPerServingGrams: 100,
+    kcalPerServing: 470,
+    proteinPerServing: 12,
+    fatPerServing: 26,
+    carbsPerServing: 47,
+    fiberPerServing: 3.0,
+    rawIngredients: [
+      { name: 'Ковбаса сирокопчена салямі (30 г/ос, магазин)', amount: 120, unit: 'г', category: 'м\'ясо' },
+      { name: 'Шоколад чорний або молочний (40 г/ос, магазин)', amount: 160, unit: 'г', category: 'солодощі' },
+      { name: 'Сухарі звичайні пшеничні (30 г/ос, магазин)', amount: 120, unit: 'г', category: 'хліб' }
+    ],
+    homePrepSteps: [
+      'Сушарка не потрібна — класичний ходовий обід-перекус ТК «Глобус», що взагалі не потребує готування.',
+      'Розважити в денний обідній пакет: салямі порційно, сухарі звичайні та плитку шоколаду до чаю з термоса.'
+    ],
+    dehydrationParams: {
+      tempCelsius: 50,
+      timeHours: 'Не потребує сушіння (готові магазинні продукти)',
+      trayLining: 'Не потрібно',
+      drynessTest: 'Готовий обідній набір'
+    },
+    campRehydration: {
+      waterRatioNote: 'Не потребує варіння та розпалювання пальника! Нарізати ковбасу на сухарі, запивати гарячим чаєм з термоса та шоколадом.',
+      soakMinutes: 0,
+      boilMinutes: 0
+    },
+    packagingTareRatio: 0.04,
+    sourceBook: 'Похідна розкладка ТК «Глобус» (ходовий обід без варіння)'
+  },
+  {
+    id: 'recipe-globus-lunch-cheese-nuts-choc',
+    title: 'Похідний обід-перекус: твердий сир, горіхи, сухарі та шоколад (ТК «Глобус»)',
+    category: 'main',
+    mealTypes: ['lunch', 'snack'],
+    servingsYield: 4,
+    dryWeightPerServingGrams: 110,
+    kcalPerServing: 510,
+    proteinPerServing: 16,
+    fatPerServing: 28,
+    carbsPerServing: 48,
+    fiberPerServing: 4.0,
+    rawIngredients: [
+      { name: 'Сир твердий Гауда / Чеддер (30 г/ос, магазин)', amount: 120, unit: 'г', category: 'молочні' },
+      { name: 'Сухарі пшеничні або галети (30 г/ос, магазин)', amount: 120, unit: 'г', category: 'хліб' },
+      { name: 'Горішки кеш\'ю або мигдаль (25 г/ос, магазин)', amount: 100, unit: 'г', category: 'горіхи' },
+      { name: 'Шоколад чорний (25 г/ос, магазин)', amount: 100, unit: 'г', category: 'солодощі' }
+    ],
+    homePrepSteps: [
+      'Сушарка не потрібна — ситний білковий обід без вогню.',
+      'Спакувати брусочки сиру в пергамент, горіхи з сухарями та шоколадом у щільний пакет.'
+    ],
+    dehydrationParams: {
+      tempCelsius: 50,
+      timeHours: 'Не потребує сушіння (готові магазинні продукти)',
+      trayLining: 'Не потрібно',
+      drynessTest: 'Готовий обідній набір'
+    },
+    campRehydration: {
+      waterRatioNote: 'Не потребує варіння! Нарізати твердий сир на сухарі, подавати з горішками та шоколадом.',
+      soakMinutes: 0,
+      boilMinutes: 0
+    },
+    packagingTareRatio: 0.04,
+    sourceBook: 'Похідна розкладка ТК «Глобус» (ходовий обід без варіння)'
+  },
+  {
+    id: 'recipe-globus-lunch-salo-crackers-choc',
+    title: 'Похідний обід-перекус: солоне сало, житні сухарі, часник та шоколад (ТК «Глобус»)',
+    category: 'main',
+    mealTypes: ['lunch', 'snack'],
+    servingsYield: 4,
+    dryWeightPerServingGrams: 105,
+    kcalPerServing: 535,
+    proteinPerServing: 10,
+    fatPerServing: 35,
+    carbsPerServing: 45,
+    fiberPerServing: 3.5,
+    rawIngredients: [
+      { name: 'Сало солоне шпик (30 г/ос, домашнє або магазин)', amount: 120, unit: 'г', category: 'жири' },
+      { name: 'Сухарі житні домашні або армійські (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'хліб' },
+      { name: 'Шоколад чорний 70%+ (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'солодощі' },
+      { name: 'Часник свіжий або сушений (5 г/ос)', amount: 20, unit: 'г', category: 'овочі' }
+    ],
+    homePrepSteps: [
+      'Сушарка не потрібна — традиційний висококалорійний обід на гірському привалі.',
+      'Сало загортається у пергамент або полотно з сіллю, сухарі та шоколад у zip-пакет.'
+    ],
+    dehydrationParams: {
+      tempCelsius: 50,
+      timeHours: 'Не потребує сушіння (готові магазинні продукти)',
+      trayLining: 'Не потрібно',
+      drynessTest: 'Готовий набір'
+    },
+    campRehydration: {
+      waterRatioNote: 'Не потребує варіння! Нарізати сало тонкими скибочками на житні сухарі з зубчиком часнику, закушувати шоколадом з чаєм.',
+      soakMinutes: 0,
+      boilMinutes: 0
+    },
+    packagingTareRatio: 0.04,
+    sourceBook: 'Похідна розкладка ТК «Глобус» (ходовий обід без варіння)'
+  },
+  {
+    id: 'recipe-globus-lunch-fish-canned-crackers',
+    title: 'Похідний обід-перекус: рибні консерви з сухарями та печивом (ТК «Глобус»)',
+    category: 'main',
+    mealTypes: ['lunch', 'snack'],
+    servingsYield: 4,
+    dryWeightPerServingGrams: 120,
+    kcalPerServing: 430,
+    proteinPerServing: 16,
+    fatPerServing: 18,
+    carbsPerServing: 50,
+    fiberPerServing: 2.5,
+    rawIngredients: [
+      { name: 'Консерви рибні в олії (сардина/тунець, 60 г/ос)', amount: 240, unit: 'г', category: 'риба' },
+      { name: 'Сухарі звичайні або галети (30 г/ос, магазин)', amount: 120, unit: 'г', category: 'хліб' },
+      { name: 'Печиво цукрове до чаю (30 г/ос, магазин)', amount: 120, unit: 'г', category: 'хліб' }
+    ],
+    homePrepSteps: [
+      'Сушарка не потрібна — швидкий обід із готових консервів та печива.'
+    ],
+    dehydrationParams: {
+      tempCelsius: 50,
+      timeHours: 'Не потребує сушіння (готові магазинні продукти)',
+      trayLining: 'Не потрібно',
+      drynessTest: 'Готовий набір'
+    },
+    campRehydration: {
+      waterRatioNote: 'Не потребує варіння! Відкрити рибну консерву, вмочати сухарі, запивати гарячим чаєм із печивом.',
+      soakMinutes: 0,
+      boilMinutes: 0
+    },
+    packagingTareRatio: 0.08,
+    sourceBook: 'Похідна розкладка ТК «Глобус» (ходовий обід без варіння)'
+  },
+
+  // --- 9. Сніданки за розкладкою ТК «Глобус» (похід 2014) ---
+  {
+    id: 'recipe-globus-pasta-cheese-tushonka',
+    title: 'Макарони з твердим сиром, тушонкою та топленим маслом (ТК «Глобус»)',
+    category: 'breakfast',
+    mealTypes: ['breakfast', 'dinner'],
+    servingsYield: 4,
+    dryWeightPerServingGrams: 185,
+    kcalPerServing: 680,
+    proteinPerServing: 27,
+    fatPerServing: 26,
+    carbsPerServing: 84,
+    fiberPerServing: 4.0,
+    rawIngredients: [
+      { name: 'Макарони твердих сортів (100 г/ос, магазин)', amount: 400, unit: 'г', category: 'макарони' },
+      { name: 'Тушонка яловича класична (45 г/ос, магазин)', amount: 180, unit: 'г', category: 'м\'ясо' },
+      { name: 'Сир твердий тертий (30 г/ос, магазин)', amount: 120, unit: 'г', category: 'молочні' },
+      { name: 'Масло топлене гхі (10 г/ос, магазин)', amount: 40, unit: 'г', category: 'молочні' }
+    ],
+    homePrepSteps: [
+      'Сушарка не потрібна — суперпоживний ранковий заряд для важких гірських переходів.',
+      'Макарони спакувати в мішечок, тушонку та сир окремо.'
+    ],
+    dehydrationParams: {
+      tempCelsius: 50,
+      timeHours: 'Не потребує сушіння (готові магазинні продукти)',
+      trayLining: 'Не потрібно',
+      drynessTest: 'Готовий набір'
+    },
+    campRehydration: {
+      waterRatioNote: 'Відварити макарони 6-7 хв у підсоленій воді, злити зайву воду, вмішати тушонку, топлене масло та тертий сир',
+      soakMinutes: 1,
+      boilMinutes: 7
+    },
+    packagingTareRatio: 0.05,
+    sourceBook: 'Похідна розкладка ТК «Глобус» (сніданок дня 1)'
+  },
+  {
+    id: 'recipe-globus-muesli-milk-crackers',
+    title: 'Мюслі молочні з солодкими сухарями та сухим молоком (ТК «Глобус»)',
+    category: 'breakfast',
+    mealTypes: ['breakfast'],
+    servingsYield: 4,
+    dryWeightPerServingGrams: 125,
+    kcalPerServing: 465,
+    proteinPerServing: 14,
+    fatPerServing: 11,
+    carbsPerServing: 78,
+    fiberPerServing: 7.0,
+    rawIngredients: [
+      { name: 'Мюслі злакові з фруктами та горіхами (80 г/ос, магазин)', amount: 320, unit: 'г', category: 'крупи' },
+      { name: 'Сухе молоко незбиране 25% (15 г/ос, магазин)', amount: 60, unit: 'г', category: 'молочні' },
+      { name: 'Сухарі солодкі з родзинками (30 г/ос, магазин)', amount: 120, unit: 'г', category: 'хліб' }
+    ],
+    homePrepSteps: [
+      'Сушарка не потрібна — змішати мюслі з сухим молоком у зіп-пакет на швидкий ранок.'
+    ],
+    dehydrationParams: {
+      tempCelsius: 50,
+      timeHours: 'Не потребує сушіння (готові магазинні продукти)',
+      trayLining: 'Не потрібно',
+      drynessTest: 'Готова суміш'
+    },
+    campRehydration: {
+      waterRatioNote: 'Залити окропом (~250 мл/порцію), перемішати, настояти 2-3 хв під кришкою (варити не потрібно), подавати з солодкими сухарями',
+      soakMinutes: 3,
+      boilMinutes: 0
+    },
+    packagingTareRatio: 0.04,
+    sourceBook: 'Похідна розкладка ТК «Глобус» (сніданок дня 2)'
+  },
+  {
+    id: 'recipe-globus-arnautka-tushonka',
+    title: 'Каша Арнаутка з тушонкою, кетчупом та пряниками (ТК «Глобус»)',
+    category: 'breakfast',
+    mealTypes: ['breakfast', 'dinner'],
+    servingsYield: 4,
+    dryWeightPerServingGrams: 175,
+    kcalPerServing: 540,
+    proteinPerServing: 19,
+    fatPerServing: 13,
+    carbsPerServing: 87,
+    fiberPerServing: 5.5,
+    rawIngredients: [
+      { name: 'Крупа Арнаутка яра пшенична (80 г/ос, магазин)', amount: 320, unit: 'г', category: 'крупи' },
+      { name: 'Тушонка яловича класична (45 г/ос, магазин)', amount: 180, unit: 'г', category: 'м\'ясо' },
+      { name: 'Кетчуп томатний (20 г/ос, магазин)', amount: 80, unit: 'г', category: 'спеції' },
+      { name: 'Пряники медові до чаю (30 г/ос, магазин)', amount: 120, unit: 'г', category: 'хліб' }
+    ],
+    homePrepSteps: [
+      'Сушарка не потрібна — пшенична крупа арнаутка зі спеціями засипається в пакет на сніданок.'
+    ],
+    dehydrationParams: {
+      tempCelsius: 50,
+      timeHours: 'Не потребує сушіння (готові магазинні продукти)',
+      trayLining: 'Не потрібно',
+      drynessTest: 'Готовий набір'
+    },
+    campRehydration: {
+      waterRatioNote: 'Зварити арнаутку у воді 1:2.5 (8-10 хв), вмішати тушонку з кетчупом, прогріти 2 хв, смакувати з пряниками до чаю',
+      soakMinutes: 3,
+      boilMinutes: 8
+    },
+    packagingTareRatio: 0.05,
+    sourceBook: 'Похідна розкладка ТК «Глобус» (сніданок дня 5)'
+  },
+  {
+    id: 'recipe-globus-oatmeal-dried-fruits-butter',
+    title: 'Вівсянка з курагою, родзинками, топленим маслом та какао (ТК «Глобус»)',
+    category: 'breakfast',
+    mealTypes: ['breakfast'],
+    servingsYield: 4,
+    dryWeightPerServingGrams: 175,
+    kcalPerServing: 620,
+    proteinPerServing: 16,
+    fatPerServing: 16,
+    carbsPerServing: 102,
+    fiberPerServing: 10.0,
+    rawIngredients: [
+      { name: 'Вівсяні пластівці (80 г/ос, магазин)', amount: 320, unit: 'г', category: 'крупи' },
+      { name: 'Курага без кісточки (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'сухофрукти' },
+      { name: 'Родзинки темні (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'сухофрукти' },
+      { name: 'Сухе молоко незбиране (15 г/ос, магазин)', amount: 60, unit: 'г', category: 'молочні' },
+      { name: 'Масло топлене гхі (10 г/ос, магазин)', amount: 40, unit: 'г', category: 'молочні' }
+    ],
+    homePrepSteps: [
+      'Сушарка не потрібна — змішати вівсянку, сухе молоко та нарізані сухофрукти у пакет сніданку.'
+    ],
+    dehydrationParams: {
+      tempCelsius: 50,
+      timeHours: 'Не потребує сушіння (готові магазинні продукти)',
+      trayLining: 'Не потрібно',
+      drynessTest: 'Готовий набір'
+    },
+    campRehydration: {
+      waterRatioNote: 'Залити окропом (~300 мл/порцію), проварити 2 хв, вмішати топлене масло та настояти 3 хв під кришкою',
+      soakMinutes: 3,
+      boilMinutes: 2
+    },
+    packagingTareRatio: 0.04,
+    sourceBook: 'Похідна розкладка ТК «Глобус» (сніданок дня 4)'
+  },
+  {
+    id: 'recipe-globus-sweet-rice-nuts',
+    title: 'Рис солодкий молочний з горішками, топленим маслом та печивом (ТК «Глобус»)',
+    category: 'breakfast',
+    mealTypes: ['breakfast'],
+    servingsYield: 4,
+    dryWeightPerServingGrams: 170,
+    kcalPerServing: 670,
+    proteinPerServing: 15,
+    fatPerServing: 26,
+    carbsPerServing: 94,
+    fiberPerServing: 4.5,
+    rawIngredients: [
+      { name: 'Рис пропарений або круглозерний (80 г/ос, магазин)', amount: 320, unit: 'г', category: 'крупи' },
+      { name: 'Горішки волоські, мигдаль або кеш\'ю (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'горіхи' },
+      { name: 'Сухе молоко незбиране (15 г/ос, магазин)', amount: 60, unit: 'г', category: 'молочні' },
+      { name: 'Масло топлене (10 г/ос, магазин)', amount: 40, unit: 'г', category: 'молочні' },
+      { name: 'Печиво цукрове до чаю (30 г/ос, магазин)', amount: 120, unit: 'г', category: 'хліб' }
+    ],
+    homePrepSteps: [
+      'Сушарка не потрібна — змішати рис з сухим молоком та подрібненими горіхами у пакет сніданку.'
+    ],
+    dehydrationParams: {
+      tempCelsius: 50,
+      timeHours: 'Не потребує сушіння (готові магазинні продукти)',
+      trayLining: 'Не потрібно',
+      drynessTest: 'Готовий набір'
+    },
+    campRehydration: {
+      waterRatioNote: 'Відварити рис 8-10 хв у воді 1:2.5, вмішати сухе молоко, топлене масло та горішки, настояти 5 хв під кришкою',
+      soakMinutes: 5,
+      boilMinutes: 8
+    },
+    packagingTareRatio: 0.04,
+    sourceBook: 'Похідна розкладка ТК «Глобус» (сніданок дня 7)'
+  },
+  {
+    id: 'recipe-globus-buckwheat-tushonka-ketchup',
+    title: 'Гречка по-похідному з тушонкою, кетчупом та солодкими сухарями (ТК «Глобус»)',
+    category: 'breakfast',
+    mealTypes: ['breakfast', 'dinner'],
+    servingsYield: 4,
+    dryWeightPerServingGrams: 175,
+    kcalPerServing: 535,
+    proteinPerServing: 20,
+    fatPerServing: 13,
+    carbsPerServing: 84,
+    fiberPerServing: 9.0,
+    rawIngredients: [
+      { name: 'Крупа гречана ядриця (80 г/ос, магазин)', amount: 320, unit: 'г', category: 'крупи' },
+      { name: 'Тушонка яловича класична (45 г/ос, магазин)', amount: 180, unit: 'г', category: 'м\'ясо' },
+      { name: 'Кетчуп томатний (20 г/ос, магазин)', amount: 80, unit: 'г', category: 'спеції' },
+      { name: 'Сухарі солодкі з родзинками (30 г/ос, магазин)', amount: 120, unit: 'г', category: 'хліб' }
+    ],
+    homePrepSteps: [
+      'Сушарка не потрібна — готова магазинна гречана основа з тушонкою та кетчупом.'
+    ],
+    dehydrationParams: {
+      tempCelsius: 50,
+      timeHours: 'Не потребує сушіння (готові магазинні продукти)',
+      trayLining: 'Не потрібно',
+      drynessTest: 'Готовий набір'
+    },
+    campRehydration: {
+      waterRatioNote: 'Зварити гречку у воді 1:2 (7-8 хв), додати тушонку та кетчуп, укутати казан на 5 хв',
+      soakMinutes: 5,
+      boilMinutes: 7
+    },
+    packagingTareRatio: 0.04,
+    sourceBook: 'Похідна розкладка ТК «Глобус» (сніданок дня 3)'
+  },
+
+  // --- 10. Вечірні похідні супи з тушонкою та салом (похід 2014) ---
+  {
+    id: 'recipe-globus-soup-cheese-curd-tushonka',
+    title: 'Суп із плавленим сирком, вермішеллю, тушонкою та салом (ТК «Глобус»)',
+    category: 'soup',
+    mealTypes: ['dinner'],
+    servingsYield: 4,
+    dryWeightPerServingGrams: 150,
+    kcalPerServing: 520,
+    proteinPerServing: 21,
+    fatPerServing: 31,
+    carbsPerServing: 38,
+    fiberPerServing: 3.5,
+    rawIngredients: [
+      { name: 'Тушонка яловича класична (45 г/ос, магазин)', amount: 180, unit: 'г', category: 'м\'ясо' },
+      { name: 'Сирок плавлений Дружба (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'молочні' },
+      { name: 'Сало солоне шпик до супу (30 г/ос, магазин/дім)', amount: 120, unit: 'г', category: 'жири' },
+      { name: 'Макарони або вермішель у суп (20 г/ос, магазин)', amount: 80, unit: 'г', category: 'макарони' },
+      { name: 'Картопля сушена (17 г/ос, усушка 1:6.5)', amount: 68, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Морква (1.5 г/ос) та цибуля (1.5 г/ос) сушені', amount: 12, unit: 'г', category: 'овочі', rawToDryRatio: 8.0 }
+    ],
+    homePrepSteps: [
+      'У дегідраторі сушаться картопля, цибуля та морква.',
+      'Макарони, плавлений сирок, тушонка та сало беруться готовими.'
+    ],
+    dehydrationParams: {
+      tempCelsius: 58,
+      timeHours: '6 год (лише картопля, морква та цибуля)',
+      trayLining: 'Сітка',
+      drynessTest: 'Сухі овочі'
+    },
+    campRehydration: {
+      waterRatioNote: 'Зварити картоплю, цибулю та макарони з тушонкою 6-7 хв (~350 мл води/порцію), наприкінці розчинити подрібнений сирок, подавати з нарізаним салом і сухарями',
+      soakMinutes: 4,
+      boilMinutes: 8
+    },
+    packagingTareRatio: 0.05,
+    sourceBook: 'Похідна розкладка ТК «Глобус» (вечеря дня 1)'
+  },
+  {
+    id: 'recipe-globus-canned-fish-ukha-tushonka',
+    title: 'Юшка по-похідному з рибною консервою, крупою, тушонкою та салом (ТК «Глобус»)',
+    category: 'soup',
+    mealTypes: ['dinner'],
+    servingsYield: 4,
+    dryWeightPerServingGrams: 172,
+    kcalPerServing: 570,
+    proteinPerServing: 27,
+    fatPerServing: 35,
+    carbsPerServing: 36,
+    fiberPerServing: 3.0,
+    rawIngredients: [
+      { name: 'Консерва рибна сардина/горбуша в олії (60 г/ос, магазин)', amount: 240, unit: 'г', category: 'риба' },
+      { name: 'Тушонка яловича класична (45 г/ос, магазин)', amount: 180, unit: 'г', category: 'м\'ясо' },
+      { name: 'Сало солоне шпик до юшки (30 г/ос, дім/магазин)', amount: 120, unit: 'г', category: 'жири' },
+      { name: 'Картопля сушена (17 г/ос, усушка 1:6.5)', amount: 68, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Крупа в суп рис або пшоно (17 г/ос, магазин)', amount: 68, unit: 'г', category: 'крупи' },
+      { name: 'Морква (1.5 г/ос) та цибуля (1.5 г/ос) сушені', amount: 12, unit: 'г', category: 'овочі', rawToDryRatio: 8.0 }
+    ],
+    homePrepSteps: [
+      'У дегідраторі сушаться картопля, морква та цибуля; решта інгредієнтів магазинні.'
+    ],
+    dehydrationParams: {
+      tempCelsius: 58,
+      timeHours: '6 год (картопля, морква, цибуля)',
+      trayLining: 'Сітка',
+      drynessTest: 'Сухі овочі'
+    },
+    campRehydration: {
+      waterRatioNote: 'Зварити крупу й картоплю з тушонкою 8 хв, додати рибну консерву, прогріти 2 хв, подавати з нарізаним салом і сухарями',
+      soakMinutes: 5,
+      boilMinutes: 8
+    },
+    packagingTareRatio: 0.06,
+    sourceBook: 'Похідна розкладка ТК «Глобус» (вечеря дня 2)'
+  },
+  {
+    id: 'recipe-globus-borscht-tushonka-salo',
+    title: 'Борщ похідний із тушонкою, сушеним буряком, квасолею, капустою та салом (ТК «Глобус»)',
+    category: 'soup',
+    mealTypes: ['dinner'],
+    servingsYield: 4,
+    dryWeightPerServingGrams: 126,
+    kcalPerServing: 460,
+    proteinPerServing: 16,
+    fatPerServing: 30,
+    carbsPerServing: 31,
+    fiberPerServing: 5.5,
+    rawIngredients: [
+      { name: 'Тушонка яловича класична (45 г/ос, магазин)', amount: 180, unit: 'г', category: 'м\'ясо' },
+      { name: 'Сало солоне шпик (30 г/ос, дім/магазин)', amount: 120, unit: 'г', category: 'жири' },
+      { name: 'Картопля сушена (17 г/ос, усушка 1:6.5)', amount: 68, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Томатна паста концентрована (17 г/ос, магазин)', amount: 68, unit: 'г', category: 'спеції' },
+      { name: 'Буряк (4 г/ос), капуста (5 г/ос), квасоля (5 г/ос) та морква (1.5 г/ос) сушені', amount: 62, unit: 'г', category: 'овочі', rawToDryRatio: 9.0 }
+    ],
+    homePrepSteps: [
+      'У дегідраторі сушаться картопля, буряк, капуста, квасоля та морква.',
+      'Томат-паста, тушонка та сало беруться готовими.'
+    ],
+    dehydrationParams: {
+      tempCelsius: 58,
+      timeHours: '6-8 год (окремо сушені овочі)',
+      trayLining: 'Сітка',
+      drynessTest: 'Сухі овочі'
+    },
+    campRehydration: {
+      waterRatioNote: 'Зварити сушені овочі з тушонкою та томатом 10 хв у воді (~380 мл/порцію), настояти 5 хв, подавати з нарізаним салом та сухарями',
+      soakMinutes: 5,
+      boilMinutes: 10
+    },
+    packagingTareRatio: 0.05,
+    sourceBook: 'Похідна розкладка ТК «Глобус» (вечеря дня 3)'
+  },
+  {
+    id: 'recipe-globus-mushroom-soup-tushonka-salo',
+    title: 'Грибний суп із сушеними білими грибами, тушонкою та салом (ТК «Глобус»)',
+    category: 'soup',
+    mealTypes: ['dinner'],
+    servingsYield: 4,
+    dryWeightPerServingGrams: 103,
+    kcalPerServing: 420,
+    proteinPerServing: 15,
+    fatPerServing: 29,
+    carbsPerServing: 23,
+    fiberPerServing: 4.0,
+    rawIngredients: [
+      { name: 'Тушонка яловича класична (45 г/ос, магазин)', amount: 180, unit: 'г', category: 'м\'ясо' },
+      { name: 'Сало солоне шпик (30 г/ос, дім/магазин)', amount: 120, unit: 'г', category: 'жири' },
+      { name: 'Картопля сушена (17 г/ос, усушка 1:6.5)', amount: 68, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Гриби лісові сушені (8 г/ос, усушка 1:9)', amount: 32, unit: 'г', category: 'гриби', rawToDryRatio: 9.0 },
+      { name: 'Морква (1.5 г/ос) та цибуля (1.5 г/ос) сушені', amount: 12, unit: 'г', category: 'овочі', rawToDryRatio: 8.0 }
+    ],
+    homePrepSteps: [
+      'У дегідраторі сушаться лісові гриби, картопля, морква та цибуля.'
+    ],
+    dehydrationParams: {
+      tempCelsius: 55,
+      timeHours: '7-8 год (гриби та овочі)',
+      trayLining: 'Сітка',
+      drynessTest: 'Сухі гриби та овочі'
+    },
+    campRehydration: {
+      waterRatioNote: 'Замочити гриби з картоплею на 10 хв, варити з тушонкою 8 хв, подавати з нарізаним салом і сухарями',
+      soakMinutes: 10,
+      boilMinutes: 8
+    },
+    packagingTareRatio: 0.05,
+    sourceBook: 'Похідна розкладка ТК «Глобус» (вечеря дня 4)'
+  },
+  {
+    id: 'recipe-globus-pea-soup-briquette-tushonka',
+    title: 'Гороховий суп із брикету з тушонкою, крупою та салом (ТК «Глобус»)',
+    category: 'soup',
+    mealTypes: ['dinner'],
+    servingsYield: 4,
+    dryWeightPerServingGrams: 147,
+    kcalPerServing: 540,
+    proteinPerServing: 22,
+    fatPerServing: 30,
+    carbsPerServing: 46,
+    fiberPerServing: 6.5,
+    rawIngredients: [
+      { name: 'Тушонка яловича класична (45 г/ос, магазин)', amount: 180, unit: 'г', category: 'м\'ясо' },
+      { name: 'Гороховий суп у брикеті (40 г/ос, магазин)', amount: 160, unit: 'г', category: 'бобові' },
+      { name: 'Сало солоне шпик (30 г/ос, дім/магазин)', amount: 120, unit: 'г', category: 'жири' },
+      { name: 'Картопля сушена (17 г/ос, усушка 1:6.5)', amount: 68, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Крупа в суп (17 г/ос, магазин)', amount: 68, unit: 'г', category: 'крупи' },
+      { name: 'Морква (1.5 г/ос) та цибуля (1.5 г/ос) сушені', amount: 12, unit: 'г', category: 'овочі', rawToDryRatio: 8.0 }
+    ],
+    homePrepSteps: [
+      'Гороховий брикет, крупа, тушонка та сало магазинні, сушаться лише картопля, цибуля та морква.'
+    ],
+    dehydrationParams: {
+      tempCelsius: 58,
+      timeHours: '6 год (овочі)',
+      trayLining: 'Сітка',
+      drynessTest: 'Сухі овочі'
+    },
+    campRehydration: {
+      waterRatioNote: 'Розкришити гороховий брикет, варити з картоплею, крупою та тушонкою 7-8 хв, подавати з салом і сухарями',
+      soakMinutes: 3,
+      boilMinutes: 8
+    },
+    packagingTareRatio: 0.05,
+    sourceBook: 'Похідна розкладка ТК «Глобус» (вечеря дня 5)'
+  },
+  {
+    id: 'recipe-globus-meat-noodle-soup-salo',
+    title: 'М\'ясний суп із вермішеллю, картоплею, тушонкою та салом (ТК «Глобус»)',
+    category: 'soup',
+    mealTypes: ['dinner'],
+    servingsYield: 4,
+    dryWeightPerServingGrams: 115,
+    kcalPerServing: 440,
+    proteinPerServing: 15,
+    fatPerServing: 29,
+    carbsPerServing: 29,
+    fiberPerServing: 3.0,
+    rawIngredients: [
+      { name: 'Тушонка яловича класична (45 г/ос, магазин)', amount: 180, unit: 'г', category: 'м\'ясо' },
+      { name: 'Сало солоне шпик (30 г/ос, дім/магазин)', amount: 120, unit: 'г', category: 'жири' },
+      { name: 'Макарони або вермішель у суп (20 г/ос, магазин)', amount: 80, unit: 'г', category: 'макарони' },
+      { name: 'Картопля сушена (17 г/ос, усушка 1:6.5)', amount: 68, unit: 'г', category: 'овочі', rawToDryRatio: 6.5 },
+      { name: 'Морква (1.5 г/ос) та цибуля (1.5 г/ос) сушені', amount: 12, unit: 'г', category: 'овочі', rawToDryRatio: 8.0 }
+    ],
+    homePrepSteps: [
+      'У дегідраторі сушаться картопля, морква та цибуля.'
+    ],
+    dehydrationParams: {
+      tempCelsius: 58,
+      timeHours: '6 год (овочі)',
+      trayLining: 'Сітка',
+      drynessTest: 'Сухі овочі'
+    },
+    campRehydration: {
+      waterRatioNote: 'Зварити сушені овочі з тушонкою (6 хв), всипати вермішель (варити 3 хв), подавати з салом і сухарями',
+      soakMinutes: 3,
+      boilMinutes: 7
+    },
+    packagingTareRatio: 0.05,
+    sourceBook: 'Похідна розкладка ТК «Глобус» (вечеря дня 6)'
+  },
+
+  // --- 11. Ходові перекуси (карманка зі смоктальними цукерками) ---
+  {
+    id: 'recipe-globus-snack-apricot-raisin-candies',
+    title: 'Перекус ходовий: курага, родзинки та льодяники (ТК «Глобус»)',
+    category: 'snack',
+    mealTypes: ['snack'],
+    servingsYield: 4,
+    dryWeightPerServingGrams: 95,
+    kcalPerServing: 275,
+    proteinPerServing: 3,
+    fatPerServing: 0.5,
+    carbsPerServing: 65,
+    fiberPerServing: 4.5,
+    rawIngredients: [
+      { name: 'Курага сушена без кісточки (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'сухофрукти' },
+      { name: 'Родзинки темні без кісточки (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'сухофрукти' },
+      { name: 'Цукерки смоктальні карамель/льодяники (25 г/ос, магазин)', amount: 100, unit: 'г', category: 'солодощі' }
+    ],
+    homePrepSteps: [
+      'Сушарка не потрібна — розфасувати в щоденні кишенькові пакетики на ходовий перехід.'
+    ],
+    dehydrationParams: {
+      tempCelsius: 50,
+      timeHours: 'Не потребує сушіння (готові магазинні продукти)',
+      trayLining: 'Не потрібно',
+      drynessTest: 'Готовий перекус'
+    },
+    campRehydration: {
+      waterRatioNote: 'Готово до вживання на ходу та коротких привалах',
+      soakMinutes: 0,
+      boilMinutes: 0
+    },
+    packagingTareRatio: 0.03,
+    sourceBook: 'Похідна розкладка ТК «Глобус» (перекус дня 1, 6)'
+  },
+  {
+    id: 'recipe-globus-snack-grillage-candies',
+    title: 'Перекус ходовий: грильяж горіховий та льодяники (ТК «Глобус»)',
+    category: 'snack',
+    mealTypes: ['snack'],
+    servingsYield: 4,
+    dryWeightPerServingGrams: 60,
+    kcalPerServing: 220,
+    proteinPerServing: 2.5,
+    fatPerServing: 5,
+    carbsPerServing: 42,
+    fiberPerServing: 1.5,
+    rawIngredients: [
+      { name: 'Грильяж горіховий похідний (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'солодощі' },
+      { name: 'Цукерки смоктальні карамель/льодяники (25 г/ос, магазин)', amount: 100, unit: 'г', category: 'солодощі' }
+    ],
+    homePrepSteps: [
+      'Сушарка не потрібна — кишенькове харчування для переходу.'
+    ],
+    dehydrationParams: {
+      tempCelsius: 50,
+      timeHours: 'Не потребує сушіння (готові магазинні продукти)',
+      trayLining: 'Не потрібно',
+      drynessTest: 'Готовий перекус'
+    },
+    campRehydration: {
+      waterRatioNote: 'Готово до вживання на ходу',
+      soakMinutes: 0,
+      boilMinutes: 0
+    },
+    packagingTareRatio: 0.03,
+    sourceBook: 'Похідна розкладка ТК «Глобус» (перекус дня 2, 7)'
+  },
+  {
+    id: 'recipe-globus-snack-nuts-candies',
+    title: 'Перекус ходовий: горіховий мікс та льодяники (ТК «Глобус»)',
+    category: 'snack',
+    mealTypes: ['snack'],
+    servingsYield: 4,
+    dryWeightPerServingGrams: 60,
+    kcalPerServing: 270,
+    proteinPerServing: 7,
+    fatPerServing: 17,
+    carbsPerServing: 26,
+    fiberPerServing: 3.0,
+    rawIngredients: [
+      { name: 'Горішки кеш\'ю, мигдаль, арахіс (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'горіхи' },
+      { name: 'Цукерки смоктальні карамель/льодяники (25 г/ос, магазин)', amount: 100, unit: 'г', category: 'солодощі' }
+    ],
+    homePrepSteps: [
+      'Сушарка не потрібна — висококалорійний горіховий перекус з льодяниками.'
+    ],
+    dehydrationParams: {
+      tempCelsius: 50,
+      timeHours: 'Не потребує сушіння (готові магазинні продукти)',
+      trayLining: 'Не потрібно',
+      drynessTest: 'Готовий перекус'
+    },
+    campRehydration: {
+      waterRatioNote: 'Готово до вживання на ходу',
+      soakMinutes: 0,
+      boilMinutes: 0
+    },
+    packagingTareRatio: 0.03,
+    sourceBook: 'Похідна розкладка ТК «Глобус» (перекус дня 3)'
+  },
+  {
+    id: 'recipe-globus-snack-toffee-candies',
+    title: 'Перекус ходовий: ірис вершковий та льодяники (ТК «Глобус»)',
+    category: 'snack',
+    mealTypes: ['snack'],
+    servingsYield: 4,
+    dryWeightPerServingGrams: 60,
+    kcalPerServing: 240,
+    proteinPerServing: 1.5,
+    fatPerServing: 3,
+    carbsPerServing: 52,
+    fiberPerServing: 0.0,
+    rawIngredients: [
+      { name: 'Ірис вершковий Золотий ключик (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'солодощі' },
+      { name: 'Цукерки смоктальні карамель/льодяники (25 г/ос, магазин)', amount: 100, unit: 'г', category: 'солодощі' }
+    ],
+    homePrepSteps: [
+      'Сушарка не потрібна — класичні швидкі вуглеводи на крутому підйомі.'
+    ],
+    dehydrationParams: {
+      tempCelsius: 50,
+      timeHours: 'Не потребує сушіння (готові магазинні продукти)',
+      trayLining: 'Не потрібно',
+      drynessTest: 'Готовий перекус'
+    },
+    campRehydration: {
+      waterRatioNote: 'Готово до вживання на ходу',
+      soakMinutes: 0,
+      boilMinutes: 0
+    },
+    packagingTareRatio: 0.03,
+    sourceBook: 'Похідна розкладка ТК «Глобус» (перекус дня 4)'
+  },
+  {
+    id: 'recipe-globus-snack-kozinak-candies',
+    title: 'Перекус ходовий: козинаки соняшникові та льодяники (ТК «Глобус»)',
+    category: 'snack',
+    mealTypes: ['snack'],
+    servingsYield: 4,
+    dryWeightPerServingGrams: 60,
+    kcalPerServing: 265,
+    proteinPerServing: 4.5,
+    fatPerServing: 10,
+    carbsPerServing: 41,
+    fiberPerServing: 1.8,
+    rawIngredients: [
+      { name: 'Козинаки соняшникові (35 г/ос, магазин)', amount: 140, unit: 'г', category: 'солодощі' },
+      { name: 'Цукерки смоктальні карамель/льодяники (25 г/ос, магазин)', amount: 100, unit: 'г', category: 'солодощі' }
+    ],
+    homePrepSteps: [
+      'Сушарка не потрібна — натуральний соняшниковий енергетик з льодяниками.'
+    ],
+    dehydrationParams: {
+      tempCelsius: 50,
+      timeHours: 'Не потребує сушіння (готові магазинні продукти)',
+      trayLining: 'Не потрібно',
+      drynessTest: 'Готовий перекус'
+    },
+    campRehydration: {
+      waterRatioNote: 'Готово до вживання на ходу',
+      soakMinutes: 0,
+      boilMinutes: 0
+    },
+    packagingTareRatio: 0.03,
+    sourceBook: 'Похідна розкладка ТК «Глобус» (перекус дня 5)'
   }
 ];
 

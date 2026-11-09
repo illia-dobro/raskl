@@ -197,6 +197,36 @@ export const PRODUCTS_CATALOG: Product[] = [
     packagingTareRatio: 0.05,
     packagingType: 'ПЕТ-пляшка'
   },
+  {
+    id: 'grain-arnautka',
+    name: 'Крупа Арнаутка (яра тверда пшенична)',
+    category: 'grains',
+    kcalPer100g: 311,
+    proteinPer100g: 11.5,
+    fatPer100g: 1.3,
+    carbsPer100g: 65.0,
+    fiberPer100g: 5.5,
+    digestibilityPercent: 84,
+    waterContentClass: 'very_low_under_20',
+    recommendedNormGrams: { min: 60, default: 80, max: 100 },
+    packagingTareRatio: 0.05,
+    packagingType: 'ПЕТ-пляшка'
+  },
+  {
+    id: 'grain-muesli',
+    name: 'Мюслі злакові з фруктами та горіхами',
+    category: 'grains',
+    kcalPer100g: 330,
+    proteinPer100g: 9.0,
+    fatPer100g: 6.0,
+    carbsPer100g: 62.0,
+    fiberPer100g: 7.5,
+    digestibilityPercent: 85,
+    waterContentClass: 'very_low_under_20',
+    recommendedNormGrams: { min: 60, default: 80, max: 100 },
+    packagingTareRatio: 0.04,
+    packagingType: 'Щільний zip-пакет'
+  },
 
   // 2. М'ясо, риба, тушонка (meat_fish)
   {
@@ -398,6 +428,22 @@ export const PRODUCTS_CATALOG: Product[] = [
     packagingTareRatio: 0.05,
     packagingType: 'Тетрапак або пластиковий контейнер з широким горлом'
   },
+  {
+    id: 'meat-fish-canned-sardine',
+    name: 'Консерви рибні (сардина/сайра в олії чи соку)',
+    category: 'meat_fish',
+    kcalPer100g: 286,
+    proteinPer100g: 19.0,
+    fatPer100g: 22.0,
+    carbsPer100g: 0.0,
+    fiberPer100g: 0.0,
+    digestibilityPercent: 70,
+    waterContentClass: 'high_50_75',
+    recommendedNormGrams: { min: 40, default: 60, max: 80 },
+    packagingTareRatio: 0.18,
+    packagingType: 'Жерстяна банка або реторт',
+    isIndivisiblePkg: true
+  },
 
   // 3. Молочні продукти та яйця (dairy_eggs)
   {
@@ -429,6 +475,21 @@ export const PRODUCTS_CATALOG: Product[] = [
     recommendedNormGrams: { min: 30, default: 50, max: 70 },
     packagingTareRatio: 0.04,
     packagingType: 'Пергамент або бавовняна серветка'
+  },
+  {
+    id: 'dairy-cheese-processed',
+    name: 'Сирок плавлений («Дружба» / порційний)',
+    category: 'dairy_eggs',
+    kcalPer100g: 215,
+    proteinPer100g: 12.0,
+    fatPer100g: 16.0,
+    carbsPer100g: 4.0,
+    fiberPer100g: 0.0,
+    digestibilityPercent: 90,
+    waterContentClass: 'medium_33_50',
+    recommendedNormGrams: { min: 25, default: 35, max: 70 },
+    packagingTareRatio: 0.04,
+    packagingType: 'Фольга'
   },
   {
     id: 'dairy-quark-sublimated',
@@ -644,6 +705,51 @@ export const PRODUCTS_CATALOG: Product[] = [
     packagingTareRatio: 0.04,
     packagingType: 'Індивідуальна фольга'
   },
+  {
+    id: 'sweet-grillage',
+    name: 'Грильяж горіховий похідний',
+    category: 'sweets',
+    kcalPer100g: 352,
+    proteinPer100g: 6.5,
+    fatPer100g: 14.0,
+    carbsPer100g: 60.0,
+    fiberPer100g: 3.0,
+    digestibilityPercent: 88,
+    waterContentClass: 'very_low_under_20',
+    recommendedNormGrams: { min: 25, default: 35, max: 50 },
+    packagingTareRatio: 0.03,
+    packagingType: 'Обгортка / zip-пакет'
+  },
+  {
+    id: 'sweet-kozinak',
+    name: 'Козинаки соняшникові / кунжутні',
+    category: 'sweets',
+    kcalPer100g: 490,
+    proteinPer100g: 12.0,
+    fatPer100g: 28.0,
+    carbsPer100g: 50.0,
+    fiberPer100g: 4.5,
+    digestibilityPercent: 88,
+    waterContentClass: 'very_low_under_20',
+    recommendedNormGrams: { min: 25, default: 35, max: 50 },
+    packagingTareRatio: 0.03,
+    packagingType: 'Індивідуальна упаковка'
+  },
+  {
+    id: 'sweet-toffee-iris',
+    name: 'Ірис вершковий («Золотий ключик»)',
+    category: 'sweets',
+    kcalPer100g: 410,
+    proteinPer100g: 3.5,
+    fatPer100g: 8.0,
+    carbsPer100g: 82.0,
+    fiberPer100g: 0.0,
+    digestibilityPercent: 92,
+    waterContentClass: 'very_low_under_20',
+    recommendedNormGrams: { min: 25, default: 35, max: 50 },
+    packagingTareRatio: 0.03,
+    packagingType: 'Обгортка / мішечок'
+  },
 
   // 6. Сухофрукти та горіхи (dried_fruits_nuts)
   {
@@ -688,6 +794,21 @@ export const PRODUCTS_CATALOG: Product[] = [
     digestibilityPercent: 85,
     waterContentClass: 'very_low_under_20',
     recommendedNormGrams: { min: 25, default: 35, max: 50 },
+    packagingTareRatio: 0.04,
+    packagingType: 'Zip-пакет'
+  },
+  {
+    id: 'nut-cashew',
+    name: 'Горіхи кеш\'ю сушені',
+    category: 'dried_fruits_nuts',
+    kcalPer100g: 553,
+    proteinPer100g: 18.2,
+    fatPer100g: 43.8,
+    carbsPer100g: 30.2,
+    fiberPer100g: 3.3,
+    digestibilityPercent: 84,
+    waterContentClass: 'very_low_under_20',
+    recommendedNormGrams: { min: 20, default: 35, max: 50 },
     packagingTareRatio: 0.04,
     packagingType: 'Zip-пакет'
   },
@@ -1243,6 +1364,36 @@ export const PRODUCTS_CATALOG: Product[] = [
     packagingTareRatio: 0.04,
     packagingType: 'Пакет'
   },
+  {
+    id: 'bread-crackers-sweet',
+    name: 'Сухарі солодкі з родзинками / ванільні',
+    category: 'bread_crackers',
+    kcalPer100g: 421,
+    proteinPer100g: 9.0,
+    fatPer100g: 9.5,
+    carbsPer100g: 72.0,
+    fiberPer100g: 3.0,
+    digestibilityPercent: 82,
+    waterContentClass: 'very_low_under_20',
+    recommendedNormGrams: { min: 25, default: 30, max: 50 },
+    packagingTareRatio: 0.04,
+    packagingType: 'Тетрапак або пачка'
+  },
+  {
+    id: 'bread-gingerbread',
+    name: 'Пряники медові / м\'ятні',
+    category: 'bread_crackers',
+    kcalPer100g: 370,
+    proteinPer100g: 5.5,
+    fatPer100g: 4.5,
+    carbsPer100g: 76.0,
+    fiberPer100g: 2.0,
+    digestibilityPercent: 85,
+    waterContentClass: 'very_low_under_20',
+    recommendedNormGrams: { min: 25, default: 30, max: 50 },
+    packagingTareRatio: 0.04,
+    packagingType: 'Пакет'
+  },
 
   // 9. Супи та концентрати (soups_concentrates)
   {
@@ -1381,6 +1532,36 @@ export const PRODUCTS_CATALOG: Product[] = [
     recommendedNormGrams: { min: 0.5, default: 1, max: 2 },
     packagingTareRatio: 0.04,
     packagingType: 'Флакон'
+  },
+  {
+    id: 'drink-kisel',
+    name: 'Кисіль плодово-ягідний у брикеті/порошку',
+    category: 'drinks_spices',
+    kcalPer100g: 340,
+    proteinPer100g: 0.3,
+    fatPer100g: 0.1,
+    carbsPer100g: 85.0,
+    fiberPer100g: 0.5,
+    digestibilityPercent: 95,
+    waterContentClass: 'very_low_under_20',
+    recommendedNormGrams: { min: 15, default: 20, max: 30 },
+    packagingTareRatio: 0.04,
+    packagingType: 'Пачка / брикет'
+  },
+  {
+    id: 'spice-ketchup',
+    name: 'Кетчуп томатний похідний',
+    category: 'drinks_spices',
+    kcalPer100g: 112,
+    proteinPer100g: 1.5,
+    fatPer100g: 0.1,
+    carbsPer100g: 24.0,
+    fiberPer100g: 1.0,
+    digestibilityPercent: 85,
+    waterContentClass: 'high_50_75',
+    recommendedNormGrams: { min: 15, default: 20, max: 30 },
+    packagingTareRatio: 0.05,
+    packagingType: 'Дой-пак з кришкою'
   },
 
   // 11. Добавки, клітковина та вітаміни (supplements)

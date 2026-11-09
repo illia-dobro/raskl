@@ -12,7 +12,7 @@ interface QuickAddDishModalProps {
   onClose: () => void;
 }
 
-type CategoryTab = 'popular' | 'breakfast' | 'soup' | 'main' | 'snack' | 'drink' | 'all';
+type CategoryTab = 'popular' | 'lunch' | 'breakfast' | 'soup' | 'main' | 'snack' | 'drink' | 'all';
 
 export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
   dayNumber,
@@ -26,13 +26,21 @@ export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
   } = useProjectStore();
 
   const [search, setSearch] = useState('');
-  const [activeCategory, setActiveCategory] = useState<CategoryTab>('popular');
+  const [activeCategory, setActiveCategory] = useState<CategoryTab>(
+    mealType === 'lunch' ? 'lunch' : 'popular'
+  );
   const [customTitle, setCustomTitle] = useState('');
   const [customGrams, setCustomGrams] = useState(80);
   const [recentlyAddedId, setRecentlyAddedId] = useState<string | null>(null);
 
   // Список популярних готових страв для швидкого кліку
   const popularDishIds = useMemo(() => [
+    'recipe-globus-lunch-salami-choc',
+    'recipe-globus-lunch-cheese-nuts-choc',
+    'recipe-globus-lunch-salo-crackers-choc',
+    'recipe-globus-lunch-fish-canned-crackers',
+    'recipe-simple-lunch-salami-cheese',
+    'recipe-simple-lunch-salo-garlic',
     'recipe-simple-oatmeal-raisins',
     'recipe-simple-semolina-honey',
     'recipe-granola-alpine',
@@ -49,8 +57,6 @@ export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
     'recipe-lazy-lasagna',
     'recipe-chicken-pilaf-oriental',
     'recipe-canyon-chili',
-    'recipe-simple-lunch-salami-cheese',
-    'recipe-simple-lunch-salo-garlic',
     'recipe-simple-snack-nuts-choc',
     'recipe-spiced-mixed-nuts',
     'recipe-globus-rassolnik',
@@ -61,6 +67,11 @@ export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
     'recipe-globus-lagman',
     'recipe-globus-goulash-csipetke',
     'recipe-globus-pumpkin-porridge',
+    'recipe-globus-pasta-cheese-tushonka',
+    'recipe-globus-arnautka-tushonka',
+    'recipe-globus-soup-cheese-curd-tushonka',
+    'recipe-globus-canned-fish-ukha-tushonka',
+    'recipe-globus-borscht-tushonka-salo',
   ], []);
 
   // Всі доступні страви (включно з власними та магазинними стравами без сушарки)
@@ -75,6 +86,8 @@ export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
         kcal: r.kcalPerServing || 350,
         badge: 'Власна страва',
         isPopular: true,
+        boilMinutes: r.campRehydration?.boilMinutes ?? 0,
+        mealTypes: r.mealTypes,
       })),
       ...DEHYDRATED_RECIPES.map(r => ({
         id: r.id,
@@ -83,8 +96,14 @@ export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
         category: r.category,
         defaultGrams: r.dryWeightPerServingGrams,
         kcal: r.kcalPerServing,
-        badge: r.id.startsWith('recipe-simple-') ? 'Магазинна страва' : 'Страва (сушені овочі/м\'ясо)',
+        badge: r.campRehydration.boilMinutes === 0
+          ? 'Холодний обід/перекус (без варіння)'
+          : r.id.startsWith('recipe-simple-')
+            ? 'Магазинна страва'
+            : 'Страва (сушені овочі/м\'ясо)',
         isPopular: popularDishIds.includes(r.id),
+        boilMinutes: r.campRehydration?.boilMinutes ?? 0,
+        mealTypes: r.mealTypes,
       })),
     ];
 
@@ -99,6 +118,8 @@ export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
       kcal: Math.round(p.kcalPer100g * (p.recommendedNormGrams.default / 100)),
       badge: 'Напій',
       isPopular: false,
+      boilMinutes: 0,
+      mealTypes: ['breakfast', 'snack', 'lunch', 'dinner'] as MealType[],
     }));
 
     return [...recipes, ...drinksOnly];
@@ -115,6 +136,11 @@ export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
 
     if (activeCategory === 'popular') {
       return list.filter(item => item.isPopular);
+    }
+    if (activeCategory === 'lunch') {
+      return list.filter(
+        item => item.mealTypes?.includes('lunch') && item.boilMinutes === 0
+      );
     }
     if (activeCategory === 'breakfast') {
       return list.filter(item => item.category === 'breakfast');
@@ -261,6 +287,17 @@ export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
             >
               <Sparkles className="w-3.5 h-3.5" />
               Популярні
+            </button>
+            <button
+              type="button"
+              onClick={() => { setActiveCategory('lunch'); setSearch(''); }}
+              className={`px-3 py-1.5 rounded-lg font-bold shrink-0 transition ${
+                activeCategory === 'lunch' && !search
+                  ? 'bg-emerald-700 text-white shadow-2xs'
+                  : 'bg-white border border-slate-200 text-slate-700 hover:bg-slate-100'
+              }`}
+            >
+              🥪 Холодні обіди (без варіння)
             </button>
             <button
               type="button"
