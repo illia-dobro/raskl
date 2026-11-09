@@ -14,6 +14,40 @@ interface QuickAddDishModalProps {
 
 type CategoryTab = 'popular' | 'lunch' | 'breakfast' | 'soup' | 'main' | 'snack' | 'drink' | 'all';
 
+export function getDishBadge(
+  category: string,
+  mealTypes: MealType[] = [],
+  boilMinutes: number = 0,
+  isSimple: boolean = false,
+  isCustom: boolean = false
+): { text: string; colorClass: string } {
+  if (isCustom) {
+    return { text: 'Власна страва', colorClass: 'bg-emerald-50 text-emerald-800 border-emerald-200' };
+  }
+  if (category === 'soup') {
+    return {
+      text: boilMinutes > 0 ? `🍲 Гарячий суп (${boilMinutes} хв)` : '🍲 Гарячий суп',
+      colorClass: 'bg-amber-50 text-amber-800 border-amber-200',
+    };
+  }
+  if (mealTypes.includes('lunch') && boilMinutes === 0) {
+    return { text: '🥪 Холодний обід (без варіння)', colorClass: 'bg-sky-50 text-sky-800 border-sky-200' };
+  }
+  if (category === 'breakfast') {
+    return { text: '🥣 Сніданок / Каша', colorClass: 'bg-orange-50 text-orange-800 border-orange-200' };
+  }
+  if (category === 'spread') {
+    return { text: '🥫 Холодна намазка / паштет', colorClass: 'bg-teal-50 text-teal-800 border-teal-200' };
+  }
+  if (category === 'snack') {
+    return { text: '🍫 Снек / карманка', colorClass: 'bg-purple-50 text-purple-800 border-purple-200' };
+  }
+  if (isSimple) {
+    return { text: '🛒 Магазинна страва', colorClass: 'bg-blue-50 text-blue-800 border-blue-200' };
+  }
+  return { text: '🍛 Гаряча страва (дегідрат)', colorClass: 'bg-indigo-50 text-indigo-800 border-indigo-200' };
+}
+
 export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
   dayNumber,
   mealType,
@@ -27,7 +61,15 @@ export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
 
   const [search, setSearch] = useState('');
   const [activeCategory, setActiveCategory] = useState<CategoryTab>(
-    mealType === 'lunch' ? 'lunch' : 'popular'
+    mealType === 'lunch'
+      ? 'lunch'
+      : mealType === 'breakfast'
+        ? 'breakfast'
+        : mealType === 'dinner'
+          ? 'soup'
+          : mealType === 'snack'
+            ? 'snack'
+            : 'popular'
   );
   const [customTitle, setCustomTitle] = useState('');
   const [customGrams, setCustomGrams] = useState(80);
@@ -77,34 +119,44 @@ export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
   // Всі доступні страви (включно з власними та магазинними стравами без сушарки)
   const allItems = useMemo(() => {
     const recipes = [
-      ...customRecipes.map(r => ({
-        id: r.id,
-        title: r.title,
-        type: 'recipe' as const,
-        category: r.category,
-        defaultGrams: r.dryWeightPerServingGrams || 80,
-        kcal: r.kcalPerServing || 350,
-        badge: 'Власна страва',
-        isPopular: true,
-        boilMinutes: r.campRehydration?.boilMinutes ?? 0,
-        mealTypes: r.mealTypes,
-      })),
-      ...DEHYDRATED_RECIPES.map(r => ({
-        id: r.id,
-        title: r.title,
-        type: 'recipe' as const,
-        category: r.category,
-        defaultGrams: r.dryWeightPerServingGrams,
-        kcal: r.kcalPerServing,
-        badge: r.campRehydration.boilMinutes === 0
-          ? 'Холодний обід/перекус (без варіння)'
-          : r.id.startsWith('recipe-simple-')
-            ? 'Магазинна страва'
-            : 'Страва (сушені овочі/м\'ясо)',
-        isPopular: popularDishIds.includes(r.id),
-        boilMinutes: r.campRehydration?.boilMinutes ?? 0,
-        mealTypes: r.mealTypes,
-      })),
+      ...customRecipes.map(r => {
+        const badgeInfo = getDishBadge(r.category, r.mealTypes, r.campRehydration?.boilMinutes ?? 0, false, true);
+        return {
+          id: r.id,
+          title: r.title,
+          type: 'recipe' as const,
+          category: r.category,
+          defaultGrams: r.dryWeightPerServingGrams || 80,
+          kcal: r.kcalPerServing || 350,
+          badge: badgeInfo.text,
+          badgeClass: badgeInfo.colorClass,
+          isPopular: true,
+          boilMinutes: r.campRehydration?.boilMinutes ?? 0,
+          mealTypes: r.mealTypes,
+        };
+      }),
+      ...DEHYDRATED_RECIPES.map(r => {
+        const badgeInfo = getDishBadge(
+          r.category,
+          r.mealTypes,
+          r.campRehydration.boilMinutes,
+          r.id.startsWith('recipe-simple-'),
+          false
+        );
+        return {
+          id: r.id,
+          title: r.title,
+          type: 'recipe' as const,
+          category: r.category,
+          defaultGrams: r.dryWeightPerServingGrams,
+          kcal: r.kcalPerServing,
+          badge: badgeInfo.text,
+          badgeClass: badgeInfo.colorClass,
+          isPopular: popularDishIds.includes(r.id),
+          boilMinutes: r.campRehydration?.boilMinutes ?? 0,
+          mealTypes: r.mealTypes,
+        };
+      }),
     ];
 
     const drinksOnly = PRODUCTS_CATALOG.filter(
@@ -116,7 +168,8 @@ export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
       category: 'drink',
       defaultGrams: p.recommendedNormGrams.default,
       kcal: Math.round(p.kcalPer100g * (p.recommendedNormGrams.default / 100)),
-      badge: 'Напій',
+      badge: '☕ Напій',
+      badgeClass: 'bg-teal-50 text-teal-800 border-teal-200',
       isPopular: false,
       boilMinutes: 0,
       mealTypes: ['breakfast', 'snack', 'lunch', 'dinner'] as MealType[],
@@ -396,11 +449,14 @@ export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
                       <div className="font-bold text-slate-900 text-xs group-hover:text-emerald-900 truncate">
                         {item.title}
                       </div>
-                      <div className="text-[11px] text-slate-500 mt-0.5 flex items-center gap-2">
-                        <span className="font-medium text-emerald-800 bg-emerald-100/70 px-1.5 py-0.2 rounded text-[10px]">
+                      <div className="text-[11px] text-slate-500 mt-1 flex flex-wrap items-center gap-1.5">
+                        <span className="font-medium text-emerald-800 bg-emerald-100/70 px-1.5 py-0.5 rounded text-[10px]">
                           {item.defaultGrams} г/ос
                         </span>
-                        <span>{item.kcal} ккал</span>
+                        <span className="text-[10px] text-slate-500 font-medium">{item.kcal} ккал</span>
+                        <span className={`text-[10px] px-1.5 py-0.5 rounded font-medium border ${item.badgeClass}`}>
+                          {item.badge}
+                        </span>
                       </div>
                     </div>
 

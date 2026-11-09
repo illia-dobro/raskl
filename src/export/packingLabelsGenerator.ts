@@ -59,7 +59,11 @@ export function generatePackingLabels(
             DEHYDRATED_RECIPES.find(r => r.id === item.sourceId);
 
           if (rec) {
-            instructions = `${rec.campRehydration.waterRatioNote}. Варити: ${rec.campRehydration.boilMinutes} хв. ${rec.campRehydration.altitudeNote || ''}`.trim();
+            if (rec.campRehydration.boilMinutes === 0) {
+              instructions = `${rec.campRehydration.waterRatioNote || 'Готове до вживання на маршруті'}. Без варіння. ${rec.campRehydration.altitudeNote || ''}`.trim();
+            } else {
+              instructions = `${rec.campRehydration.waterRatioNote}. Варити: ${rec.campRehydration.boilMinutes} хв. ${rec.campRehydration.altitudeNote || ''}`.trim();
+            }
           }
         } else {
           const prod =

@@ -63,7 +63,13 @@ export const CatalogAndRecipesTab: React.FC = () => {
     const matchSearch =
       r.title.toLowerCase().includes(q) ||
       r.rawIngredients.some(i => i.name.toLowerCase().includes(q));
-    const matchCat = selectedCategory === 'all' || r.category === selectedCategory || r.mealTypes.includes(selectedCategory as MealType);
+    const matchCat =
+      selectedCategory === 'all' ||
+      (selectedCategory === 'lunch'
+        ? r.mealTypes.includes('lunch') && (r.campRehydration?.boilMinutes ?? 0) === 0
+        : selectedCategory === 'soup'
+          ? r.category === 'soup'
+          : r.category === selectedCategory || r.mealTypes.includes(selectedCategory as MealType));
     return matchSearch && matchCat;
   });
 
@@ -199,12 +205,12 @@ export const CatalogAndRecipesTab: React.FC = () => {
             className="bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs font-semibold text-slate-700 outline-none"
           >
             <option value="all">Всі типи страв</option>
-            <option value="lunch">Холодні обіди та перекуси (без варіння)</option>
-            <option value="breakfast">Сніданки</option>
-            <option value="soup">Супи та борщі</option>
-            <option value="main">Другі страви та пасти</option>
-            <option value="spread">Намазки та паштети</option>
-            <option value="snack">Снеки та батончики</option>
+            <option value="lunch">🥪 Холодні обіди (без варіння: ковбаса, сир, сало, сухарі, консерви)</option>
+            <option value="soup">🍲 Супи та борщі (гарячі перші страви)</option>
+            <option value="breakfast">🥣 Сніданки та солодкі каші</option>
+            <option value="main">🍛 Другі гарячі страви (каші з м'ясом, пасти, плов)</option>
+            <option value="spread">🥫 Намазки, паштети та хумус</option>
+            <option value="snack">🍫 Снеки, карманка та солодощі</option>
           </select>
         ) : (
           <select
@@ -241,6 +247,34 @@ export const CatalogAndRecipesTab: React.FC = () => {
                   <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200 shrink-0">
                     {recipe.dryWeightPerServingGrams} г сух
                   </span>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-1.5 mt-1.5">
+                  {recipe.category === 'soup' ? (
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-amber-50 text-amber-800 border border-amber-200">
+                      🍲 Гаряча перша страва ({recipe.campRehydration.boilMinutes} хв)
+                    </span>
+                  ) : recipe.mealTypes.includes('lunch') && recipe.campRehydration.boilMinutes === 0 ? (
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-sky-50 text-sky-800 border border-sky-200">
+                      🥪 Холодний обід (без варіння)
+                    </span>
+                  ) : recipe.category === 'breakfast' ? (
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-orange-50 text-orange-800 border border-orange-200">
+                      🥣 Сніданок / Каша
+                    </span>
+                  ) : recipe.category === 'spread' ? (
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-teal-50 text-teal-800 border border-teal-200">
+                      🥫 Холодна намазка / паштет
+                    </span>
+                  ) : recipe.category === 'snack' ? (
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-purple-50 text-purple-800 border border-purple-200">
+                      🍫 Снек / карманка
+                    </span>
+                  ) : (
+                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded bg-indigo-50 text-indigo-800 border border-indigo-200">
+                      🍛 Гаряча друга страва
+                    </span>
+                  )}
                 </div>
 
                 <p className="text-[11px] text-slate-500 mt-1 italic">{recipe.sourceBook}</p>

@@ -103,6 +103,31 @@ describe('Knowledge Base & Catalogs from 4 Books', () => {
     expect(getProductById('spice-ketchup')).toBeDefined();
   });
 
+  it('strictly validates that hot soups belong to dinner only and lunch dishes are no-cook (boilMinutes === 0)', () => {
+    // 1. Борщ український та всі інші супи - це гарячі перші страви на вечерю (не холодний обід!)
+    const borscht = getRecipeById('recipe-borscht-home-style');
+    expect(borscht).toBeDefined();
+    expect(borscht?.category).toBe('soup');
+    expect(borscht?.campRehydration.boilMinutes).toBeGreaterThan(0);
+    expect(borscht?.mealTypes).toEqual(['dinner']);
+    expect(borscht?.mealTypes).not.toContain('lunch');
+
+    const allSoups = DEHYDRATED_RECIPES.filter(r => r.category === 'soup');
+    expect(allSoups.length).toBeGreaterThanOrEqual(25);
+    for (const soup of allSoups) {
+      expect(soup.mealTypes).not.toContain('lunch');
+      expect(soup.mealTypes).toContain('dinner');
+      expect(soup.campRehydration.boilMinutes).toBeGreaterThan(0);
+    }
+
+    // 2. Будь-яка страва на обід (lunch) має бути виключно холодним перекусом без варіння
+    const lunchDishes = DEHYDRATED_RECIPES.filter(r => r.mealTypes.includes('lunch'));
+    expect(lunchDishes.length).toBeGreaterThanOrEqual(10);
+    for (const lunch of lunchDishes) {
+      expect(lunch.campRehydration.boilMinutes).toBe(0);
+    }
+  });
+
   it('autoFillProject assigns cold no-cook meals (boilMinutes === 0) for lunch', () => {
     const demo = createDemoProject();
     const filled = autoFillProject(demo, {
