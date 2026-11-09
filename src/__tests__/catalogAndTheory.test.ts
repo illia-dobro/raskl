@@ -48,4 +48,21 @@ describe('Knowledge Base & Catalogs from 4 Books', () => {
     expect(demo.days.length).toBe(8);
     expect(demo.days[0].meals.breakfast.items.length).toBeGreaterThan(0);
   });
+
+  it('includes TKG KPI Globus recipes (tkg.org.ua/node/22586) and dehydration ratios', () => {
+    const globusRecipes = DEHYDRATED_RECIPES.filter(r => r.sourceBook.includes('Глобус'));
+    expect(globusRecipes.length).toBeGreaterThanOrEqual(25);
+    expect(getRecipeById('recipe-globus-rassolnik')).toBeDefined();
+    expect(getRecipeById('recipe-globus-kharcho')).toBeDefined();
+    expect(getRecipeById('recipe-globus-solyanka')).toBeDefined();
+    expect(getRecipeById('recipe-globus-kulesh')).toBeDefined();
+    expect(getRecipeById('recipe-globus-banosh-brynza')).toBeDefined();
+    expect(getRecipeById('recipe-globus-lagman')).toBeDefined();
+    expect(getRecipeById('recipe-globus-goulash-csipetke')).toBeDefined();
+
+    const driedPumpkin = getProductById('veg-pumpkin-dried');
+    expect(driedPumpkin?.dryingInfo?.rawToDryRatio).toBe(13.0);
+    const driedZucchini = getProductById('veg-zucchini-dried');
+    expect(driedZucchini?.dryingInfo?.rawToDryRatio).toBe(25.0);
+  });
 });

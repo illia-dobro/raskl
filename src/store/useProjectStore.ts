@@ -13,7 +13,7 @@ import {
 } from '../types/domain';
 import { createDemoProject } from '../data/demoProject';
 import { createEmptyProject } from '../data/emptyProject';
-import { autoFillProject, AutoFillFilters } from '../domain/autoFill';
+import { autoFillProject, AutoFillFilters, DEFAULT_AUTOFILL_FILTERS, hasLegacyProductListInMeals } from '../domain/autoFill';
 import { autoAssignStagePackages } from '../domain/loadDistributor';
 
 export type AppTabId = 'theory' | 'route' | 'menu' | 'catalog' | 'shopping' | 'distribution';
@@ -101,13 +101,51 @@ export const useProjectStore = create<ProjectState>()(
       setActiveTab: tab => set({ activeTab: tab }),
 
       updateSettings: settings =>
-        set(state => ({
-          project: {
-            ...state.project,
-            settings: { ...state.project.settings, ...settings },
-            updatedAt: new Date().toISOString(),
-          },
-        })),
+        set(state => {
+          const oldKcal = state.project.settings.targetDailyKcal;
+          const newKcal = settings.targetDailyKcal;
+          const isDifficultyChange =
+            settings.difficultyCategory !== undefined &&
+            settings.difficultyCategory !== state.project.settings.difficultyCategory &&
+            oldKcal > 0 &&
+            newKcal !== undefined &&
+            newKcal > 0 &&
+            newKcal !== oldKcal;
+
+          const ratio = isDifficultyChange ? newKcal / oldKcal : 1;
+
+          const updatedDays = isDifficultyChange
+            ? state.project.days.map(day => {
+                const updatedMeals = { ...day.meals };
+                (['breakfast', 'snack', 'lunch', 'dinner'] as MealType[]).forEach(mt => {
+                  updatedMeals[mt] = {
+                    ...day.meals[mt],
+                    items: day.meals[mt].items.map(item => {
+                      if (
+                        item.sourceId.startsWith('drink-') ||
+                        item.sourceId.startsWith('spice-') ||
+                        item.gramsPerPerson <= 15
+                      ) {
+                        return item;
+                      }
+                      const scaled = Math.max(15, Math.round((item.gramsPerPerson * ratio) / 5) * 5);
+                      return { ...item, gramsPerPerson: scaled };
+                    }),
+                  };
+                });
+                return { ...day, meals: updatedMeals };
+              })
+            : state.project.days;
+
+          return {
+            project: {
+              ...state.project,
+              settings: { ...state.project.settings, ...settings },
+              days: updatedDays,
+              updatedAt: new Date().toISOString(),
+            },
+          };
+        }),
 
       addParticipant: p =>
         set(state => {
@@ -500,6 +538,11 @@ export const useProjectStore = create<ProjectState>()(
         checkedShoppingIds: state.checkedShoppingIds,
         checkedDryingIds: state.checkedDryingIds,
       }),
+      onRehydrateStorage: () => state => {
+        if (state && hasLegacyProductListInMeals(state.project)) {
+          state.autoFillMenu(DEFAULT_AUTOFILL_FILTERS);
+        }
+      },
     }
   )
 );

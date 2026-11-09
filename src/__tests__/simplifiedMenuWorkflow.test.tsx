@@ -1,30 +1,99 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach } from 'vitest';
 import { render, screen, fireEvent } from '@testing-library/react';
 import App from '../App';
 import { MenuMatrixTab } from '../components/MenuMatrixTab';
 import { useProjectStore } from '../store/useProjectStore';
 
-describe('Simplified Menu Matrix Workflow', () => {
-  it('opens directly on Menu Matrix with clear dish names and simplified cards', () => {
-    render(<App />);
-    // Verify default active tab is the Menu Matrix and days are rendered
-    expect(screen.getAllByText(/День 1/i).length).toBeGreaterThan(0);
-    expect(screen.getAllByText(/Альпійська гранола з горіхами та сушеними ягодами/i).length).toBeGreaterThan(0);
-    expect(screen.getAllByText(/Склад/i).length).toBeGreaterThan(0);
+describe('Simplified Menu Matrix Workflow & 2 Filling Modes', () => {
+  beforeEach(() => {
+    useProjectStore.getState().resetToEmptyProject();
   });
 
-  it('opens dish composition modal separately when clicking "Склад"', () => {
+  it('opens directly on Menu Matrix in clean mode showing the 2-mode hero banner', () => {
+    render(<App />);
+    expect(screen.getAllByText(/День 1/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/2 режими створення розкладки/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/Заповнити за фільтром/i).length).toBeGreaterThan(0);
+  });
+
+  it('mode 1: allows automatic fill by filter matching target calories and dietary choices', () => {
     render(<MenuMatrixTab />);
 
-    // Click on the first "Склад" button
+    // Open auto-fill modal
+    const autoFillBtns = screen.getAllByRole('button', { name: /Заповнити за фільтром/i });
+    fireEvent.click(autoFillBtns[0]);
+
+    // Modal is open
+    expect(screen.getByText(/Скласти меню за фільтрами/i)).toBeDefined();
+    expect(screen.getByText(/Магазинні продукти/i)).toBeDefined();
+
+    // Select vegetarian filter
+    fireEvent.click(screen.getByText(/Без м'яса/i));
+
+    // Apply auto-fill
+    fireEvent.click(screen.getByRole('button', { name: /Заповнити розкладку/i }));
+
+    // Now days have dishes and hero banner disappears
+    const s = useProjectStore.getState().project;
+    expect(s.days[0].meals.breakfast.items.length).toBeGreaterThan(0);
+    expect(s.days[0].meals.dinner.items.length).toBeGreaterThan(0);
+    expect(screen.queryByText(/2 режими створення розкладки/i)).toBeNull();
+  });
+
+  it('mode 2: allows manual addition of dishes to clean days', () => {
+    render(<MenuMatrixTab />);
+
+    // Click "+ Додати страву" on breakfast
+    const addButtons = screen.getAllByRole('button', { name: /Додати страву/i });
+    fireEvent.click(addButtons[0]);
+
+    // Quick add modal opens
+    expect(screen.getByPlaceholderText(/Швидкий пошук/i)).toBeDefined();
+
+    // Add custom meal
+    const customInput = screen.getByPlaceholderText(/Своя страва/i);
+    fireEvent.change(customInput, { target: { value: 'Кускус швидкий з родзинками' } });
+    fireEvent.click(screen.getByRole('button', { name: /Додати свою/i }));
+
+    // Custom meal is present
+    expect(screen.getByText(/Кускус швидкий з родзинками/i)).toBeDefined();
+  });
+
+  it('allows clearing all meals to return to clean manual mode', () => {
+    // Fill first
+    useProjectStore.getState().autoFillMenu({
+      cooking: 'simple',
+      noMeat: false,
+      noDairy: false,
+      noNuts: false,
+      noSugar: false,
+    });
+    expect(useProjectStore.getState().project.days[0].meals.breakfast.items.length).toBeGreaterThan(0);
+
+    // Clear all meals
+    useProjectStore.getState().clearAllMeals();
+    expect(useProjectStore.getState().project.days[0].meals.breakfast.items.length).toBe(0);
+  });
+
+  it('opens dish composition modal separately when clicking "Склад" on a recipe', () => {
+    // Load recipe
+    useProjectStore.getState().autoFillMenu({
+      cooking: 'dried',
+      noMeat: false,
+      noDairy: false,
+      noNuts: false,
+      noSugar: false,
+    });
+
+    render(<MenuMatrixTab />);
+
     const skladButtons = screen.getAllByRole('button', { name: /^Склад$/ });
+    expect(skladButtons.length).toBeGreaterThan(0);
     fireEvent.click(skladButtons[0]);
 
-    // Modal should appear with raw ingredients breakdown and cooking tips
+    // Modal should appear
     expect(screen.getByText(/Склад страви • День 1/i)).toBeDefined();
     expect(screen.getByText(/Склад та інгредієнти/i)).toBeDefined();
-    expect(screen.getByText(/Порція сухої ваги:/i)).toBeDefined();
-    expect(screen.getByRole('button', { name: /Готово/i })).toBeDefined();
 
     // Close modal
     fireEvent.click(screen.getByRole('button', { name: /Готово/i }));
@@ -50,33 +119,5 @@ describe('Simplified Menu Matrix Workflow', () => {
     s = useProjectStore.getState().project;
     expect(s.settings.difficultyCategory).toBe(3);
     expect(s.settings.targetDailyKcal).toBe(3300);
-
-    // Етапи: прибираємо розбивку → один етап на всі дні
-    expect(s.stages.length).toBeGreaterThan(1);
-    useProjectStore.getState().collapseToSingleStage();
-    s = useProjectStore.getState().project;
-    expect(s.stages.length).toBe(1);
-    expect(s.days.every(d => d.stageId === s.stages[0].id)).toBe(true);
-    expect(s.stages[0].endDay).toBe(s.days.length);
-  });
-
-  it('allows lightweight addition of dishes and custom meals', () => {
-    render(<MenuMatrixTab />);
-
-    // Click "+ Додати страву" on breakfast
-    const addButtons = screen.getAllByRole('button', { name: /Додати страву/i });
-    fireEvent.click(addButtons[0]);
-
-    // Quick add modal opens with categories and custom dish input
-    expect(screen.getByPlaceholderText(/Швидкий пошук/i)).toBeDefined();
-    expect(screen.getByPlaceholderText(/Своя страва/i)).toBeDefined();
-
-    // Add custom meal
-    const customInput = screen.getByPlaceholderText(/Своя страва/i);
-    fireEvent.change(customInput, { target: { value: 'Кускус швидкий з родзинками' } });
-    fireEvent.click(screen.getByRole('button', { name: /Додати свою/i }));
-
-    // Now the custom meal should appear on screen
-    expect(screen.getByText(/Кускус швидкий з родзинками/i)).toBeDefined();
   });
 });

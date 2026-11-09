@@ -167,6 +167,36 @@ export const PRODUCTS_CATALOG: Product[] = [
     packagingTareRatio: 0.05,
     packagingType: 'ПЕТ-пляшка'
   },
+  {
+    id: 'grain-funchoza',
+    name: 'Фунчоза (бобова / рисова скляна вермішель)',
+    category: 'grains',
+    kcalPer100g: 340,
+    proteinPer100g: 0.7,
+    fatPer100g: 0.5,
+    carbsPer100g: 84.0,
+    fiberPer100g: 1.5,
+    digestibilityPercent: 90,
+    waterContentClass: 'very_low_under_20',
+    recommendedNormGrams: { min: 40, default: 70, max: 85 },
+    packagingTareRatio: 0.04,
+    packagingType: 'Щільний пакет'
+  },
+  {
+    id: 'grain-wheat-artek',
+    name: 'Крупа пшенична (Артек / Полтавська)',
+    category: 'grains',
+    kcalPer100g: 325,
+    proteinPer100g: 11.5,
+    fatPer100g: 1.3,
+    carbsPer100g: 68.0,
+    fiberPer100g: 4.5,
+    digestibilityPercent: 83,
+    waterContentClass: 'very_low_under_20',
+    recommendedNormGrams: { min: 55, default: 65, max: 80 },
+    packagingTareRatio: 0.05,
+    packagingType: 'ПЕТ-пляшка'
+  },
 
   // 2. М'ясо, риба, тушонка (meat_fish)
   {
@@ -329,6 +359,44 @@ export const PRODUCTS_CATALOG: Product[] = [
     recommendedNormGrams: { min: 25, default: 35, max: 50 },
     packagingTareRatio: 0.04,
     packagingType: 'Пергамент + пакет'
+  },
+  {
+    id: 'meat-fish-boiled-dried',
+    name: 'Риба варено-сушена шматочками (для юшки та других страв, ТК «Глобус»)',
+    category: 'meat_fish',
+    kcalPer100g: 390,
+    proteinPer100g: 76.0,
+    fatPer100g: 8.5,
+    carbsPer100g: 0.0,
+    fiberPer100g: 0.0,
+    digestibilityPercent: 94,
+    waterContentClass: 'very_low_under_20',
+    recommendedNormGrams: { min: 15, default: 20, max: 30 },
+    packagingTareRatio: 0.04,
+    packagingType: 'Герметичний zip-пакет',
+    dryingInfo: {
+      rawToDryRatio: 9.0,
+      rawProductName: 'Риба морожена нежирна (хек, минтай, судак — усушка 1:8–1:10 за ТК «Глобус»)',
+      tempCelsius: 60,
+      timeHours: '7-9 год',
+      drynessTest: 'Сухі ламкі шматочки філе без кісток та вологи',
+      prepNotes: 'Відварити нежирну рибу, відокремити від кісток та шкіри, розібрати на невеликі шматочки і висушити'
+    }
+  },
+  {
+    id: 'meat-in-lard-globus',
+    name: 'М\'ясо в салі (домашнє м\'ясо виварене у смальці за методом ТК «Глобус»)',
+    category: 'meat_fish',
+    kcalPer100g: 580,
+    proteinPer100g: 38.0,
+    fatPer100g: 46.0,
+    carbsPer100g: 0.0,
+    fiberPer100g: 0.0,
+    digestibilityPercent: 93,
+    waterContentClass: 'very_low_under_20',
+    recommendedNormGrams: { min: 25, default: 30, max: 60 },
+    packagingTareRatio: 0.05,
+    packagingType: 'Тетрапак або пластиковий контейнер з широким горлом'
   },
 
   // 3. Молочні продукти та яйця (dairy_eggs)
@@ -706,6 +774,29 @@ export const PRODUCTS_CATALOG: Product[] = [
       prepNotes: 'Спекти яблука, перетерти в блендері, намазати шаром 3-4 мм на силіконовий лист'
     }
   },
+  {
+    id: 'fruit-pear-dried',
+    name: 'Груша сушена скибочками (для узвару та компотів, ТК «Глобус»)',
+    category: 'dried_fruits_nuts',
+    kcalPer100g: 249,
+    proteinPer100g: 2.3,
+    fatPer100g: 0.6,
+    carbsPer100g: 62.0,
+    fiberPer100g: 7.5,
+    digestibilityPercent: 78,
+    waterContentClass: 'very_low_under_20',
+    recommendedNormGrams: { min: 5, default: 15, max: 35 },
+    packagingTareRatio: 0.04,
+    packagingType: 'Zip-пакет',
+    dryingInfo: {
+      rawToDryRatio: 7.0,
+      rawProductName: 'Груша свіжа (усушка 1:7 за даними ТК «Глобус»)',
+      tempCelsius: 58,
+      timeHours: '7-9 год',
+      drynessTest: 'Пружні сухі часточки груші без вологи',
+      prepNotes: 'Нарізати тонкими скибочками, видаливши насіннєву камеру'
+    }
+  },
 
   // 7. Овочі та гриби сушені (vegetables_mushrooms)
   {
@@ -898,6 +989,167 @@ export const PRODUCTS_CATALOG: Product[] = [
     recommendedNormGrams: { min: 10, default: 20, max: 30 },
     packagingTareRatio: 0.03,
     packagingType: 'Сіточка'
+  },
+  {
+    id: 'veg-pumpkin-dried',
+    name: 'Гарбуз сушений (для гарбузової каші та супів, ТК «Глобус»)',
+    category: 'vegetables_mushrooms',
+    kcalPer100g: 230,
+    proteinPer100g: 7.0,
+    fatPer100g: 0.8,
+    carbsPer100g: 52.0,
+    fiberPer100g: 14.0,
+    digestibilityPercent: 82,
+    waterContentClass: 'very_low_under_20',
+    recommendedNormGrams: { min: 10, default: 20, max: 30 },
+    packagingTareRatio: 0.04,
+    packagingType: 'Герметичний пакет',
+    dryingInfo: {
+      rawToDryRatio: 13.0,
+      rawProductName: 'Гарбуз свіжий грушоподібний (усушка 1:13 зі шкіркою та насінням за ТК «Глобус»)',
+      tempCelsius: 58,
+      timeHours: '6-8 год',
+      drynessTest: 'Яскраво-помаранчеві ламкі смужки або скибочки',
+      prepNotes: 'Обирати гарбуз типу «гітара/груша» (більше м\'якоті й менше насіння), натерти або нарізати тонкими пластинками'
+    }
+  },
+  {
+    id: 'veg-cauliflower-dried',
+    name: 'Капуста цвітна сушена суцвіттями (ТК «Глобус»)',
+    category: 'vegetables_mushrooms',
+    kcalPer100g: 225,
+    proteinPer100g: 18.0,
+    fatPer100g: 2.0,
+    carbsPer100g: 42.0,
+    fiberPer100g: 16.0,
+    digestibilityPercent: 80,
+    waterContentClass: 'very_low_under_20',
+    recommendedNormGrams: { min: 2, default: 5, max: 12 },
+    packagingTareRatio: 0.04,
+    packagingType: 'Zip-пакет',
+    dryingInfo: {
+      rawToDryRatio: 15.0,
+      rawProductName: 'Капуста цвітна свіжа (усушка 1:15 за даними ТК «Глобус»)',
+      tempCelsius: 55,
+      timeHours: '7-9 год',
+      drynessTest: 'Тверді сухі дрібні суцвіття',
+      prepNotes: 'Розібрати на дрібні суцвіття, бланшувати 2-3 хв у підсоленому окропі перед сушінням'
+    }
+  },
+  {
+    id: 'veg-zucchini-dried',
+    name: 'Кабачки сушені кубиками/скибочками (ТК «Глобус»)',
+    category: 'vegetables_mushrooms',
+    kcalPer100g: 210,
+    proteinPer100g: 11.0,
+    fatPer100g: 1.5,
+    carbsPer100g: 45.0,
+    fiberPer100g: 14.0,
+    digestibilityPercent: 82,
+    waterContentClass: 'very_low_under_20',
+    recommendedNormGrams: { min: 3, default: 6, max: 15 },
+    packagingTareRatio: 0.04,
+    packagingType: 'Zip-пакет',
+    dryingInfo: {
+      rawToDryRatio: 25.0,
+      rawProductName: 'Кабачки свіжі молоді (усушка 1:25 за даними ТК «Глобус»)',
+      tempCelsius: 55,
+      timeHours: '6-8 год',
+      drynessTest: 'Тонкі ламкі чіпси або сухі кубики',
+      prepNotes: 'Нарізати кубиками або півкільцями 4-5 мм, сушити на сітчастих піддонах'
+    }
+  },
+  {
+    id: 'veg-eggplant-dried',
+    name: 'Баклажани сушені соломкою (для лагману та рагу, ТК «Глобус»)',
+    category: 'vegetables_mushrooms',
+    kcalPer100g: 215,
+    proteinPer100g: 10.5,
+    fatPer100g: 1.2,
+    carbsPer100g: 46.0,
+    fiberPer100g: 19.0,
+    digestibilityPercent: 78,
+    waterContentClass: 'very_low_under_20',
+    recommendedNormGrams: { min: 3, default: 5, max: 12 },
+    packagingTareRatio: 0.04,
+    packagingType: 'Zip-пакет',
+    dryingInfo: {
+      rawToDryRatio: 14.0,
+      rawProductName: 'Баклажани свіжі (усушка 1:14 за даними ТК «Глобус»)',
+      tempCelsius: 55,
+      timeHours: '6-8 год',
+      drynessTest: 'Сухі легкі смужки без вологи',
+      prepNotes: 'Нарізати соломкою або кубиками, прибрати гіркоту підсоленою водою та обсушити перед сушаркою'
+    }
+  },
+  {
+    id: 'veg-pickles-dried',
+    name: 'Огірки солоні бочкові сушені (для розсольника та солянки, ТК «Глобус»)',
+    category: 'vegetables_mushrooms',
+    kcalPer100g: 155,
+    proteinPer100g: 7.0,
+    fatPer100g: 0.8,
+    carbsPer100g: 30.0,
+    fiberPer100g: 12.0,
+    digestibilityPercent: 80,
+    waterContentClass: 'very_low_under_20',
+    recommendedNormGrams: { min: 2, default: 6, max: 10 },
+    packagingTareRatio: 0.04,
+    packagingType: 'Герметичний zip-пакет',
+    dryingInfo: {
+      rawToDryRatio: 12.0,
+      rawProductName: 'Огірки солоні бочкові (не мариновані!)',
+      tempCelsius: 55,
+      timeHours: '6-8 год',
+      drynessTest: 'Суха ароматна соломка з виразною кислинкою',
+      prepNotes: 'Натерти на крупній тертці або нарізати тонкою соломкою саме квашені/солоні огірки'
+    }
+  },
+  {
+    id: 'veg-green-beans-dried',
+    name: 'Квасоля стручкова спаржева сушена (ТК «Глобус»)',
+    category: 'vegetables_mushrooms',
+    kcalPer100g: 245,
+    proteinPer100g: 18.0,
+    fatPer100g: 1.5,
+    carbsPer100g: 43.0,
+    fiberPer100g: 18.0,
+    digestibilityPercent: 80,
+    waterContentClass: 'very_low_under_20',
+    recommendedNormGrams: { min: 5, default: 10, max: 20 },
+    packagingTareRatio: 0.04,
+    packagingType: 'Zip-пакет',
+    dryingInfo: {
+      rawToDryRatio: 10.0,
+      rawProductName: 'Квасоля стручкова зелена (свіжа або заморожена)',
+      tempCelsius: 58,
+      timeHours: '6-8 год',
+      drynessTest: 'Хрусткі зелені стручки, що ламаються з тріском',
+      prepNotes: 'Бланшувати 3 хв у киплячій воді, відкинути на друшляк та висушити'
+    }
+  },
+  {
+    id: 'veg-peas-corn-dried',
+    name: 'Зелений горошок та солодка кукурудза сушені (ТК «Глобус»)',
+    category: 'vegetables_mushrooms',
+    kcalPer100g: 310,
+    proteinPer100g: 16.0,
+    fatPer100g: 2.5,
+    carbsPer100g: 58.0,
+    fiberPer100g: 14.0,
+    digestibilityPercent: 82,
+    waterContentClass: 'very_low_under_20',
+    recommendedNormGrams: { min: 3, default: 6, max: 15 },
+    packagingTareRatio: 0.04,
+    packagingType: 'Zip-пакет',
+    dryingInfo: {
+      rawToDryRatio: 4.5,
+      rawProductName: 'Зелений горошок та кукурудза солодка (свіжі/морожені)',
+      tempCelsius: 58,
+      timeHours: '6-8 год',
+      drynessTest: 'Тверді сухі горошини та зерна кукурудзи',
+      prepNotes: 'Бланшувати 2 хвилини на парі або в окропі перед сушінням'
+    }
   },
 
   // 8. Хліб, сухарі, галети (bread_crackers)

@@ -22,7 +22,6 @@ export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
   const {
     addMealItem,
     addCustomRecipe,
-    customProducts,
     customRecipes,
   } = useProjectStore();
 
@@ -34,25 +33,37 @@ export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
 
   // Список популярних готових страв для швидкого кліку
   const popularDishIds = useMemo(() => [
+    'recipe-simple-oatmeal-raisins',
+    'recipe-simple-semolina-honey',
     'recipe-granola-alpine',
-    'recipe-oatmeal-apple-cinnamon',
-    'recipe-borscht-traditional',
-    'recipe-pea-soup-smoked',
-    'recipe-buckwheat-merchant-beef',
-    'recipe-plov-uzbek-beef',
-    'recipe-mashed-potato-beef',
-    'recipe-pasta-carbonara',
-    'prod-chocolate-dark-70',
-    'prod-nuts-walnut',
-    'prod-dried-apricots',
-    'prod-tea-black',
-    'prod-coffee-ground',
-    'prod-salo-cured',
-    'prod-crackers-rye',
-    'prod-cheese-cheddar',
+    'recipe-quick-oatmeal-plus',
+    'recipe-celebration-brunch',
+    'recipe-borscht-home-style',
+    'recipe-simple-pea-soup-lunch',
+    'recipe-caldo-verde-hiker',
+    'recipe-simple-buckwheat-tushonka',
+    'recipe-simple-pasta-cheese-salami',
+    'recipe-simple-mashed-potato-sausage',
+    'recipe-simple-rice-tushonka',
+    'recipe-sierra-spaghetti',
+    'recipe-lazy-lasagna',
+    'recipe-chicken-pilaf-oriental',
+    'recipe-canyon-chili',
+    'recipe-simple-lunch-salami-cheese',
+    'recipe-simple-lunch-salo-garlic',
+    'recipe-simple-snack-nuts-choc',
+    'recipe-spiced-mixed-nuts',
+    'recipe-globus-rassolnik',
+    'recipe-globus-kharcho',
+    'recipe-globus-solyanka',
+    'recipe-globus-kulesh',
+    'recipe-globus-banosh-brynza',
+    'recipe-globus-lagman',
+    'recipe-globus-goulash-csipetke',
+    'recipe-globus-pumpkin-porridge',
   ], []);
 
-  // Всі доступні страви та продукти
+  // Всі доступні страви (включно з власними та магазинними стравами без сушарки)
   const allItems = useMemo(() => {
     const recipes = [
       ...customRecipes.map(r => ({
@@ -62,8 +73,8 @@ export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
         category: r.category,
         defaultGrams: r.dryWeightPerServingGrams || 80,
         kcal: r.kcalPerServing || 350,
-        badge: 'Власний рецепт',
-        isPopular: false,
+        badge: 'Власна страва',
+        isPopular: true,
       })),
       ...DEHYDRATED_RECIPES.map(r => ({
         id: r.id,
@@ -72,49 +83,30 @@ export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
         category: r.category,
         defaultGrams: r.dryWeightPerServingGrams,
         kcal: r.kcalPerServing,
-        badge: 'Сушена страва',
+        badge: r.id.startsWith('recipe-simple-') ? 'Магазинна страва' : 'Страва (сушені овочі/м\'ясо)',
         isPopular: popularDishIds.includes(r.id),
       })),
     ];
 
-    const products = [
-      ...customProducts.map(p => ({
-        id: p.id,
-        title: p.name,
-        type: 'product' as const,
-        category: p.category,
-        defaultGrams: p.recommendedNormGrams.default || 50,
-        kcal: Math.round(p.kcalPer100g * ((p.recommendedNormGrams.default || 50) / 100)),
-        badge: 'Власний продукт',
-        isPopular: false,
-      })),
-      ...PRODUCTS_CATALOG.map(p => {
-        let cat = 'snack';
-        if (p.category === 'drinks_spices') cat = 'drink';
-        else if (p.category === 'grains') cat = 'main';
-        else if (['dairy_eggs', 'meat_fish', 'fats', 'sweets', 'dried_fruits_nuts', 'bread_crackers'].includes(p.category)) cat = 'snack';
+    const drinksOnly = PRODUCTS_CATALOG.filter(
+      p => p.category === 'drinks_spices' && !PANTRY_PRODUCT_IDS.has(p.id)
+    ).map(p => ({
+      id: p.id,
+      title: p.name,
+      type: 'product' as const,
+      category: 'drink',
+      defaultGrams: p.recommendedNormGrams.default,
+      kcal: Math.round(p.kcalPer100g * (p.recommendedNormGrams.default / 100)),
+      badge: 'Напій',
+      isPopular: false,
+    }));
 
-        return {
-          id: p.id,
-          title: p.name,
-          type: 'product' as const,
-          category: cat,
-          defaultGrams: p.recommendedNormGrams.default,
-          kcal: Math.round(p.kcalPer100g * (p.recommendedNormGrams.default / 100)),
-          badge: p.category,
-          isPopular: popularDishIds.includes(p.id),
-        };
-      }),
-    ];
-
-    return [...recipes, ...products].filter(
-      it => !(it.type === 'product' && PANTRY_PRODUCT_IDS.has(it.id))
-    );
-  }, [customProducts, customRecipes, popularDishIds]);
+    return [...recipes, ...drinksOnly];
+  }, [customRecipes, popularDishIds]);
 
   // Фільтрація
   const filteredItems = useMemo(() => {
-    let list = allItems;
+    const list = allItems;
 
     if (search.trim()) {
       const q = search.toLowerCase();
@@ -125,19 +117,25 @@ export const QuickAddDishModal: React.FC<QuickAddDishModalProps> = ({
       return list.filter(item => item.isPopular);
     }
     if (activeCategory === 'breakfast') {
-      return list.filter(item => item.category === 'breakfast' || item.title.toLowerCase().includes('вівс') || item.title.toLowerCase().includes('гранол') || item.title.toLowerCase().includes('каша'));
+      return list.filter(item => item.category === 'breakfast');
     }
     if (activeCategory === 'soup') {
-      return list.filter(item => item.category === 'soup' || item.title.toLowerCase().includes('суп') || item.title.toLowerCase().includes('борщ') || item.title.toLowerCase().includes('харчо'));
+      return list.filter(item => item.category === 'soup');
     }
     if (activeCategory === 'main') {
-      return list.filter(item => item.category === 'main' || ['гречка', 'рис', 'плов', 'пюре', 'макарони', 'паста', 'кускус'].some(w => item.title.toLowerCase().includes(w)));
+      return list.filter(item => item.category === 'main' || item.category === 'spread');
     }
     if (activeCategory === 'snack') {
-      return list.filter(item => item.category === 'snack' || ['шоколад', 'горіхи', 'сир', 'сало', 'ковбаса', 'сухофрукти', 'батончик', 'печиво'].some(w => item.title.toLowerCase().includes(w)));
+      return list.filter(item => item.category === 'snack');
     }
     if (activeCategory === 'drink') {
-      return list.filter(item => item.category === 'drink' || ['чай', 'кава', 'какао', 'кисіль', 'ізотонік'].some(w => item.title.toLowerCase().includes(w)));
+      return list.filter(
+        item =>
+          item.category === 'drink' ||
+          item.id === 'recipe-globus-uzvar-classic' ||
+          item.id === 'recipe-globus-berry-compote' ||
+          item.id === 'recipe-simple-globus-spiced-cocoa'
+      );
     }
 
     return list;

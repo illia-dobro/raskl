@@ -378,7 +378,7 @@ export const CatalogAndRecipesTab: React.FC = () => {
           <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 space-y-5 shadow-2xl">
             <div className="flex items-start justify-between border-b border-slate-100 pb-3">
               <div>
-                <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider">Рецепт Backpack Gourmet</span>
+                <span className="text-xs font-bold text-emerald-700 uppercase tracking-wider">Похідний конструктор страви</span>
                 <h3 className="text-lg font-bold text-slate-900 mt-0.5">{detailRecipe.title}</h3>
                 <p className="text-xs text-slate-500">{detailRecipe.sourceBook}</p>
               </div>
@@ -390,11 +390,11 @@ export const CatalogAndRecipesTab: React.FC = () => {
               </button>
             </div>
 
-            {/* Сирі інгредієнти для домашнього готування */}
+            {/* Сухі компоненти для збірки пакета */}
             <div>
               <h4 className="text-xs font-bold text-slate-900 flex items-center gap-1.5 mb-2">
                 <PackageCheck className="w-4 h-4 text-emerald-600" />
-                Сирі інгредієнти для закупки (на {detailRecipe.servingsYield} порцій):
+                Склад сухого набору (на {detailRecipe.servingsYield} порції):
               </h4>
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
                 {detailRecipe.rawIngredients.map((ing, iIdx) => (
@@ -408,7 +408,7 @@ export const CatalogAndRecipesTab: React.FC = () => {
 
             {/* Домашнє приготування */}
             <div>
-              <h4 className="text-xs font-bold text-slate-900 mb-1.5">Кроки приготування вдома перед сушінням:</h4>
+              <h4 className="text-xs font-bold text-slate-900 mb-1.5">Що сушиться окремо та збірка вдома:</h4>
               <ol className="list-decimal list-inside space-y-1 text-xs text-slate-700 leading-relaxed">
                 {detailRecipe.homePrepSteps.map((step, stIdx) => (
                   <li key={stIdx}>{step}</li>
@@ -420,7 +420,7 @@ export const CatalogAndRecipesTab: React.FC = () => {
             <div className="bg-amber-50 border border-amber-200/80 rounded-xl p-3 text-xs space-y-1.5">
               <h4 className="font-bold text-amber-950 flex items-center gap-1.5">
                 <Flame className="w-4 h-4 text-amber-600" />
-                Режим дегідратора:
+                Режим сушіння для овочів / м'яса:
               </h4>
               <div className="grid grid-cols-2 gap-2 text-amber-900">
                 <div>Температура: <b>{detailRecipe.dehydrationParams.tempCelsius}°C (145°F)</b></div>

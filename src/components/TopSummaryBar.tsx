@@ -14,6 +14,7 @@ import {
   Upload,
   RotateCcw,
   AlertTriangle,
+  Sparkles,
 } from 'lucide-react';
 
 export const TopSummaryBar: React.FC = () => {
@@ -25,6 +26,7 @@ export const TopSummaryBar: React.FC = () => {
     customRecipes,
     loadProject,
     resetToDemoProject,
+    resetToEmptyProject,
   } = useProjectStore();
 
   const fileInputRef = useRef<HTMLInputElement>(null);
@@ -148,6 +150,19 @@ export const TopSummaryBar: React.FC = () => {
           >
             <Upload className="w-3.5 h-3.5 text-sky-400" />
             <span className="hidden sm:inline">Імпорт</span>
+          </button>
+
+          <button
+            onClick={() => {
+              if (window.confirm('Створити новий чистий похід? Поточні дані розкладки будуть скинуті.')) {
+                resetToEmptyProject();
+              }
+            }}
+            title="Створити новий чистий похід з нуля"
+            className="px-2.5 py-1.5 text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 rounded flex items-center gap-1 transition border border-slate-700 cursor-pointer"
+          >
+            <Sparkles className="w-3.5 h-3.5 text-emerald-400" />
+            <span className="hidden sm:inline">Новий</span>
           </button>
 
           <button

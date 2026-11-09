@@ -81,6 +81,7 @@ export const MenuMatrixTab: React.FC = () => {
   const [showWarnings, setShowWarnings] = useState<boolean>(false);
 
   const pCount = Math.max(1, project.participants.length);
+  const hasMenuItems = projectHasMenuItems(project);
 
   const filteredDays = stageFilter === 'all'
     ? project.days
@@ -170,15 +171,75 @@ export const MenuMatrixTab: React.FC = () => {
           )}
         </div>
 
-        {/* Кнопка створення нового дня */}
-        <button
-          onClick={() => addDay(stageFilter === 'all' ? project.stages[0]?.id : stageFilter)}
-          className="w-full sm:w-auto px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs transition cursor-pointer"
-        >
-          <Plus className="w-4 h-4" />
-          Додати ходовий день
-        </button>
+        {/* Дії розкладки: Автозаповнення, Очищення та Додавання дня */}
+        <div className="flex flex-wrap items-center gap-2 w-full sm:w-auto">
+          <button
+            type="button"
+            onClick={() => setShowAutoFillModal(true)}
+            className="flex-1 sm:flex-none px-3.5 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-300 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition cursor-pointer shadow-2xs"
+            title="Автоматично підібрати меню під калорії та дієту"
+          >
+            <Wand2 className="w-3.5 h-3.5 text-emerald-600" />
+            Заповнити за фільтром
+          </button>
+
+          {hasMenuItems && (
+            <button
+              type="button"
+              onClick={() => {
+                if (window.confirm('Очистити всі страви з розкладки та почати вручну з чистого аркуша?')) {
+                  clearAllMeals();
+                }
+              }}
+              className="px-3 py-2 bg-slate-50 hover:bg-rose-50 text-slate-500 hover:text-rose-700 border border-slate-200 hover:border-rose-200 rounded-xl text-xs font-semibold flex items-center gap-1 transition cursor-pointer"
+              title="Очистити всі страви (перейти в ручний режим)"
+            >
+              <RotateCcw className="w-3.5 h-3.5" />
+              Очистити
+            </button>
+          )}
+
+          <button
+            type="button"
+            onClick={() => addDay(stageFilter === 'all' ? project.stages[0]?.id : stageFilter)}
+            className="flex-1 sm:flex-none px-3.5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 shadow-xs transition cursor-pointer"
+          >
+            <Plus className="w-4 h-4" />
+            Додати день
+          </button>
+        </div>
       </div>
+
+      {/* Якщо розкладка порожня — показуємо банер вибору режиму */}
+      {!hasMenuItems && (
+        <div className="bg-gradient-to-r from-emerald-50/90 via-teal-50/80 to-sky-50/90 border border-emerald-200 rounded-2xl p-5 shadow-xs flex flex-col md:flex-row items-center justify-between gap-4">
+          <div className="space-y-1 text-center md:text-left">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-emerald-100 text-emerald-900 text-[11px] font-bold">
+              <Sparkles className="w-3.5 h-3.5 text-emerald-700" />
+              2 режими створення розкладки
+            </div>
+            <h3 className="text-sm font-bold text-slate-900">
+              Розкладка готова. Оберіть як почати:
+            </h3>
+            <p className="text-xs text-slate-600 max-w-xl">
+              <b>1. Автоматично за фільтром:</b> система сама підбере сніданки, супи, другі страви та перекуси під ціль {project.settings.targetDailyKcal} ккал/день.
+              <br />
+              <b>2. Вручну:</b> просто натискайте «+ Додати страву» у потрібних прийомах їжі нижче.
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-2 shrink-0">
+            <button
+              type="button"
+              onClick={() => setShowAutoFillModal(true)}
+              className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-xs transition cursor-pointer"
+            >
+              <Wand2 className="w-4 h-4" />
+              Заповнити за фільтром
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Компактний блок порад валідатора (розкривається за бажанням) */}
       {showWarnings && warnings.length > 0 && (
@@ -468,10 +529,10 @@ export const MenuMatrixTab: React.FC = () => {
                 })}
               </div>
 
-              {/* Базові речі: цукор, сіль, приправи — окремо від страв */}
+              {/* Базові речі: чай, кава, цукор, сіль, приправи — окремо від страв */}
               <div className="px-4 pb-4">
                 <div className="bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 flex flex-wrap items-center gap-2 text-xs">
-                  <span className="font-bold text-slate-600 mr-1">🧂 Сіль, цукор, приправи:</span>
+                  <span className="font-bold text-slate-600 mr-1">☕🧂 Напої, сіль, цукор на день:</span>
                   {PANTRY_OPTIONS.map(opt => {
                     let found: { mealType: MealType; item: MealItem } | null = null;
                     (['breakfast', 'snack', 'lunch', 'dinner'] as MealType[]).forEach(mt => {
@@ -565,6 +626,11 @@ export const MenuMatrixTab: React.FC = () => {
           item={inspectDish.item}
           onClose={() => setInspectDish(null)}
         />
+      )}
+
+      {/* Модальне вікно автозаповнення за фільтром */}
+      {showAutoFillModal && (
+        <AutoFillModal onClose={() => setShowAutoFillModal(false)} />
       )}
     </div>
   );

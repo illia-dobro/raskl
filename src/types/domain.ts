@@ -61,6 +61,9 @@ export interface RawIngredient {
   amount: number;
   unit: string;
   category: string;
+  isDriedAtHome?: boolean;    // Чи сушиться цей компонент вдома в дегідраторі
+  rawToDryRatio?: number;     // Коефіцієнт усушки (скільки г сирого продукту на 1 г сухого)
+  rawProductName?: string;    // Назва сирого продукту для магазину (якщо сушиться вдома)
 }
 
 export interface DehydratedRecipe {

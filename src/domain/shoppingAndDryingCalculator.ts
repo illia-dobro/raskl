@@ -130,24 +130,32 @@ export function calculateShoppingAndDryingPlan(
     const baseServings = recipe.servingsYield || 4;
     const recipeBatchMultiplier = totalServings / baseServings;
 
-    // Розрахунок загальної сирої ваги інгредієнтів
+    // Розрахунок загальної сирої ваги інгредієнтів:
+    // множимо лише ті компоненти, які реально сушаться (м'ясо, риба, овочі, гриби, зелень, ягоди, фрукти).
+    // Сухі магазинні основи (крупи, макарони, пластівці, сир, сухе молоко, горіхи, спеції) рахуються 1:1.
     let estimatedRawWeight = 0;
     recipe.rawIngredients.forEach(ing => {
-      // орієнтовно сумуємо грами
-      if (ing.unit === 'г') {
-        estimatedRawWeight += ing.amount * recipeBatchMultiplier;
-      } else if (ing.unit === 'мл') {
-        estimatedRawWeight += ing.amount * recipeBatchMultiplier;
-      } else if (ing.unit === 'шт') {
-        estimatedRawWeight += ing.amount * 50 * recipeBatchMultiplier; // ~50г на яйце
+      const dryIngGrams = ing.amount * recipeBatchMultiplier;
+      const cat = ing.category.toLowerCase();
+
+      if (ing.rawToDryRatio && ing.rawToDryRatio > 0) {
+        estimatedRawWeight += dryIngGrams * ing.rawToDryRatio;
+      } else if (cat.includes('м\'ясо') || cat.includes('риба')) {
+        estimatedRawWeight += dryIngGrams * 3.5;
+      } else if (cat.includes('овочі') || cat.includes('гриби') || cat.includes('зелень')) {
+        estimatedRawWeight += dryIngGrams * 7.0;
+      } else if (cat.includes('фрукти') || cat.includes('ягоди')) {
+        estimatedRawWeight += dryIngGrams * 5.5;
+      } else {
+        estimatedRawWeight += dryIngGrams;
       }
     });
 
-    const roundedRawWeight = Math.round(estimatedRawWeight) || Math.round(dryWeight * 3.5);
+    const roundedRawWeight = Math.max(dryWeight + 50, Math.round(estimatedRawWeight) || Math.round(dryWeight * 2.5));
 
     dryingTasks.push({
       id: `drying-recipe-${recipe.id}`,
-      title: recipe.title,
+      title: `${recipe.title} (сушіння овочів/м'яса та фасування)`,
       sourceType: 'recipe',
       sourceId: recipe.id,
       servingsCountTotal: Math.round(totalServings),
@@ -156,21 +164,21 @@ export function calculateShoppingAndDryingPlan(
       tempCelsius: recipe.dehydrationParams.tempCelsius,
       timeHours: recipe.dehydrationParams.timeHours,
       drynessTest: recipe.dehydrationParams.drynessTest,
-      prepNotes: `${recipe.homePrepSteps.join('. ')} Піддон: ${recipe.dehydrationParams.trayLining}.`,
+      prepNotes: `${recipe.homePrepSteps.join(' ')} Піддон: ${recipe.dehydrationParams.trayLining}.`,
     });
 
-    // Додаємо сушену страву в список покупок із розгорнутим описом сировини
+    // Додаємо сухий набір страви в список покупок із розгорнутим описом компонентів
     const rawIngredientsDesc = recipe.rawIngredients
       .map(i => `${i.name}: ${Math.round(i.amount * recipeBatchMultiplier)} ${i.unit}`)
       .join(', ');
 
     shoppingItems.push({
       id: `shop-recipe-${recipe.id}`,
-      name: `${recipe.title} (сушена страва на ${Math.round(totalServings)} порцій)`,
+      name: `${recipe.title} (набір на ${Math.round(totalServings)} порцій)`,
       category: 'soups_concentrates',
       dryWeightTotalGrams: dryWeight,
       rawWeightTotalGrams: roundedRawWeight,
-      rawProductName: `Інгредієнти для домашнього приготування: ${rawIngredientsDesc}`,
+      rawProductName: `Склад сухого набору: ${rawIngredientsDesc}`,
       isDehydratedAtHome: true,
       packageCountEstimate: `${Math.round(totalServings)} порцій (${dryWeight} г сухої ваги)`,
       stageDistribution: data.byStage,

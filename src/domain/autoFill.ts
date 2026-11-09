@@ -6,15 +6,15 @@ import {
   MealType,
   Product,
 } from '../types/domain';
-import { PRODUCTS_CATALOG } from '../data/productsCatalog';
 import { DEHYDRATED_RECIPES } from '../data/dehydratedRecipes';
 import { DAY_LOAD_PROFILES } from '../data/climateProfiles';
 import { calculateMealItemMetrics } from './nutritionCalculator';
+import { isPantryItem } from './pantry';
 
 export type CookingStyle = 'mix' | 'dried' | 'simple';
 
 export interface AutoFillFilters {
-  /** Страви з рецептами сушіння (потрібен дегідратор) / тільки магазинні продукти / змішано */
+  /** Страви із сушеними овочами/м'ясом / магазинні страви без сушарки / змішано */
   cooking: CookingStyle;
   noMeat: boolean;
   noDairy: boolean;
@@ -23,7 +23,7 @@ export interface AutoFillFilters {
 }
 
 export const DEFAULT_AUTOFILL_FILTERS: AutoFillFilters = {
-  cooking: 'simple',
+  cooking: 'mix',
   noMeat: false,
   noDairy: false,
   noNuts: false,
@@ -36,26 +36,14 @@ interface Tags {
   nuts: boolean;
 }
 
-const MEAT_WORDS = /м'яс|шинк|ковбас|курк|курят|яловичин|свинин|сало|тунц|салямі|бекон|корейк|риб/i;
-
-function productTags(p: Product): Tags {
-  return {
-    meat: p.category === 'meat_fish' || p.id === 'fat-salo' || MEAT_WORDS.test(p.name),
-    dairy:
-      p.category === 'dairy_eggs' ||
-      p.id === 'fat-ghee-butter' ||
-      p.id === 'sweet-chocolate-milk' ||
-      /молоч|сир |вершк/i.test(p.name),
-    nuts: p.id.startsWith('nut-') || p.id === 'sweet-energy-bar' || /горіх|арахіс|мигдал/i.test(p.name),
-  };
-}
+const MEAT_WORDS = /м'яс|шинк|ковбас|курк|курят|яловичин|свинин|сало|тунц|салямі|бекон|корейк|риб|тушонк/i;
 
 function recipeTags(r: DehydratedRecipe): Tags {
   const ings = r.rawIngredients;
   return {
     meat: ings.some(i => i.category.startsWith("м'я") || i.category === 'риба' || MEAT_WORDS.test(i.name)),
-    dairy: ings.some(i => i.category === 'молочні' || i.category === 'яйця'),
-    nuts: ings.some(i => i.category === 'горіхи' || /горіх|арахіс|мигдал/i.test(i.name)),
+    dairy: ings.some(i => i.category === 'молочні' || i.category === 'яйця' || /молоч|сир |вершк/i.test(i.name)),
+    nuts: ings.some(i => i.category === 'горіхи' || /горіх|арахіс|мигдал|фундук|кеш'ю/i.test(i.name)),
   };
 }
 
@@ -64,6 +52,13 @@ function allowed(tags: Tags, f: AutoFillFilters): boolean {
   if (f.noDairy && tags.dairy) return false;
   if (f.noNuts && tags.nuts) return false;
   return true;
+}
+
+function isSimpleStoreRecipe(r: DehydratedRecipe): boolean {
+  return (
+    r.id.startsWith('recipe-simple-') ||
+    r.dehydrationParams.timeHours.toLowerCase().includes('не потребує')
+  );
 }
 
 // --- Детермінований ГПСЧ, щоб «Заповнити ще раз» давало інший варіант ---
@@ -103,13 +98,13 @@ interface Draft {
 }
 
 const MEAL_SHARE: Record<MealType, number> = {
-  breakfast: 0.28,
-  snack: 0.17,
+  breakfast: 0.27,
+  snack: 0.18,
   lunch: 0.27,
   dinner: 0.28,
 };
 
-const round5 = (n: number) => Math.max(5, Math.round(n / 5) * 5);
+const round5 = (n: number) => Math.max(20, Math.round(n / 5) * 5);
 
 export function autoFillProject(
   project: HikeProject,
@@ -119,113 +114,37 @@ export function autoFillProject(
   seed: number = Date.now()
 ): HikeProject {
   const rng = makeRng(seed);
-  const products = [...PRODUCTS_CATALOG, ...customProducts];
-  const recipes = [...DEHYDRATED_RECIPES, ...customRecipes];
+  const allRecipes = [...DEHYDRATED_RECIPES, ...customRecipes];
 
-  const okProducts = products.filter(p => allowed(productTags(p), filters));
-  const okRecipes = recipes.filter(r => allowed(recipeTags(r), filters));
+  // Спочатку фільтруємо за дієтичними обмеженнями
+  const dietOkRecipes = allRecipes.filter(r => allowed(recipeTags(r), filters));
 
-  const byId = (ids: string[]): Product[] =>
-    ids.map(id => okProducts.find(p => p.id === id)).filter((p): p is Product => !!p);
-
-  const recipePool = (meal: MealType, cats?: string[]) =>
-    okRecipes.filter(
-      r => r.mealTypes.includes(meal) && (!cats || cats.includes(r.category))
-    );
-
-  // --- Пули продуктів ---
-  const breakfastGrains = byId(['grain-oat-flakes', 'grain-semolina', 'grain-millet', 'grain-corn-polenta', 'grain-couscous']);
-  const breakfastTop = byId(['fruit-dried-raisins', 'fruit-dried-apricot', 'fruit-dried-dates', 'sweet-honey']);
-  const dinnerGrains = byId(['grain-pasta-horns', 'grain-buckwheat', 'grain-rice', 'grain-bulgur', 'grain-couscous', 'grain-potato-flakes']);
-  const dinnerProtein = byId(
-    filters.noMeat
-      ? ['grain-lentils', 'dairy-cheese-hard', 'dairy-quark-sublimated']
-      : ['meat-chicken-dried', 'meat-beef-canned', 'meat-sausage-salami', 'grain-lentils']
-  );
-  const veg = byId(['veg-carrots-dried', 'veg-onions-dried', 'veg-tomatoes-dried', 'veg-bell-pepper-dried', 'veg-mushrooms-dried']);
-  const bread = byId(['bread-crackers-rye', 'bread-galette-army', 'bread-crackers-wheat', 'bread-sushki']);
-  const lunchTopping = byId(
-    filters.noMeat
-      ? ['dairy-cheese-hard', 'nut-peanut', 'sweet-halva', 'fruit-dried-apricot']
-      : ['dairy-cheese-hard', 'meat-sausage-salami', 'fat-salo', 'meat-koreika']
-  );
-  const sweetsLunch = byId(['sweet-halva', 'sweet-sherbet', 'fruit-pastila-apple', 'sweet-caramel']);
-  const snackPool = byId([
-    'fruit-dried-apricot', 'fruit-dried-dates', 'fruit-dried-raisins', 'fruit-pastila-apple',
-    'nut-walnut', 'nut-almond', 'nut-peanut', 'sweet-chocolate-dark', 'sweet-energy-bar',
-    'sweet-sherbet', 'sweet-halva', 'sweet-caramel', 'bread-waffles',
-  ]);
-  const drinks = byId(['drink-tea-black', 'drink-coffee-instant', 'drink-cocoa-powder']);
-  const fatForDinner = byId(filters.noDairy ? ['fat-oil-sunflower'] : ['fat-ghee-butter', 'fat-oil-sunflower']);
-  const milkPowder = byId(['dairy-milk-powder']);
-
-  const pick = {
-    bGrain: makePicker(breakfastGrains, rng),
-    bTop: makePicker(breakfastTop, rng),
-    dGrain: makePicker(dinnerGrains, rng),
-    dProt: makePicker(dinnerProtein, rng),
-    veg: makePicker(veg, rng),
-    bread: makePicker(bread, rng),
-    lTop: makePicker(lunchTopping, rng),
-    lSweet: makePicker(sweetsLunch, rng),
-    snack: makePicker(snackPool, rng),
-    drink: makePicker(drinks, rng),
-    fat: makePicker(fatForDinner, rng),
-    recB: makePicker(recipePool('breakfast'), rng),
-    recL: makePicker(recipePool('lunch'), rng),
-    recD: makePicker(recipePool('dinner'), rng),
-    recS: makePicker(recipePool('snack'), rng),
+  // Підбір страв за стилем приготування (але ЗАВЖДИ саме повноцінні СТРАВИ >= 100 ккал, а не компоти чи окремі продукти!)
+  const recipePoolForMeal = (meal: MealType): DehydratedRecipe[] => {
+    const forMeal = dietOkRecipes.filter(r => r.mealTypes.includes(meal) && r.kcalPerServing >= 100);
+    if (filters.cooking === 'simple') {
+      const simpleOnly = forMeal.filter(r => isSimpleStoreRecipe(r));
+      if (simpleOnly.length > 0) return simpleOnly;
+    } else if (filters.cooking === 'dried') {
+      const driedOnly = forMeal.filter(r => !isSimpleStoreRecipe(r));
+      if (driedOnly.length > 0) return driedOnly;
+    }
+    if (forMeal.length > 0) return forMeal;
+    // Якщо дуже суворі фільтри відсіяли все — повертаємо базові страви цього прийому їжі
+    return allRecipes.filter(r => r.mealTypes.includes(meal));
   };
 
-  const prod = (p: Product | undefined, g?: number, scalable = true): Draft[] =>
-    p
-      ? [{ sourceType: 'product', sourceId: p.id, grams: g ?? p.recommendedNormGrams.default, scalable }]
-      : [];
-  const rec = (r: DehydratedRecipe | undefined): Draft[] =>
-    r
-      ? [{ sourceType: 'recipe', sourceId: r.id, grams: r.dryWeightPerServingGrams, scalable: true }]
-      : [];
+  const pick = {
+    breakfast: makePicker(recipePoolForMeal('breakfast'), rng),
+    snack: makePicker(recipePoolForMeal('snack'), rng),
+    lunch: makePicker(recipePoolForMeal('lunch'), rng),
+    dinner: makePicker(recipePoolForMeal('dinner'), rng),
+  };
 
-  const useRecipes = (dayIdx: number): boolean =>
-    filters.cooking === 'dried' || (filters.cooking === 'mix' && dayIdx % 2 === 0);
-
-  const buildMeal = (meal: MealType, dayIdx: number): Draft[] => {
-    const recipesOn = useRecipes(dayIdx);
-    const drink = prod(pick.drink(), undefined, false);
-
-    switch (meal) {
-      case 'breakfast': {
-        const r = recipesOn ? pick.recB() : undefined;
-        if (r) return [...rec(r), ...drink];
-        return [
-          ...prod(pick.bGrain(), 70),
-          ...prod(pick.bTop(), 25),
-          ...(filters.noDairy ? [] : prod(milkPowder[0], 20)),
-          ...drink,
-        ];
-      }
-      case 'snack': {
-        const r = recipesOn && rng() < 0.5 ? pick.recS() : undefined;
-        return [...rec(r), ...prod(pick.snack()), ...prod(pick.snack())];
-      }
-      case 'lunch': {
-        const r = recipesOn ? pick.recL() : undefined;
-        if (r) return [...rec(r), ...prod(pick.bread(), 40), ...drink];
-        return [...prod(pick.bread(), 45), ...prod(pick.lTop(), 40), ...prod(pick.lSweet(), 40), ...drink];
-      }
-      case 'dinner': {
-        const r = recipesOn ? pick.recD() : undefined;
-        if (r) return [...rec(r), ...prod(pick.bread(), 30), ...drink];
-        return [
-          ...prod(pick.dGrain(), 70),
-          ...prod(pick.dProt(), 30),
-          ...prod(pick.veg(), 10),
-          ...prod(pick.veg(), 8),
-          ...prod(pick.fat(), 12),
-          ...drink,
-        ];
-      }
-    }
+  const buildMeal = (meal: MealType): Draft[] => {
+    const r = pick[meal]();
+    if (!r) return [];
+    return [{ sourceType: 'recipe', sourceId: r.id, grams: r.dryWeightPerServingGrams, scalable: true }];
   };
 
   let counter = 0;
@@ -243,28 +162,33 @@ export function autoFillProject(
       customRecipes
     ).kcal;
 
-  const fillDay = (day: HikeDay, dayIdx: number): HikeDay => {
+  const fillDay = (day: HikeDay): HikeDay => {
     const profile = DAY_LOAD_PROFILES[day.dayLoadProfile] ?? DAY_LOAD_PROFILES.standard;
     const dayTarget = project.settings.targetDailyKcal * profile.kcalMultiplier;
 
     const meals = {} as HikeDay['meals'];
     (['breakfast', 'snack', 'lunch', 'dinner'] as MealType[]).forEach(mt => {
-      const drafts = buildMeal(mt, dayIdx);
+      const drafts = buildMeal(mt);
       const target = dayTarget * MEAL_SHARE[mt];
-      const fixed = drafts.filter(d => !d.scalable).reduce((a, d) => a + kcalOf(d, d.grams), 0);
-      const scalableKcal = drafts.filter(d => d.scalable).reduce((a, d) => a + kcalOf(d, d.grams), 0);
+      const scalableKcal = drafts.reduce((a, d) => a + kcalOf(d, d.grams), 0);
       const factor =
-        scalableKcal > 0 ? Math.min(1.5, Math.max(0.75, (target - fixed) / scalableKcal)) : 1;
+        scalableKcal > 0 ? Math.min(1.85, Math.max(0.75, target / scalableKcal)) : 1;
 
       meals[mt] = {
         title: day.meals[mt].title,
-        items: drafts.map(d => mkItem(d, d.scalable ? round5(d.grams * factor) : d.grams)),
+        items: drafts.map(d => mkItem(d, round5(d.grams * factor))),
       };
     });
 
-    // Базові речі (окремим рядком у розкладці): сіль та цукор
-    const pantry: Draft[] = [{ sourceType: 'product', sourceId: 'spice-salt', grams: 5, scalable: false }];
-    if (!filters.noSugar) pantry.push({ sourceType: 'product', sourceId: 'sweet-sugar', grams: 15, scalable: false });
+    // Базові речі на день (показуються внизу окремим рядком, НЕ всередині страв): чай, кава, сіль, цукор
+    const pantry: Draft[] = [
+      { sourceType: 'product', sourceId: 'drink-tea-black', grams: 5, scalable: false },
+      { sourceType: 'product', sourceId: 'drink-coffee-instant', grams: 4, scalable: false },
+      { sourceType: 'product', sourceId: 'spice-salt', grams: 5, scalable: false },
+    ];
+    if (!filters.noSugar) {
+      pantry.push({ sourceType: 'product', sourceId: 'sweet-sugar', grams: 15, scalable: false });
+    }
     meals.dinner.items.push(...pantry.map(d => mkItem(d, d.grams)));
 
     return { ...day, meals };
@@ -272,7 +196,20 @@ export function autoFillProject(
 
   return {
     ...project,
-    days: project.days.map((d, i) => fillDay(d, i)),
+    days: project.days.map(d => fillDay(d)),
     updatedAt: new Date().toISOString(),
   };
+}
+
+/**
+ * Перевіряє, чи містить розкладка «розсип окремих продуктів» замість страв
+ * (зі старих версій автозаповнення), і автоматично замінює їх на повноцінні страви.
+ */
+export function hasLegacyProductListInMeals(project: HikeProject): boolean {
+  return project.days.some(day =>
+    (['breakfast', 'lunch', 'dinner'] as MealType[]).some(mt => {
+      const nonPantry = day.meals[mt].items.filter(it => !isPantryItem(it));
+      return nonPantry.length > 0 && nonPantry.every(it => it.sourceType === 'product');
+    })
+  );
 }

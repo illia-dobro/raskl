@@ -212,6 +212,21 @@ export const DishDetailModal: React.FC<DishDetailModalProps> = ({
             ) : null}
           </div>
 
+          {/* Як підготувати вдома (окреме сушіння овочів/м'яса та збірка) */}
+          {recipe && recipe.homePrepSteps && recipe.homePrepSteps.length > 0 && (
+            <div className="bg-amber-50/70 border border-amber-200 rounded-xl p-3.5 space-y-2 text-xs">
+              <div className="font-bold text-amber-950 flex items-center gap-1.5">
+                <Flame className="w-4 h-4 text-amber-600" />
+                Як зібрати сухий набір вдома (сушаться окремо лише овочі та м'ясо):
+              </div>
+              <ul className="list-disc list-inside space-y-1 text-slate-700 leading-relaxed">
+                {recipe.homePrepSteps.map((step, sIdx) => (
+                  <li key={sIdx}>{step}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+
           {/* Інструкція приготування в поході (якщо є) */}
           {recipe && recipe.campRehydration && (
             <div className="bg-sky-50/60 border border-sky-200 rounded-xl p-3.5 space-y-2 text-xs">
